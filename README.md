@@ -2,9 +2,9 @@
 Config files for NVIM. By Iker Urdaniz.
 
 ## Instalation
-> git clone https://github.com/ikerurda/nvim.git
-> cd nvim
-> ./install.sh
+1. > git clone https://github.com/ikerurda/nvim.git
+2. > cd nvim
+3. > ./install.sh
 
 Note: this will remove previous configs
 
