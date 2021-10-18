@@ -1,43 +1,59 @@
 #!/bin/bash
-y=0
-v=0
-p=0
-n=0
-
 print_usage() {
-  printf "usage: install [-yvp]\n\n  y: skip confirmation\n  v: verbose\n  p: install plugins\n"
+	printf "usage: install [-yvpu]\n\n  y: skip confirmation\n  v: verbose\n  p: only install plugins\n  u: uninstall configs\n"
 }
 
-while getopts 'yvp' flag; do
-  case $flag in
-    y) y=1 ;;
-    v) v=1 ;;
-    p) p=1 ;;
-    *) n=1 ;;
-  esac
+while getopts 'yvpu' flag; do
+	case $flag in
+		y) y=1 ;;
+		v) v=1 ;;
+		p) p=1 ;;
+		u) u=1 ;;
+		*) [[ $@ != "" ]] && print_usage && exit 1
+	esac
 done
 
-if [[ y && p ]]; then
+if [[ -n $p && -n $u ]]; then
 	print_usage
 	exit 1
-fi
-
-dir=$HOME/.config/nvim/
-if [[ !p ]]; then
-	if [[ n ]]; then
-		printf "You are about to install a nvim config,"
+elif [[ -n $u ]]; then
+	if [[ -z $y ]]; then
+		echo "You are about to uninstall nvim configs,"
 		read -p "[!] do you wish to continue? (y/n [n]) " cont
 		if [[ $cont != "y" ]]; then
 			exit 1
 		fi
 	fi
-	((v)) && mkdir -vp ~/.config/nvim 2> /dev/null
-	((!v)) && mkdir -p ~/.config/nvim 2> /dev/null
-	((v)) && cp -v init.lua $dir
-	((!v)) && cp init.lua $dir
-	((v)) && cp -vR lua $dir
-	((!v)) && cp -R lua $dir
+	if [[ -n $v ]]; then
+		rm -vrf ~/.cache/nvim
+		rm -vrf ~/.local/share/nvim
+		rm -vrf ~/.config/nvim
+	else
+		rm -rf ~/.cache/nvim
+		rm -rf ~/.local/share/nvim
+		rm -rf ~/.config/nvim
+	fi
+	exit 0
 fi
 
-printf "Installing plugins... please wait"
-nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+if [[ -z $p ]]; then
+	if [[ -z $y ]]; then
+		echo "You are about to install a nvim config,"
+		read -p "[!] do you wish to continue? (y/n [n]) " cont
+		if [[ $cont != "y" ]]; then
+			exit 1
+		fi
+	fi
+	if [[ -n $v ]]; then
+		mkdir -vp ~/.config/nvim 2> /dev/null
+		cp -v init.lua ~/.config/nvim/
+		cp -vR lua ~/.config/nvim/
+	else
+		mkdir -p ~/.config/nvim 2> /dev/null
+		cp init.lua ~/.config/nvim/
+		cp -R lua ~/.config/nvim/
+	fi
+fi
+
+echo "Installing plugins... please wait"
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
