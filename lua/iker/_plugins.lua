@@ -13,7 +13,6 @@ packer.init {
 
 return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
-	use {"lewis6991/impatient.nvim", rocks = "mpack", config = function() require("impatient") end} -- will be merged to nvim
 
 	-- LSP
 	use {"neovim/nvim-lspconfig", config = function() require("iker._lsp") end}
