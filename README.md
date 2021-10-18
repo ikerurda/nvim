@@ -9,4 +9,4 @@ Config files for NVIM. By Iker Urdaniz.
 Note: this will remove previous configs
 
 ## Lsp, dap and treesitter support
-Read and configure ./lua/iker/_lsp.lua and run :LangInstall
+Read and configure ./lua/iker/_lsp.lua, then run :LangInstall
