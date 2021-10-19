@@ -1,5 +1,7 @@
 local telescope = require("telescope")
+local trouble = require("trouble.providers.telescope")
 telescope.setup {
+	defaults = {mappings = {i = {["<c-q>"] = trouble.open_with_trouble}, n = {["<c-q>"] = trouble.open_with_trouble}}},
 	pickers = {
 		oldfiles = {theme = "dropdown", previewer = false},
 		file_browser = {theme = "ivy", hidden = true},

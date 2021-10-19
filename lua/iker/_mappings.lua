@@ -65,6 +65,16 @@ wk.register({
 		},
 		r = {"<cmd>Telescope oldfiles<cr>", "Recents"}
 	},
+	x = {
+		name = "trouble",
+		x = {"<cmd>Trouble<cr>", "Reopen"},
+		w = {"<cmd>Trouble lsp_workspace_diagnostics<cr>", "Workspace diag."},
+		d = {"<cmd>Trouble lsp_document_diagnostics<cr>", "Document diag."},
+		l = {"<cmd>Trouble loclist<cr>", "Loclist"},
+		q = {"<cmd>Trouble quickfix<cr>", "Quickfix"},
+		r = {"<cmd>Trouble lsp_references<cr>", "References"},
+		t = {"<cmd>TodoTrouble<cr>", "TODOs"}
+	},
 	p = {
 		name = "packer",
 		c = {"<cmd>PackerCompile<cr>", "Compile"},
@@ -97,9 +107,8 @@ wk.register({
 	["<C-d>"] = "Go down half page",
 	["<C-b>"] = "Go up a page",
 	["<C-f>"] = "Go down a page",
-	["<C-q>"] = {"<cmd>lua ToggleQfl()<cr>", "Quickfix"},
-	["<C-j>"] = {"<cmd>cnext<cr>", "which_key_ignore"},
-	["<C-k>"] = {"<cmd>cprev<cr>", "which_key_ignore"},
+	["<C-j>"] = {"require('trouble').next({skip_groups = true, jump = true})", "which_key_ignore"},
+	["<C-k>"] = {"require('trouble').previous({skip_groups = true, jump = true})", "which_key_ignore"},
 	["<C-w>"] = {["<C-w>"] = {"<cmd>WinShift<cr>", "Shift windows"}},
 	["<bs>"] = {"<cmd>BufferPrevious<cr>", "Prev. buffer"},
 	["<tab>"] = {"<cmd>BufferNext<cr>", "Next buffer"},
@@ -125,17 +134,6 @@ Lazygit = function()
 		on_open = function() vim.cmd("startinsert!") end,
 		on_close = function() vim.cmd("q") end
 	}):toggle()
-end
-
-vim.g.ikerurda_qfl = 0
-ToggleQfl = function()
-	if vim.g.ikerurda_qfl == 0 then
-		vim.g.ikerurda_qfl = 1
-		vim.cmd "copen"
-	else
-		vim.g.ikerurda_qfl = 0
-		vim.cmd "cclose"
-	end
 end
 
 StartDebugger = function()

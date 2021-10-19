@@ -70,13 +70,14 @@ return packer.startup(function(use)
 	use "sudormrfbin/cheatsheet.nvim"
 
 	-- Tools
-	use "mbbill/undotree"
+	use {"folke/trouble.nvim", config = function() require("trouble").setup {icons = false} end}
+	use {"folke/todo-comments.nvim", config = function() require("todo-comments").setup {signs = true} end}
+	use {"folke/which-key.nvim", config = function() require("iker._mappings") end}
 	use {"karb94/neoscroll.nvim", config = function() require("neoscroll").setup() end}
 	use {"tpope/vim-fugitive", "tpope/vim-rhubarb"}
 	use {"lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup({keymaps = {}}) end}
 	use {"terrortylor/nvim-comment", config = function() require("nvim_comment").setup() end}
 	use {"blackCauldron7/surround.nvim", config = function() require("surround").setup {mappings_style = "sandwich"} end}
-	use {"folke/which-key.nvim", config = function() require("iker._mappings") end}
 	use "sindrets/winshift.nvim"
 	use {"jghauser/mkdir.nvim", config = function() require("mkdir") end}
 	use {
@@ -96,7 +97,7 @@ return packer.startup(function(use)
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
 			require("indent_blankline").setup {
-				filetype_exclude = {"help", "man", "packer", "NvimTree"},
+				filetype_exclude = {"help", "man", "packer", "NvimTree", "Trouble"},
 				buftype_exclude = {"terminal"},
 				bufname_exclude = {"Untitled"},
 				use_treesitter = true
