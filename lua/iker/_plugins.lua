@@ -15,7 +15,7 @@ return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 
 	-- LSP
-	use {"neovim/nvim-lspconfig", config = function() require("iker._lsp") end}
+	use {"neovim/nvim-lspconfig", config = function() require("iker._langs") end}
 	use {{"williamboman/nvim-lsp-installer"}, {"folke/lua-dev.nvim"}}
 	use {
 		"hrsh7th/nvim-cmp",
@@ -43,16 +43,10 @@ return packer.startup(function(use)
 	use "mfussenegger/nvim-dap"
 	use {"rcarriga/nvim-dap-ui", config = function() require("dapui").setup() end}
 	use {"theHamsta/nvim-dap-virtual-text", config = function() vim.g.dap_virtual_text = true end}
-	use {"Pocco81/DAPInstall.nvim", config = function() require("iker._debugger") end}
+	use "Pocco81/DAPInstall.nvim"
 
 	-- Treesitter
-	use {
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-		config = function()
-			require"nvim-treesitter.configs".setup {highlight = {enable = true, additional_vim_regex_highlighting = false}}
-		end
-	}
+	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 	use {"lewis6991/spellsitter.nvim", config = function() require("spellsitter").setup() end}
 
 	-- Telescope
@@ -80,7 +74,6 @@ return packer.startup(function(use)
 	use {"blackCauldron7/surround.nvim", config = function() require("surround").setup {mappings_style = "sandwich"} end}
 	use "sindrets/winshift.nvim"
 	use {"jghauser/mkdir.nvim", config = function() require("mkdir") end}
-	use {"luukvbaal/stabilize.nvim", config = function() require("stabilize").setup() end}
 	use {
 		"akinsho/nvim-toggleterm.lua",
 		config = function()
@@ -90,7 +83,7 @@ return packer.startup(function(use)
 	}
 
 	-- Top and Bottombar
-	use {"romgrk/barbar.nvim", {"hoob3rt/lualine.nvim", config = function() require("iker._statusline") end}}
+	use {"hoob3rt/lualine.nvim", config = function() require("iker._statusline") end}
 
 	-- Theming
 	use {"norcalli/nvim-colorizer.lua", config = function() require("colorizer").setup() end}

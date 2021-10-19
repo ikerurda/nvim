@@ -9,4 +9,6 @@ Config files for NVIM. By Iker Urdaniz.
 Note: this will remove previous configs
 
 ## Lsp, dap and treesitter support
-Read and configure ./lua/iker/_lsp.lua, then run :LangInstall
+Configure automatic installation of ts-parsers, dap adapters and LSPs in ./lua/iker/_langs.lua
+
+Note: Uninstalling isn't automatic

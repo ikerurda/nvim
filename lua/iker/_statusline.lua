@@ -1,5 +1,3 @@
-vim.g.bufferline = {auto_hide = true, animation = false, icons = false}
-
 require"lualine".setup {
 	options = {
 		icons_enabled = false,

@@ -1,25 +1,54 @@
 -- Bootstrap
-function LangInstall()
-	local lang = {
-		efm = {lsp = "efm"},
-		lua = {lsp = "sumneko_lua", ts = "lua"},
-		vim = {lsp = "vimls", ts = "vim"},
-		c = {lsp = "clangd", ts = "c"}, -- using lldb (already installed in macos)
-		python = {lsp = "pyright", ts = "python"},
-		java = {lsp = "jdtls", ts = "java"},
-		html = {lsp = "html", ts = "html"},
-		css = {lsp = "cssls", ts = "css"},
-		js = {lsp = "tsserver", ts = "javascript"},
-		bash = {lsp = "bashls", ts = "bash"}
-	}
-	local ts = require("nvim-treesitter.install")
-	for _, s in pairs(lang) do
-		vim.cmd("LspInstall " .. s.lsp)
-		if s.ts and not ts.is_installed(s.ts) then vim.cmd("TSInstall " .. s.ts) end
-		if s.dap then vim.cmd("DIInstall " .. s.dap) end
+local languageServers = {
+	"efm",
+	"sumneko_lua",
+	"vimls",
+	"clangd",
+	"pyright",
+	"jdtls",
+	"html",
+	"cssls",
+	"tsserver",
+	"bashls"
+}
+local parsers = {"lua", "vim", "c", "python", "java", "html", "css", "javascript", "bash"}
+local debuggers = {"python"}
+
+--- LSP server installation
+local lspInstaller = require "nvim-lsp-installer.servers"
+for _, l in pairs(languageServers) do
+	local ok, s = lspInstaller.get_server(l)
+	if ok then if not s:is_installed() then s:install() end end
+end
+--- Treesitter parser installation
+require"nvim-treesitter.configs".setup {
+	ensure_installed = {parsers},
+	highlight = {enable = true, additional_vim_regex_highlighting = false}
+}
+--- DAP adapter installation
+local dap = require("dap")
+local dapInstall = require("dap-install")
+local dapInstalled = require("dap-install.api.debuggers").get_installed_debuggers()
+for _, l in pairs(debuggers) do
+	if vim.tbl_contains(dapInstalled, l) then
+		dapInstall.config(l, {})
+	else
+		vim.cmd("silent DIInstall " .. l)
 	end
 end
-vim.cmd("command! LangInstall :lua LangInstall()")
+dap.adapters.lldb = {type = "executable", command = "/usr/local/bin/lldb-vscode", name = "lldb"}
+dap.configurations.c = {
+	{
+		name = "Launch",
+		type = "lldb",
+		request = "launch",
+		program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
+		cwd = "${workspaceFolder}",
+		stopOnEntry = false,
+		args = {},
+		runInTerminal = false
+	}
+}
 
 -- Formatting
 local luafmt = {formatCommand = "lua-format -i", formatStdin = true}
@@ -46,6 +75,7 @@ local function efm_opts(opts)
 	return opts
 end
 
+-- LSPs
 require("nvim-lsp-installer").on_server_ready(function(server)
 	local opts = make_opts()
 	if server.name == "sumneko_lua" then

@@ -55,5 +55,4 @@ if [[ -z $p ]]; then
 	fi
 fi
 
-echo "Installing plugins... please wait"
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim -c 'PackerSync'
