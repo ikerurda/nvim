@@ -1,7 +1,7 @@
 -- Bootstrap
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	vim.fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+	vim.fn.system {"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path}
 end
 
 local packer = require("packer")
@@ -35,7 +35,7 @@ return packer.startup(function(use)
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup()
-			require("nvim-autopairs.completion.cmp").setup({map_cr = true, map_complete = true})
+			require("nvim-autopairs.completion.cmp").setup {map_cr = true, map_complete = true}
 		end
 	}
 
@@ -71,11 +71,11 @@ return packer.startup(function(use)
 
 	-- Tools
 	use {"folke/trouble.nvim", config = function() require("trouble").setup {icons = false} end}
-	use {"folke/todo-comments.nvim", config = function() require("todo-comments").setup {signs = true} end}
+	use {"folke/todo-comments.nvim", config = function() require("todo-comments").setup() end}
 	use {"folke/which-key.nvim", config = function() require("iker._mappings") end}
 	use {"karb94/neoscroll.nvim", config = function() require("neoscroll").setup() end}
 	use {"tpope/vim-fugitive", "tpope/vim-rhubarb"}
-	use {"lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup({keymaps = {}}) end}
+	use {"lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup {keymaps = {}} end}
 	use {"terrortylor/nvim-comment", config = function() require("nvim_comment").setup() end}
 	use {"blackCauldron7/surround.nvim", config = function() require("surround").setup {mappings_style = "sandwich"} end}
 	use "sindrets/winshift.nvim"

@@ -12,20 +12,14 @@ function LangInstall()
 		js = {lsp = "tsserver", ts = "javascript"},
 		bash = {lsp = "bashls", ts = "bash"}
 	}
+	local ts = require("nvim-treesitter.install")
 	for _, s in pairs(lang) do
 		vim.cmd("LspInstall " .. s.lsp)
-		print("LSP:" .. s.lsp .. " server installed")
-		if s.ts then
-			vim.cmd("TSInstall " .. s.ts)
-			print("TS: " .. s.ts .. " parser installed")
-		end
-		if s.dap then
-			vim.cmd("DIInstall " .. s.dap)
-			print("DAP: " .. s.dap .. " adapter installed")
-		end
+		if s.ts and not ts.is_installed(s.ts) then vim.cmd("TSInstall " .. s.ts) end
+		if s.dap then vim.cmd("DIInstall " .. s.dap) end
 	end
 end
-vim.cmd("command! LanInstall :lua LangInstall()")
+vim.cmd("command! LangInstall :lua LangInstall()")
 
 -- Formatting
 local luafmt = {formatCommand = "lua-format -i", formatStdin = true}
