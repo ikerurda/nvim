@@ -63,9 +63,10 @@ return packer.startup(function(use)
 	}
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 	use "nvim-telescope/telescope-project.nvim"
+	use "ikerurda/telescope-files.nvim"
 	use "nvim-telescope/telescope-dap.nvim"
 	use "ikerurda/telescope-packer.nvim"
-	use "ikerurda/telescope-files.nvim"
+	use "nvim-telescope/telescope-symbols.nvim"
 	use "sudormrfbin/cheatsheet.nvim"
 
 	-- Tools

@@ -53,6 +53,7 @@ wk.register({
 		F = {"<cmd>Telescope find_files cwd=$HOME<cr>", "Files in root dir."},
 		g = {"<cmd>Telescope live_grep<cr>", "Live grep"},
 		h = {"<cmd>Telescope help_tags<cr>", "Help"},
+		s = {"<cmd>Telescope symbols theme=cursor layout_config={width=.8}<cr>", "Symbols"},
 		j = {
 			"<cmd>lua require'telescope'.extensions.project.project(require('telescope.themes').get_dropdown())<CR>",
 			"Projects"
