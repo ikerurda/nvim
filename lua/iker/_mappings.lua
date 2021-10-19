@@ -22,10 +22,11 @@ wk.setup({plugins = {spelling = {enabled = true, suggestions = 20}}, icons = {se
 wk.register({
 	b = {"<cmd>set scrollbind!<cr>", "Bind scrolling"}, -- Must bind both windows
 	g = {"<cmd>lua Lazygit()<cr>", "Git"},
+	h = {"<cmd>:cd $HOME<cr>", "change to git directory"},
 	r = {"<cmd>source<cr>", "Reload file"},
 	s = {"<cmd>set spell!<cr>", "Toggle spelling"},
-	t = {"<cmd>:cd %:p:h<cr>", "change directory"},
-	T = {"<cmd>:cd $HOME<cr>", "change to HOME directory"},
+	t = {"<cmd>:Gcd<cr>", "change to git directory"},
+	T = {"<cmd>:cd %:p:h<cr>", "change directory"},
 	u = {"<cmd>UndotreeToggle<cr>", "Undo Tree"},
 	w = {"<cmd>set wrap!<cr>", "Toggle wrap"},
 	z = {"<cmd>ZenMode<cr>", "Zen mode"},
