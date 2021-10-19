@@ -62,7 +62,7 @@ return packer.startup(function(use)
 		config = function() require("iker._telescope") end
 	}
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
-	use "nvim-telescope/telescope-project.nvim"
+	use "ikerurda/telescope-project.nvim"
 	use "ikerurda/telescope-files.nvim"
 	use "nvim-telescope/telescope-dap.nvim"
 	use "ikerurda/telescope-packer.nvim"
@@ -80,6 +80,7 @@ return packer.startup(function(use)
 	use {"blackCauldron7/surround.nvim", config = function() require("surround").setup {mappings_style = "sandwich"} end}
 	use "sindrets/winshift.nvim"
 	use {"jghauser/mkdir.nvim", config = function() require("mkdir") end}
+	use {"luukvbaal/stabilize.nvim", config = function() require("stabilize").setup() end}
 	use {
 		"akinsho/nvim-toggleterm.lua",
 		config = function()
@@ -109,7 +110,11 @@ return packer.startup(function(use)
 	use {
 		"projekt0n/github-nvim-theme",
 		config = function()
-			require("github-theme").setup({theme_style = "dark_default", sidebars = {"qf", "which_key", "toggleterm"}})
+			require("github-theme").setup({
+				theme_style = "dark_default",
+				sidebars = {"qf", "which_key", "toggleterm"},
+				hide_inactive_statusline = false
+			})
 		end
 	}
 end)
