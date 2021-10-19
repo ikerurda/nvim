@@ -26,9 +26,9 @@ require"nvim-treesitter.configs".setup {
 	highlight = {enable = true, additional_vim_regex_highlighting = false}
 }
 --- DAP adapter installation
-local dap = require("dap")
-local dapInstall = require("dap-install")
-local dapInstalled = require("dap-install.api.debuggers").get_installed_debuggers()
+local dap = require "dap"
+local dapInstall = require "dap-install"
+local dapInstalled = require"dap-install.api.debuggers".get_installed_debuggers()
 for _, l in pairs(debuggers) do
 	if vim.tbl_contains(dapInstalled, l) then
 		dapInstall.config(l, {})
@@ -58,14 +58,14 @@ local languages = {lua = {luafmt}, python = {black}}
 -- Configs
 local function make_opts()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+	capabilities = require"cmp_nvim_lsp".update_capabilities(capabilities)
 	return {
 		capabilities = capabilities,
 		on_attach = function(bufnr) vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc") end
 	}
 end
 local function lua_opts(opts)
-	return require("lua-dev").setup({library = {vimruntime = true, types = true, plugins = true}, lspconfig = opts})
+	return require"lua-dev".setup({library = {vimruntime = true, types = true, plugins = true}, lspconfig = opts})
 end
 local function efm_opts(opts)
 	opts.root_dir = require"lspconfig".util.root_pattern(".git")
@@ -76,7 +76,7 @@ local function efm_opts(opts)
 end
 
 -- LSPs
-require("nvim-lsp-installer").on_server_ready(function(server)
+require"nvim-lsp-installer".on_server_ready(function(server)
 	local opts = make_opts()
 	if server.name == "sumneko_lua" then
 		opts = lua_opts(opts)
@@ -85,7 +85,7 @@ require("nvim-lsp-installer").on_server_ready(function(server)
 	end
 
 	server:setup(opts)
-	vim.cmd [[ do User LspAttachBuffers ]]
+	vim.cmd "do User LspAttachBuffers"
 end)
 
 -- Completion
@@ -133,3 +133,7 @@ require"lsp_signature".setup({
 vim.lsp.handlers["textDocument/publishDiagnostics"] = function(...)
 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {update_in_insert = false})(...)
 end
+
+-- Autopairs
+require"nvim-autopairs".setup()
+require"nvim-autopairs.completion.cmp".setup {map_cr = true, map_complete = true}

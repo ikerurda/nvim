@@ -1,5 +1,5 @@
-local telescope = require("telescope")
-local trouble = require("trouble.providers.telescope")
+local telescope = require "telescope"
+local trouble = require "trouble.providers.telescope"
 telescope.setup {
 	defaults = {mappings = {i = {["<c-q>"] = trouble.open_with_trouble}, n = {["<c-q>"] = trouble.open_with_trouble}}},
 	pickers = {
@@ -25,7 +25,8 @@ telescope.setup {
 		project = {hidden_files = true}
 	}
 }
-telescope.load_extension("fzf")
-telescope.load_extension("project")
-telescope.load_extension("files")
-telescope.load_extension("dap")
+
+telescope.load_extension "fzf"
+telescope.load_extension "project"
+telescope.load_extension "files"
+telescope.load_extension "dap"

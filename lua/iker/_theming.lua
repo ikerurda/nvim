@@ -1,3 +1,9 @@
+require"github-theme".setup {
+	theme_style = "dark_default",
+	sidebars = {"qf", "which_key", "toggleterm"},
+	hide_inactive_statusline = false
+}
+
 require"lualine".setup {
 	options = {
 		icons_enabled = false,
@@ -14,4 +20,11 @@ require"lualine".setup {
 		lualine_y = {"progress"},
 		lualine_z = {"location"}
 	}
+}
+
+require"indent_blankline".setup {
+	filetype_exclude = {"help", "man", "packer", "NvimTree", "Trouble"},
+	buftype_exclude = {"terminal"},
+	bufname_exclude = {"Untitled"},
+	use_treesitter = true
 }

@@ -5,15 +5,15 @@
 --
 --  Config file for NVIM. Created by Iker Urdaniz.
 --
-require("iker._plugins")
+require "iker._plugins"
 -- Auto format when saving
-vim.cmd("au BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)")
-vim.cmd("command! Format :lua vim.lsp.buf.formatting_seq_sync(nil, 1000)")
+vim.cmd "au BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)"
+vim.cmd "command! Format :lua vim.lsp.buf.formatting_seq_sync(nil, 1000)"
 -- Prevent formatting when saving
-vim.cmd("command! W noa w")
-vim.cmd("command! Wq noa w | q")
+vim.cmd "command! W noa w"
+vim.cmd "command! Wq noa w | q"
 -- Highlight yanked area
-vim.cmd("au TextYankPost * silent! lua vim.highlight.on_yank {higroup='IncSearch', timeout=200}")
+vim.cmd "au TextYankPost * silent! lua vim.highlight.on_yank {higroup='IncSearch', timeout=200}"
 
 vim.o.title = true
 vim.opt.shortmess:append("asIc")
