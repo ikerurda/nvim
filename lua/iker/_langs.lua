@@ -42,18 +42,15 @@ dap.configurations.c = {
 		name = "Launch",
 		type = "lldb",
 		request = "launch",
-		program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
-		cwd = "${workspaceFolder}",
-		stopOnEntry = false,
-		args = {},
-		runInTerminal = false
+		program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end
 	}
 }
 
+-- FIX: Formatting isn't working at the moment
 -- Formatting
 local luafmt = {formatCommand = "lua-format -i", formatStdin = true}
-local black = {formatCommand = "black --quiet -", formatStdin = true}
-local languages = {lua = {luafmt}, python = {black}}
+local yapf = {formatCommand = "yapf --quiet", formatStdin = true}
+local languages = {lua = {luafmt}, python = {yapf}}
 
 -- Configs
 local function make_opts()

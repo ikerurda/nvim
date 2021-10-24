@@ -66,7 +66,7 @@ return packer.startup(function(use)
 	use {"akinsho/nvim-toggleterm.lua"}
 
 	-- Theming
-	use {"hoob3rt/lualine.nvim", config = function() require "iker._theming" end}
+	use {"nvim-lualine/lualine.nvim", config = function() require "iker._theming" end}
 	use {"folke/twilight.nvim", config = function() require"twilight".setup() end}
 	use {"folke/zen-mode.nvim", config = function() require"zen-mode".setup() end}
 	use {"norcalli/nvim-colorizer.lua", config = function() require"colorizer".setup() end}
