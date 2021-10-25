@@ -21,10 +21,3 @@ require"lualine".setup {
 		lualine_z = {"location"}
 	}
 }
-
-require"indent_blankline".setup {
-	filetype_exclude = {"help", "man", "packer", "NvimTree", "Trouble"},
-	buftype_exclude = {"terminal"},
-	bufname_exclude = {"Untitled"},
-	use_treesitter = true
-}

@@ -41,7 +41,6 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
-	use {"lewis6991/spellsitter.nvim", config = function() require"spellsitter".setup() end}
 
 	-- Telescope
 	use {"nvim-telescope/telescope.nvim", config = function() require "iker._telescope" end}
@@ -70,6 +69,6 @@ return packer.startup(function(use)
 	use {"folke/twilight.nvim", config = function() require"twilight".setup() end}
 	use {"folke/zen-mode.nvim", config = function() require"zen-mode".setup() end}
 	use {"norcalli/nvim-colorizer.lua", config = function() require"colorizer".setup() end}
-	use "lukas-reineke/indent-blankline.nvim"
+	-- use "lukas-reineke/indent-blankline.nvim"
 	use "projekt0n/github-nvim-theme"
 end)
