@@ -9,13 +9,23 @@
 --- Command mode:
 --    <C-g> and <C-t> to cycle trough the results of a search pattern without confirming
 --
-vim.g.mapleader = " "
 local map = vim.api.nvim_set_keymap
 local ops = {noremap = true, silent = true}
+map("", "<Space>", "<Nop>", ops)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 map("t", "<esc>", "<C-\\><C-n>", ops)
 map("v", "J", ":m '>+1<cr>gv=gv", ops)
 map("v", "K", ":m '<-2<cr>gv=gv", ops)
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", {expr = true, silent = true, noremap = true})
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", {expr = true, silent = true, noremap = true})
+map("n", "H", "^", {silent = true})
+map("n", "L", "$", {silent = true})
+map("n", "Y", "y$", ops)
+map("n", "J", "mzJ`z", ops)
+map("n", "n", "nzzzv", ops)
+map("n", "N", "Nzzzv", ops)
 
 local wk = require "which-key"
 wk.setup({plugins = {spelling = {enabled = true, suggestions = 20}}, icons = {separator = "->"}})
@@ -95,14 +105,8 @@ wk.register({
 		p = {"`[v`]", "Switch to VISUAL using last paste"},
 		z = {"yi\":!open https://github.com/<C-R>\"<cr><cr>", "Search github"}
 	},
-	H = {"^", "which_key_ignore"},
-	J = {"mzJ`z", "which_key_ignore"},
 	K = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover info"},
-	L = {"$", "which_key_ignore"},
-	n = {"nzzzv", "which_key_ignore"},
-	N = {"Nzzzv", "which_key_ignore"},
 	s = {name = "surround", a = "Arround", s = "Repeat surround", d = "Delete", r = "Replace", t = "Toggle"},
-	Y = {"y$", "which_key_ignore"},
 	z = "spelling and folds",
 	["<C-b>"] = "Go up a page",
 	["<C-d>"] = "Go down half page",

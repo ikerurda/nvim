@@ -35,6 +35,7 @@ vim.o.cursorline = true
 vim.o.wrap = false
 vim.o.scrolloff = 3
 vim.o.linebreak = true
+vim.o.breakindent = true
 vim.o.signcolumn = "yes"
 
 vim.o.smartindent = true
