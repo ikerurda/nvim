@@ -63,15 +63,9 @@ wk.register({
 		F = {"<cmd>Telescope find_files cwd=$HOME<cr>", "Files in root dir."},
 		g = {"<cmd>Telescope live_grep<cr>", "Live grep"},
 		h = {"<cmd>Telescope help_tags<cr>", "Help"},
-		j = {
-			"<cmd>lua require'telescope'.extensions.project.project(require'telescope.themes'.get_dropdown())<CR>",
-			"Projects"
-		},
+		j = {"<cmd>Telescope project theme=dropdown<CR>", "Projects"},
 		m = {"<cmd>Telescope man_pages<cr>", "Manuals"},
-		p = {
-			"<cmd>lua require'telescope'.extensions.packer.plugins(require'telescope.themes'.get_ivy{layout_config={height = .5}})<cr>",
-			"Plugins"
-		},
+		p = {"<cmd>Telescope packer<cr>", "Plugins"},
 		r = {"<cmd>Telescope oldfiles<cr>", "Recents"},
 		s = {"<cmd>Telescope symbols theme=cursor layout_config={width=.8}<cr>", "Symbols"},
 		t = {"<cmd>Telescope resume<cr>", "Restore finder"}
@@ -115,8 +109,8 @@ wk.register({
 	["<C-u>"] = "Go up half page",
 	["<C-w>"] = {["<C-w>"] = {"<cmd>WinShift<cr>", "Shift windows"}},
 	["<C-y>"] = "Go down a line",
-	["<tab>"] = {"<cmd>bn<cr>", "Next buffer"},
-	["<bs>"] = {"<cmd>bp<cr>", "Prev. buffer"},
+	["<tab>"] = {"<cmd>BufferNext<cr>", "Next buffer"},
+	["<bs>"] = {"<cmd>BufferPrevious<cr>", "Prev. buffer"},
 	["["] = "previous",
 	["]"] = "next",
 	["<F1>"] = {"<cmd>WhichKey<cr>", "which_key_ignore"},

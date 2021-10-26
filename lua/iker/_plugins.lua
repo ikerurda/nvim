@@ -47,7 +47,7 @@ return packer.startup(function(use)
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 	use "ikerurda/telescope-files.nvim"
 	use "ikerurda/telescope-project.nvim"
-	use {"ikerurda/telescope-packer.nvim", branch = "my_finder"}
+	use {"ikerurda/telescope-packer.nvim"}
 	use "nvim-telescope/telescope-dap.nvim"
 	use "nvim-telescope/telescope-symbols.nvim"
 
@@ -65,10 +65,10 @@ return packer.startup(function(use)
 	use {"akinsho/nvim-toggleterm.lua"}
 
 	-- Theming
+	use "romgrk/barbar.nvim"
 	use {"nvim-lualine/lualine.nvim", config = function() require "iker._theming" end}
 	use {"folke/twilight.nvim", config = function() require"twilight".setup() end}
 	use {"folke/zen-mode.nvim", config = function() require"zen-mode".setup() end}
 	use {"norcalli/nvim-colorizer.lua", config = function() require"colorizer".setup() end}
-	-- use "lukas-reineke/indent-blankline.nvim"
 	use "projekt0n/github-nvim-theme"
 end)

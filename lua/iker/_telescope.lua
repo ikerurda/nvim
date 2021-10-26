@@ -22,11 +22,14 @@ telescope.setup {
 			override_file_sorter = true,
 			case_mode = "smart_case"
 		},
-		project = {hidden_files = true}
+		project = {hidden_files = true},
+		files = {theme = "ivy", layout_config = {height = .5}},
+		packer = {theme = "ivy", layout_config = {height = .5}}
 	}
 }
 
 telescope.load_extension "fzf"
 telescope.load_extension "project"
-telescope.load_extension "files"
 telescope.load_extension "dap"
+telescope.load_extension "packer"
+telescope.load_extension "files"
