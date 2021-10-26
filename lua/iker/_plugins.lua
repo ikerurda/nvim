@@ -47,7 +47,7 @@ return packer.startup(function(use)
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 	use "ikerurda/telescope-files.nvim"
 	use "ikerurda/telescope-project.nvim"
-	use {"ikerurda/telescope-packer.nvim"}
+	use "ikerurda/telescope-packer.nvim"
 	use "nvim-telescope/telescope-dap.nvim"
 	use "nvim-telescope/telescope-symbols.nvim"
 
