@@ -46,7 +46,6 @@ dap.configurations.c = {
 	}
 }
 
--- FIX: Formatting isn't working at the moment
 -- Formatting
 local luafmt = {formatCommand = "lua-format -i", formatStdin = true}
 local yapf = {formatCommand = "yapf --quiet", formatStdin = true}
