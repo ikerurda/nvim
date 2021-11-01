@@ -37,12 +37,13 @@ return packer.startup(function(use)
 	-- Debugger
 	use {"mfussenegger/nvim-dap", {"Pocco81/DAPInstall.nvim"}}
 	use {"rcarriga/nvim-dap-ui", config = function() require"dapui".setup() end}
-	use {"theHamsta/nvim-dap-virtual-text", config = function() vim.g.dap_virtual_text = true end}
+	use {"theHamsta/nvim-dap-virtual-text", config = function() require"nvim-dap-virtual-text".setup() end}
 
 	-- Treesitter
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
 	-- Telescope
+	-- use {"fdschmidt93/telescope.nvim", branch = "feat/fb-improvements", config = function() require "iker._telescope" end}
 	use {"nvim-telescope/telescope.nvim", config = function() require "iker._telescope" end}
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 	use "ikerurda/telescope-files.nvim"
