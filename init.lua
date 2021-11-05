@@ -48,6 +48,5 @@ vim.o.inccommand = "split"
 vim.o.hlsearch = false
 vim.o.smartcase = true
 vim.o.ignorecase = true
-vim.o.spelllang = "en"
 vim.o.list = true
 vim.o.completeopt = "menuone,noselect"

@@ -13,7 +13,7 @@ packer.init {
 
 return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
-	use {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}
+	use {{"nvim-lua/popup.nvim"}, {"fdschmidt93/plenary.nvim", branch = "feat/recursive-copy"}} -- Waiting for pull request
 
 	-- LSP
 	use {"neovim/nvim-lspconfig", config = function() require "iker._langs" end}
@@ -41,24 +41,22 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+	use {"lewis6991/spellsitter.nvim", config = function() require("spellsitter").setup() end}
 
 	-- Telescope
-	-- use {"fdschmidt93/telescope.nvim", branch = "feat/fb-improvements", config = function() require "iker._telescope" end}
-	use {"nvim-telescope/telescope.nvim", config = function() require "iker._telescope" end}
+	use {"fdschmidt93/telescope.nvim", branch = "feat/fb-improvements", config = function() require "iker._telescope" end}
+	-- use {"nvim-telescope/telescope.nvim", config = function() require "iker._telescope" end} -- Waiting for pull request
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
-	use "ikerurda/telescope-files.nvim"
-	use "ikerurda/telescope-project.nvim"
+	use "ahmedkhalf/project.nvim"
 	use "ikerurda/telescope-packer.nvim"
 	use "nvim-telescope/telescope-dap.nvim"
 	use "nvim-telescope/telescope-symbols.nvim"
 
 	-- Tools
 	use "sindrets/winshift.nvim"
-	use {"folke/trouble.nvim", config = function() require"trouble".setup {icons = false} end}
-	use {"folke/todo-comments.nvim", config = function() require"todo-comments".setup() end}
 	use {"folke/which-key.nvim", config = function() require "iker._mappings" end}
 	use {"karb94/neoscroll.nvim", config = function() require"neoscroll".setup() end}
-	use {"terrortylor/nvim-comment", config = function() require"nvim_comment".setup() end}
+	use {"numToStr/Comment.nvim", config = function() require"Comment".setup() end}
 	use {"blackCauldron7/surround.nvim", config = function() require"surround".setup {mappings_style = "sandwich"} end}
 	use {"jghauser/mkdir.nvim", config = function() require "mkdir" end}
 	use {"lewis6991/gitsigns.nvim", config = function() require"gitsigns".setup {keymaps = {}} end}
