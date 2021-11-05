@@ -6,11 +6,7 @@ require("project_nvim").setup {
 local telescope = require "telescope"
 telescope.setup {
 	pickers = {
-		file_browser = {
-			theme = "ivy",
-			layout_config = {height = .5},
-			mappings = {i = {["<C-t>"] = function() print("hi") end}}
-		},
+		file_browser = {theme = "ivy", layout_config = {height = .5}, mappings = {i = {["<C-v>"] = "move_file"}}},
 		oldfiles = {theme = "dropdown", previewer = false},
 		buffers = {
 			theme = "dropdown",
@@ -29,13 +25,11 @@ telescope.setup {
 			override_file_sorter = true,
 			case_mode = "smart_case"
 		},
-		packer = {theme = "ivy", layout_config = {height = .5}},
-		project = {hidden_files = true}
+		packer = {theme = "ivy", layout_config = {height = .5}}
 	}
 }
 
 telescope.load_extension "fzf"
--- telescope.load_extension "project"
 telescope.load_extension "projects"
 telescope.load_extension "dap"
 telescope.load_extension "packer"
