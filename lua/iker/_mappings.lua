@@ -75,16 +75,6 @@ wk.register({
 		s = {"<cmd>PackerSync<cr>", "Sync"},
 		u = {"<cmd>PackerUpdate<cr>", "Update"}
 	},
-	x = {
-		name = "trouble",
-		d = {"<cmd>Trouble lsp_document_diagnostics<cr>", "Document diag."},
-		l = {"<cmd>Trouble loclist<cr>", "Loclist"},
-		q = {"<cmd>Trouble quickfix<cr>", "Quickfix"},
-		r = {"<cmd>Trouble lsp_references<cr>", "References"},
-		t = {"<cmd>TodoTrouble<cr>", "TODOs"},
-		w = {"<cmd>Trouble lsp_workspace_diagnostics<cr>", "Workspace diag."},
-		x = {"<cmd>Trouble<cr>", "Reopen"}
-	},
 	["?"] = "Keybindings"
 }, {prefix = "<leader>", silent = true, noremap = true})
 
@@ -105,6 +95,9 @@ wk.register({
 	["<C-u>"] = "Go up half page",
 	["<C-w>"] = {["<C-w>"] = {"<cmd>WinShift<cr>", "Shift windows"}},
 	["<C-y>"] = "Go down a line",
+	["<C-q>"] = {"<cmd>copen<cr>", "Open quickfixlist"},
+	["<C-n>"] = {"<cmd>cnext<cr>", "Open quickfixlist"},
+	["<C-p>"] = {"<cmd>cprev<cr>", "Open quickfixlist"},
 	["<tab>"] = {"<cmd>BufferNext<cr>", "Next buffer"},
 	["<bs>"] = {"<cmd>BufferPrevious<cr>", "Prev. buffer"},
 	["["] = "previous",
