@@ -6,7 +6,11 @@ require("project_nvim").setup {
 local telescope = require "telescope"
 telescope.setup {
 	pickers = {
-		file_browser = {theme = "ivy", layout_config = {height = .5}, mappings = {i = {["<C-v>"] = "move_file"}}},
+		file_browser = {
+			theme = "ivy",
+			layout_config = {height = .5},
+			mappings = {i = {["<C-v>"] = "move_file", ["<C-x>"] = "remove_file", ["<C-d>"] = "preview_scrolling_down"}}
+		},
 		oldfiles = {theme = "dropdown", previewer = false},
 		buffers = {
 			theme = "dropdown",

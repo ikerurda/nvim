@@ -64,7 +64,7 @@ wk.register({
 		m = {"<cmd>Telescope man_pages<cr>", "Manuals"},
 		p = {"<cmd>Telescope packer<cr>", "Plugins"},
 		r = {"<cmd>Telescope oldfiles<cr>", "Recents"},
-		s = {"<cmd>Telescope symbols theme=cursor layout_config={width=.8}<cr>", "Symbols"},
+		s = {"<cmd>Telescope symbols theme=cursor layout_config={width=.6}<cr>", "Symbols"},
 		t = {"<cmd>Telescope resume<cr>", "Restore finder"}
 	},
 	p = {
