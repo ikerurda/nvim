@@ -16,6 +16,7 @@ return packer.startup(function(use)
 	use {{"nvim-lua/popup.nvim"}, {"fdschmidt93/plenary.nvim", branch = "feat/recursive-copy"}} -- Waiting for pull request
 
 	-- LSP
+	use "github/copilot.vim"
 	use {"neovim/nvim-lspconfig", config = function() require "iker._langs" end}
 	use {{"williamboman/nvim-lsp-installer"}, {"folke/lua-dev.nvim"}}
 	use {

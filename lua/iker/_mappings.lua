@@ -1,6 +1,7 @@
 -- Other mappings to remember
 --- Insert mode:
 --    <C-o> to switch to normal mode for one operation
+--    <C-w> to remove the last word
 --- Visual mode:
 --    o to go to first line in selection
 --- Visual block:
@@ -40,6 +41,7 @@ wk.register({
 	c = {
 		name = "code",
 		a = {"<cmd>Telescope lsp_code_actions theme=get_cursor<cr>", "Actions"},
+		c = {"<cmd>let g:copilot_enabled=!copilot_enabled<cr>", "Toggle copilot"},
 		d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
 		D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration"},
 		f = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "Format"},
