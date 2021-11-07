@@ -40,6 +40,13 @@ wk.register({
 		r = {"<cmd>Telescope lsp_references theme=get_dropdown<cr>", "References"},
 		R = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"}
 	},
+	g = {
+		name = "git",
+		a = {"<cmd>G add .<cr>", "Add"},
+		c = {"<cmd>G commit<cr>", "Commit"},
+		p = {"<cmd>G push<cr>", "Push"},
+		s = {"<cmd>G<cr>", "Status"}
+	},
 	f = {
 		name = "find",
 		a = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy in buf."},
