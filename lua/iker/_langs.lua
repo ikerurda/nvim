@@ -36,6 +36,9 @@ for _, l in pairs(debuggers) do
 		vim.cmd("silent DIInstall " .. l)
 	end
 end
+dap.listeners.after.event_initialized["dapui_config"] = function() require"dapui".open() end
+dap.listeners.before.event_terminated["dapui_config"] = function() require"dapui".close() end
+dap.listeners.before.event_exited["dapui_config"] = function() require"dapui".close() end
 dap.adapters.lldb = {type = "executable", command = "/usr/local/bin/lldb-vscode", name = "lldb"}
 dap.configurations.c = {
 	{

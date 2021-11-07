@@ -1,4 +1,4 @@
-require("project_nvim").setup {
+require"project_nvim".setup {
 	update_cwd = true,
 	update_focused_file = {enable = true, update_cwd = true, ignore_lsp = {"efm"}}
 }
@@ -6,21 +6,21 @@ require("project_nvim").setup {
 local telescope = require "telescope"
 telescope.setup {
 	pickers = {
+		find_files = {theme = "dropdown"},
+		oldfiles = {theme = "dropdown", previewer = false},
+		current_buffer_fuzzy_find = {theme = "dropdown"},
+		help_tags = {theme = "dropdown"},
+		live_grep = {theme = "dropdown"},
 		file_browser = {
 			theme = "ivy",
 			layout_config = {height = .5},
 			mappings = {i = {["<C-v>"] = "move_file", ["<C-x>"] = "remove_file", ["<C-d>"] = "preview_scrolling_down"}}
 		},
-		oldfiles = {theme = "dropdown", previewer = false},
 		buffers = {
 			theme = "dropdown",
 			previewer = false,
 			mappings = {i = {["<C-d>"] = "delete_buffer"}, n = {["<C-d>"] = "delete_buffer"}}
-		},
-		current_buffer_fuzzy_find = {theme = "dropdown"},
-		find_files = {theme = "dropdown"},
-		help_tags = {theme = "dropdown"},
-		live_grep = {theme = "dropdown"}
+		}
 	},
 	extensions = {
 		fzf = {
@@ -35,5 +35,5 @@ telescope.setup {
 
 telescope.load_extension "fzf"
 telescope.load_extension "projects"
-telescope.load_extension "dap"
 telescope.load_extension "packer"
+telescope.load_extension "dap"

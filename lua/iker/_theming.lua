@@ -16,7 +16,7 @@ vim.cmd "highlight CmpItemAbbrMatchFuzzy guifg=#58a6ff gui=nocombine"
 
 vim.cmd "highlight TelescopeTitle guibg=#58a6ff guifg=#ffffff"
 
-vim.cmd "highlight NonText guifg=#8b949e"
+vim.cmd "highlight NonText guifg=#323539"
 
 require"lualine".setup {
 	options = {
@@ -37,4 +37,12 @@ require"lualine".setup {
 }
 
 vim.opt.list = true
-vim.opt.listchars:append("tab:┊ ,trail:·,eol:¬")
+vim.opt.listchars:append("eol:¬")
+require"indent_blankline".setup {
+	filetype_exclude = {"help", "man", "packer"},
+	buftype_exclude = {"terminal"},
+	bufname_exclude = {"Untitled"},
+	show_trailing_blankline_indent = false,
+	show_end_of_line = true,
+	use_treesitter = true
+}

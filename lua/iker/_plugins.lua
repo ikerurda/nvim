@@ -16,7 +16,6 @@ return packer.startup(function(use)
 	use {{"nvim-lua/popup.nvim"}, {"fdschmidt93/plenary.nvim", branch = "feat/recursive-copy"}} -- Waiting for pull request
 
 	-- LSP
-	use "github/copilot.vim"
 	use {"neovim/nvim-lspconfig", config = function() require "iker._langs" end}
 	use {{"williamboman/nvim-lsp-installer"}, {"folke/lua-dev.nvim"}}
 	use {
@@ -34,6 +33,7 @@ return packer.startup(function(use)
 	}
 	use "ray-x/lsp_signature.nvim"
 	use "windwp/nvim-autopairs"
+	use {"github/copilot.vim", config = function() vim.b.copilot_enabled = false end}
 
 	-- Debugger
 	use {"mfussenegger/nvim-dap", {"Pocco81/DAPInstall.nvim"}}
@@ -46,7 +46,6 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use {"fdschmidt93/telescope.nvim", branch = "feat/fb-improvements", config = function() require "iker._telescope" end}
-	-- use {"nvim-telescope/telescope.nvim", config = function() require "iker._telescope" end} -- Waiting for pull request
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 	use "ahmedkhalf/project.nvim"
 	use "ikerurda/telescope-packer.nvim"
@@ -54,21 +53,17 @@ return packer.startup(function(use)
 	use "nvim-telescope/telescope-symbols.nvim"
 
 	-- Tools
-	use "sindrets/winshift.nvim"
 	use {"folke/which-key.nvim", config = function() require "iker._mappings" end}
-	use {"karb94/neoscroll.nvim", config = function() require"neoscroll".setup() end}
 	use {"numToStr/Comment.nvim", config = function() require"Comment".setup() end}
 	use {"blackCauldron7/surround.nvim", config = function() require"surround".setup {mappings_style = "sandwich"} end}
 	use {"jghauser/mkdir.nvim", config = function() require "mkdir" end}
 	use {"lewis6991/gitsigns.nvim", config = function() require"gitsigns".setup {keymaps = {}} end}
 	use {"tpope/vim-fugitive", "tpope/vim-rhubarb"}
-	use {"akinsho/nvim-toggleterm.lua"}
 
 	-- Theming
 	use "romgrk/barbar.nvim"
 	use {"nvim-lualine/lualine.nvim", config = function() require "iker._theming" end}
-	use {"folke/twilight.nvim", config = function() require"twilight".setup() end}
-	use {"folke/zen-mode.nvim", config = function() require"zen-mode".setup() end}
 	use {"norcalli/nvim-colorizer.lua", config = function() require"colorizer".setup() end}
+	use {"lukas-reineke/indent-blankline.nvim", config = function() end}
 	use "projekt0n/github-nvim-theme"
 end)

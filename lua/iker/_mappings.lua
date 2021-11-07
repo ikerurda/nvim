@@ -12,36 +12,25 @@
 --
 local map = vim.api.nvim_set_keymap
 local ops = {noremap = true, silent = true}
-map("", "<Space>", "<Nop>", ops)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-map("t", "<esc>", "<C-\\><C-n>", ops)
 map("v", "J", ":m '>+1<cr>gv=gv", ops)
 map("v", "K", ":m '<-2<cr>gv=gv", ops)
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", {expr = true, silent = true, noremap = true})
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", {expr = true, silent = true, noremap = true})
-map("n", "H", "^", {silent = true})
-map("n", "L", "$", {silent = true})
-map("n", "Y", "y$", ops)
-map("n", "J", "mzJ`z", ops)
-map("n", "n", "nzzzv", ops)
-map("n", "N", "Nzzzv", ops)
 
 local wk = require "which-key"
 wk.setup({plugins = {spelling = {enabled = true, suggestions = 20}}, icons = {separator = "->"}})
 wk.register({
 	b = {"<cmd>set scrollbind!<cr>", "Bind scrolling"}, -- Must bind both windows
-	g = {"<cmd>lua Lazygit()<cr>", "Git"},
-	h = {"<cmd>:cd $HOME<cr>", "change to git directory"},
+	d = {"<cmd>Telescope dap commands theme=get_cursor<cr>", "Debug"},
 	r = {"<cmd>source<cr>", "Reload file"},
-	u = {"<cmd>UndotreeToggle<cr>", "Undo Tree"},
 	w = {"<cmd>set wrap!<cr>", "Toggle wrap"},
-	z = {"<cmd>ZenMode<cr>", "Zen mode"},
 	c = {
 		name = "code",
 		a = {"<cmd>Telescope lsp_code_actions theme=get_cursor<cr>", "Actions"},
-		c = {"<cmd>let g:copilot_enabled=!copilot_enabled<cr>", "Toggle copilot"},
+		c = {"<cmd>let b:copilot_enabled=!b:copilot_enabled<cr>", "Toggle copilot"},
 		d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
 		D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration"},
 		f = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "Format"},
@@ -51,7 +40,6 @@ wk.register({
 		r = {"<cmd>Telescope lsp_references theme=get_dropdown<cr>", "References"},
 		R = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"}
 	},
-	d = {"<cmd>Telescope dap commands theme=get_cursor<cr>", "Debug"},
 	f = {
 		name = "find",
 		a = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy in buf."},
@@ -73,11 +61,9 @@ wk.register({
 		name = "packer",
 		c = {"<cmd>PackerCompile<cr>", "Compile"},
 		i = {"<cmd>PackerInstall<cr>", "Install"},
-		r = {"<cmd>lua require'utils'.reload_lv_config()<cr>", "Reload"},
 		s = {"<cmd>PackerSync<cr>", "Sync"},
 		u = {"<cmd>PackerUpdate<cr>", "Update"}
-	},
-	["?"] = "Keybindings"
+	}
 }, {prefix = "<leader>", silent = true, noremap = true})
 
 wk.register({
@@ -87,52 +73,59 @@ wk.register({
 		p = {"`[v`]", "Switch to VISUAL using last paste"},
 		z = {"yi\":!open https://github.com/<C-R>\"<cr><cr>", "Search github"}
 	},
+	H = {"^", "Go to start of line"},
+	J = {"mzJ`z", "Join lines"},
 	K = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover info"},
+	L = {"$", "Go to end of line"},
+	n = {"nzzzv", "Jump to next occurrence"},
+	N = {"nzzzv", "Jump to prev occurrence"},
 	s = {name = "surround", a = "Arround", s = "Repeat surround", d = "Delete", r = "Replace", t = "Toggle"},
+	Y = {"y$", "Yank to end of line"},
 	z = "spelling and folds",
+	["["] = "previous ...",
+	["]"] = "next ...",
 	["<C-b>"] = "Go up a page",
 	["<C-d>"] = "Go down half page",
 	["<C-e>"] = "Go up a line",
 	["<C-f>"] = "Go down a page",
+	["<C-l>"] = "which_key_ignore",
+	["<C-n>"] = {"<cmd>cnext<cr>", "Next in quickfixlist"},
+	["<C-p>"] = {"<cmd>cprev<cr>", "Prev in quickfixlist"},
+	["<C-q>"] = {"<cmd>copen<cr>", "Open quickfixlist"},
 	["<C-u>"] = "Go up half page",
 	["<C-w>"] = {["<C-w>"] = {"<cmd>WinShift<cr>", "Shift windows"}},
 	["<C-y>"] = "Go down a line",
-	["<C-q>"] = {"<cmd>copen<cr>", "Open quickfixlist"},
-	["<C-n>"] = {"<cmd>cnext<cr>", "Open quickfixlist"},
-	["<C-p>"] = {"<cmd>cprev<cr>", "Open quickfixlist"},
 	["<tab>"] = {"<cmd>BufferNext<cr>", "Next buffer"},
 	["<bs>"] = {"<cmd>BufferPrevious<cr>", "Prev. buffer"},
-	["["] = "previous",
-	["]"] = "next",
 	["<F1>"] = {"<cmd>WhichKey<cr>", "which_key_ignore"},
-	["<F2>"] = "Open Terminal",
+	["<F2>"] = {"<cmd>new | wincmd J | call nvim_win_set_height(0,12) | set winfixheight | term<cr>", "New terminal"},
 	["<F4>"] = {"<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint"},
-	["<F5>"] = {"<cmd>lua StartDebugger()<cr>", "Start debugger"},
-	["<F6>"] = {"<cmd>lua EndDebugger()<cr>", "End debugger"},
-	["<F10>"] = {"<cmd>lua require'dap'.step_into()<cr>", "Step into"},
-	["<F11>"] = {"<cmd>lua require'dap'.step_out()<cr>", "Step out"},
-	["<F12>"] = {"<cmd>lua require'dap'.step_over()<cr>", "Step over"}
+	["<F5>"] = {"<cmd>lua require'dap'.continue()<cr>", "Start debugger"},
+	["<F6>"] = {"<cmd>lua require'dap'.disconnect()<cr>", "End debugger"},
+	["<F10>"] = {"<cmd>lua require'dap'.step_over()<cr>", "Step over"},
+	["<F11>"] = {"<cmd>lua require'dap'.step_into()<cr>", "Step into"},
+	["<F12>"] = {"<cmd>lua require'dap'.step_out()<cr>", "Step out"}
 }, {silent = true, noremap = true})
 
-vim.cmd "au TermOpen * setlocal signcolumn=no"
-require"toggleterm".setup {open_mapping = "<F2>", float_opts = {border = "curved", winblend = 1}}
+vim.cmd [[
+augroup autoFmt
+    au!
+    au BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
+augroup END ]]
 
-Lazygit = function()
-	require"toggleterm.terminal".Terminal:new({
-		cmd = "lazygit",
-		dir = vim.fn.expand "%:p:h",
-		direction = "float",
-		on_open = function() vim.cmd "startinsert!" end,
-		on_close = function() vim.cmd "q" end
-	}):toggle()
-end
+vim.cmd [[
+augroup hlYanked
+    au!
+    au TextYankPost * silent! lua vim.highlight.on_yank {higroup='IncSearch', timeout=200}
+augroup END ]]
 
-StartDebugger = function()
-	require"dap".continue()
-	require"dapui".open()
-end
-EndDebugger = function()
-	require"dap".disconnect()
-	require"dap".close()
-	require"dapui".close()
-end
+vim.cmd [[
+augroup term
+    au!
+    au TermOpen * startinsert | setlocal signcolumn=no norelativenumber nonumber
+    au TermOpen * silent tnoremap <esc> <C-\><C-n>
+augroup END ]]
+
+vim.cmd "command! W noa w"
+vim.cmd "command! Wq noa wq"
+vim.cmd "command! Wqa noa wqa"
