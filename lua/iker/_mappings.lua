@@ -42,8 +42,9 @@ wk.register({
 	},
 	g = {
 		name = "git",
-		a = {"<cmd>G add .<cr>", "Add"},
-		c = {"<cmd>G commit<cr>", "Commit"},
+		a = {"<cmd>G add .<cr>", "Add"}, -- s to stage
+		d = {"<cmd>G diff<cr>", "Diff"}, -- dv for diff
+		c = {"<cmd>G commit<cr>", "Commit"}, -- cc to commit
 		p = {"<cmd>G push<cr>", "Push"},
 		s = {"<cmd>G<cr>", "Status"}
 	},
