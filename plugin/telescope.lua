@@ -5,6 +5,7 @@ require"project_nvim".setup {
 
 local telescope = require "telescope"
 telescope.setup {
+	defaults = {winblend = 10},
 	pickers = {
 		find_files = {theme = "dropdown"},
 		oldfiles = {theme = "dropdown", previewer = false},
@@ -23,16 +24,10 @@ telescope.setup {
 		}
 	},
 	extensions = {
-		fzf = {
-			fuzzy = true, -- false will only do exact matching
-			override_generic_sorter = true,
-			override_file_sorter = true,
-			case_mode = "smart_case"
-		},
+		fzf = {fuzzy = true, override_generic_sorter = true, override_file_sorter = true, case_mode = "smart_case"},
 		packer = {theme = "ivy", layout_config = {height = .5}}
 	}
 }
-
 telescope.load_extension "fzf"
 telescope.load_extension "projects"
 telescope.load_extension "packer"
