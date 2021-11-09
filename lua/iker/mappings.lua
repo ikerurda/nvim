@@ -90,7 +90,7 @@ map("n", "<leader>pc", "<cmd>PackerCompile<cr>") -- Compile
 map("n", "<leader>gg", "<cmd>G<cr>") -- Status
 map("n", "<leader>ga", "<cmd>G add .<cr>") -- Add / Stage (s)
 map("n", "<leader>gd", "<cmd>G diff<cr>") -- Diff (dv or =)
-map("n", "<leader>gc", "<cmd>G commit<cr>") -- Commit (cc), (amend: ce)
+map("n", "<leader>gc", "<cmd>G commit<cr>") -- Commit (cc), (Amend: ce)
 map("n", "<leader>gp", "<cmd>G push<cr>") -- Push
 -- }}}
 
