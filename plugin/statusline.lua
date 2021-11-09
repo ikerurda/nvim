@@ -9,16 +9,23 @@ local git_branch = subscribe.buf_autocmd("el_git_branch", "BufEnter", function(w
 end)
 
 local function lsp_info()
-	local warnings = vim.lsp.diagnostic.get_count(0, "Warning")
-	local errors = vim.lsp.diagnostic.get_count(0, "Error")
-	local hints = vim.lsp.diagnostic.get_count(0, "Hint")
-	return string.format("[H:%d, W:%d, E:%d]", hints, warnings, errors)
+	local diags = {"Hint", "Warning", "Error"}
+	local out = "["
+	local c
+	for _, d in pairs(diags) do
+		local res = vim.lsp.diagnostic.get_count(0, d)
+		if res ~= 0 then out = out .. d:sub(1, 1) .. ":" .. res .. ", " end
+	end
+	out, c = out:gsub(", $", "]")
+	if c == 0 then return "" end
+	return out
 end
 
 local changes = function(window, buffer)
 	local changes = extensions.git_changes(window, buffer)
 	if changes then return changes end
 end
+
 local git_changes = subscribe.buf_autocmd("el_git_changes", "BufWritePost", changes)
 
 local mode = sections.highlight("StatusLine", extensions.gen_mode {format_string = " %s "})

@@ -14,7 +14,7 @@ require"bufferline".setup {
 		max_name_length = 18,
 		max_prefix_length = 15,
 		tab_size = 18,
-		diagnostics = "nvim_lsp",
+		diagnostics = "none",
 		diagnostics_update_in_insert = false,
 		show_buffer_icons = false,
 		show_buffer_close_icons = true,

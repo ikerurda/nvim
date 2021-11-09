@@ -47,8 +47,8 @@ map("n", "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- Definition
 map("n", "<leader>cD", "<cmd>lua vim.lsp.buf.declaration()<cr>") -- Declaration
 map("n", "<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<cr>") -- Implementation
 map("n", "<leader>cR", "<cmd>Telescope lsp_references theme=get_dropdown<cr>") -- References
-map("n", "<leader>cn", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>") -- Go to next diagnostic
-map("n", "<leader>cp", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>") -- Go to prev diagnostic
+map("n", "<leader>cp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>") -- Go to next diagnostic
+map("n", "<leader>cn", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>") -- Go to prev diagnostic
 map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<cr>") -- Format
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>") -- Hover info
 -- }}}
@@ -89,9 +89,9 @@ map("n", "<leader>pc", "<cmd>PackerCompile<cr>") -- Compile
 -- {{{ Git
 map("n", "<leader>gg", "<cmd>G<cr>") -- Status
 map("n", "<leader>ga", "<cmd>G add .<cr>") -- Add / Stage (s)
-map("n", "<leader>gd", "<cmd>G diff .<cr>") -- Diff (dv or =)
-map("n", "<leader>gc", "<cmd>G commit<cr>") -- Commit (cc)
-map("n", "<leader>gp", "<cmd>G push .<cr>") -- Push
+map("n", "<leader>gd", "<cmd>G diff<cr>") -- Diff (dv or =)
+map("n", "<leader>gc", "<cmd>G commit<cr>") -- Commit (cc), (amend: ce)
+map("n", "<leader>gp", "<cmd>G push<cr>") -- Push
 -- }}}
 
 --[[

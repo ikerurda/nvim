@@ -25,7 +25,7 @@ o.splitright = true -- Prefer windows splitting to the right
 o.updatetime = 1000 -- Make updates happen faster
 o.scrolloff = 5 -- Make it so there are always five lines below my cursor
 o.undofile = true -- Automatically save undo history to undo file
-o.timeoutlen = 700 -- Milliseconds to wait for a mapped sequence to complete
+o.timeoutlen = 1000 -- Milliseconds to wait for a mapped sequence to complete
 o.foldmethod = "marker" -- Use {{{ and }}} as fold marks
 o.updatetime = 50
 
