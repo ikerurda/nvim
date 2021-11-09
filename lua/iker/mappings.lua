@@ -52,17 +52,6 @@ map("n", "<leader>cn", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>") -- Go to p
 map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<cr>") -- Format
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>") -- Hover info
 -- }}}
--- {{{ Debugger
-map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>") -- Toggle breakpoint
-map("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<cr>") -- Open repl
-map("n", "<leader>dk", "<cmd>lua require'dap.ui.variables'.hover()<cr>") -- Hove variables
-
-map("n", "<F8>", "<cmd>lua require'dap'.continue()<cr>") -- Start debugger
-map("n", "<F9>", "<cmd>lua require'dap'.disconnect()<cr>") -- End debugger
-map("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>") -- Step over
-map("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>") -- Step into
-map("n", "<F12>", "<cmd>lua require'dap'.step_out()<cr>") -- Step out
--- }}}
 -- {{{ Telescope
 map("n", "<leader>ft", "<cmd>Telescope resume<cr>") -- Restore finder
 map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>") -- Recents

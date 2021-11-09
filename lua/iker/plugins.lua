@@ -43,7 +43,6 @@ return packer.startup(function(use)
 	use "ahmedkhalf/project.nvim"
 	use "ikerurda/telescope-packer.nvim"
 	use "nvim-telescope/telescope-symbols.nvim"
-	use "nvim-telescope/telescope-dap.nvim"
 
 	-- Tools
 	use "jghauser/mkdir.nvim"
