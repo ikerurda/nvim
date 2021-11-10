@@ -14,7 +14,7 @@ return packer.startup(function(use)
 
 	-- LSP
 	use {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer", "folke/lua-dev.nvim"}
-	use {"antoinemadec/FixCursorHold.nvim", run = function() vim.g.curshold_updatime = 3000 end}
+	use {"antoinemadec/FixCursorHold.nvim", run = function() vim.g.curshold_updatime = 100 end}
 	use "nvim-lua/lsp-status.nvim"
 	use {
 		"hrsh7th/nvim-cmp",
