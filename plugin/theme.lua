@@ -1,3 +1,5 @@
+if FIRST_LOAD then return end
+
 require"github-theme".setup {
 	theme_style = "dark_default",
 	sidebars = {"qf", "which_key", "toggleterm"},

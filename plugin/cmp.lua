@@ -1,3 +1,5 @@
+if FIRST_LOAD then return end
+
 local snip = require "luasnip"
 local kind = require "lspkind"
 local cmp = require "cmp"

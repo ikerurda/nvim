@@ -1,3 +1,5 @@
+if FIRST_LOAD then return end
+
 require "mkdir"
 require"Comment".setup {}
 require"surround".setup {mappings_style = "sandwich"}

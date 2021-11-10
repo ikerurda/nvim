@@ -10,7 +10,6 @@ packer.init {
 
 return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
-	use "lewis6991/impatient.nvim" -- Will be merged
 	use {"nvim-lua/popup.nvim", {"fdschmidt93/plenary.nvim", branch = "feat/recursive-copy"}} -- Waiting for pull request
 
 	-- LSP

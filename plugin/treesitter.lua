@@ -1,3 +1,5 @@
+if FIRST_LOAD then return end
+
 require"nvim-treesitter.configs".setup {
 	ensure_installed = {"lua", "vim", "c", "python", "java", "html", "css", "javascript", "bash"},
 	highlight = {enable = true, use_languagetree = false, additional_vim_regex_highlighting = false},

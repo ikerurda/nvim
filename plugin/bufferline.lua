@@ -1,3 +1,5 @@
+if FIRST_LOAD then return end
+
 require"bufferline".setup {
 	options = {
 		numbers = "none",
