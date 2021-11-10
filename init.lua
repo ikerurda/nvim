@@ -12,14 +12,14 @@ if require "iker.first_load"() then return end
 -- leader
 vim.g.mapleader = " "
 
--- Setup vim options, autocommands and mappings
-require "iker.options"
-require "iker.au"
-require "iker.mappings"
-
--- Turn off builtin plugins I do not use
+-- Turn off builtin plugins I don't use
 require "iker.disable_builtin"
 
 -- Setup plugins and LSP configuration
 require "iker.plugins"
 require "iker.lsp"
+
+-- Setup mappings, vim options, and autocommands
+require "iker.mappings"
+require "iker.options"
+require "iker.au"
