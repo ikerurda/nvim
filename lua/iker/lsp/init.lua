@@ -1,15 +1,13 @@
 require "iker.lsp.install"
+require"nvim-autopairs".setup {}
 
 local configs = require "iker.lsp.configs"
 require"nvim-lsp-installer".on_server_ready(function(server)
-	local config = configs.general()
-	if server.name == "sumneko_lua" then
-		config = configs.lua(config)
-	elseif server.name == "efm" then
-		config = configs.fmt(config)
+	if configs[server.name] then
+		server:setup(configs[server.name])
+	else
+		server:setup(configs.general)
 	end
-
-	server:setup(config)
 	vim.cmd "do User LspAttachBuffers"
 end)
 
@@ -17,5 +15,3 @@ end)
 vim.lsp.handlers["textDocument/publishDiagnostics"] = function(...)
 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {update_in_insert = false})(...)
 end
-
-require"nvim-autopairs".setup {}

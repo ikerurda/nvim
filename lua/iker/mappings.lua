@@ -13,7 +13,7 @@ map("n", "Y", "y$") -- Yank to end of line
 map("n", "J", "mzJ`z") -- Join lines
 map("n", "n", "nzzzv") -- Jump to next occurrence
 map("n", "N", "nzzzv") -- Jump to prev occurrence
-map("n", "gp", "`[v`]") -- Switch to VISUAL using last paste
+map("n", "gP", "`[v`]") -- Switch to VISUAL using last paste
 map("n", "cn", "*``cgn") -- Change current word then <ESC> and allow repeat in next occurrences with <.>
 map("n", "cN", "*``cgN") -- Change current word then <ESC> and allow repeat in prev occurrences with <.>
 
@@ -39,18 +39,6 @@ Toggle_qfl = function()
 	end
 	vim.cmd "copen"
 end
--- }}}
--- {{{ LSP
-map("n", "<leader>ca", "<cmd>Telescope lsp_code_actions theme=get_cursor<cr>") -- Actions
-map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>") -- Rename
-map("n", "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- Definition
-map("n", "<leader>cD", "<cmd>lua vim.lsp.buf.declaration()<cr>") -- Declaration
-map("n", "<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<cr>") -- Implementation
-map("n", "<leader>cR", "<cmd>Telescope lsp_references theme=get_dropdown<cr>") -- References
-map("n", "<leader>cp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>") -- Go to next diagnostic
-map("n", "<leader>cn", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>") -- Go to prev diagnostic
-map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<cr>") -- Format
-map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>") -- Hover info
 -- }}}
 -- {{{ Telescope
 map("n", "<leader>ft", "<cmd>Telescope resume<cr>") -- Restore finder

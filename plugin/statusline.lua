@@ -4,6 +4,7 @@ local builtin = require "el.builtin"
 local extensions = require "el.extensions"
 local sections = require "el.sections"
 local subscribe = require "el.subscribe"
+local lsp_statusline = require "el.plugins.lsp_status"
 
 local git_branch = subscribe.buf_autocmd("el_git_branch", "BufEnter", function(window, buffer)
 	local branch = extensions.git_branch(window, buffer)
@@ -42,6 +43,7 @@ require("el").setup {
 			sections.maximum_width(builtin.responsive_file(140, 90), 0.40),
 			sections.collapse_builtin {{" ", {builtin.modified_flag}}},
 			sections.split,
+			lsp_statusline.server_progress,
 			lsp_info,
 			git_changes,
 			"[",

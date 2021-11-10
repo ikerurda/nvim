@@ -4,8 +4,9 @@ local languages = {
 }
 
 return function(opts)
-	opts.init_options = {documentFormatting = true}
-	opts.settings = {rootMarkers = {".git/"}, languages = languages}
-	opts.filetypes = vim.tbl_keys(languages)
-	return opts
+    return vim.tbl_deep_extend("force", {
+		init_options = {documentFormatting = true},
+		settings = {rootMarkers = {".git/"}, languages = languages},
+		filetypes = vim.tbl_keys(languages)
+	}, opts)
 end
