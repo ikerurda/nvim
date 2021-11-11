@@ -10,7 +10,6 @@ local on_attach = function(client, bufnr)
 	nvim_status.on_attach(client)
 
 	map("n", "ga", "<cmd>Telescope lsp_code_actions theme=get_cursor<cr>") -- Actions
-	map("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>") -- Rename
 	map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- Definition
 	map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>") -- Declaration
 	map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>") -- Implementation
@@ -22,17 +21,6 @@ local on_attach = function(client, bufnr)
 	map("n", "<c-l>", "<cmd>LspStop<cr>")
 
 	vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
-
-	-- Set autocommands conditional on server_capabilities
-	if client.resolved_capabilities.document_highlight then
-		vim.cmd [[
-        augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        augroup END
-        ]]
-	end
 
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
