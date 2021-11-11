@@ -5,6 +5,8 @@
 --
 --  Config file for NVIM. Created by Iker Urdaniz.
 --
+pcall(require, "impatient")
+
 if require "iker.first_load"() then return end
 
 -- In general, it's a good idea to set this early in your config, because otherwise

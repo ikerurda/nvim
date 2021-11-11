@@ -4,9 +4,10 @@ local languages = {
 }
 
 return function(opts)
-    return vim.tbl_deep_extend("force", {
+	return vim.tbl_deep_extend("force", {
+		filetypes = vim.tbl_keys(languages),
 		init_options = {documentFormatting = true},
-		settings = {rootMarkers = {".git/"}, languages = languages},
-		filetypes = vim.tbl_keys(languages)
+		root_dir = require"lspconfig".util.root_pattern {".git/", "."},
+		settings = {languages = languages}
 	}, opts)
 end
