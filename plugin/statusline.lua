@@ -1,4 +1,4 @@
-if FIRST_LOAD then return end
+if not pcall(require, "el") then return end
 
 local builtin = require "el.builtin"
 local extensions = require "el.extensions"

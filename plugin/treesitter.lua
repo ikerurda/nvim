@@ -1,6 +1,7 @@
-if FIRST_LOAD then return end
+local has_ts, ts = pcall(require, "nvim-treesitter")
+if not has_ts then return end
 
-require"nvim-treesitter.configs".setup {
+ts.setup {
 	ensure_installed = {"lua", "vim", "c", "python", "java", "html", "css", "javascript", "bash"},
 	highlight = {enable = true, use_languagetree = false, additional_vim_regex_highlighting = false},
 

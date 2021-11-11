@@ -1,10 +1,7 @@
-if FIRST_LOAD then return end
+local has_gh, gh = pcall(require, "github-theme")
+if not has_gh then return end
 
-require"github-theme".setup {
-	theme_style = "dark_default",
-	sidebars = {"qf", "which_key", "toggleterm"},
-	hide_inactive_statusline = false
-}
+gh.setup {theme_style = "dark_default", sidebars = {"qf", "which_key", "toggleterm"}, hide_inactive_statusline = false}
 
 local Color, colors, Group, groups, style = require"colorbuddy".setup()
 

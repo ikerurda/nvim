@@ -1,12 +1,12 @@
-if FIRST_LOAD then return end
+local has_tl, tl = pcall(require, "telescope")
+if not has_tl then return end
 
 require"project_nvim".setup {
 	update_cwd = true,
 	update_focused_file = {enable = true, update_cwd = true, ignore_lsp = {"efm"}}
 }
 
-local telescope = require "telescope"
-telescope.setup {
+tl.setup {
 	defaults = {winblend = 10},
 	pickers = {
 		find_files = {theme = "dropdown"},
@@ -30,6 +30,6 @@ telescope.setup {
 		packer = {theme = "ivy", layout_config = {height = .5}}
 	}
 }
-telescope.load_extension "fzf"
-telescope.load_extension "projects"
-telescope.load_extension "packer"
+tl.load_extension "fzf"
+tl.load_extension "projects"
+tl.load_extension "packer"

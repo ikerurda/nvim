@@ -1,8 +1,11 @@
+local has_lsp, lsp = pcall(require, "nvim-lsp-installer")
+if not has_lsp then return end
+
 require "iker.lsp.install"
 require"nvim-autopairs".setup {}
 
 local configs = require "iker.lsp.configs"
-require"nvim-lsp-installer".on_server_ready(function(server)
+lsp.on_server_ready(function(server)
 	if configs[server.name] then
 		server:setup(configs[server.name])
 	else

@@ -1,17 +1,8 @@
-if FIRST_LOAD then return end
+local has_cmp, cmp = pcall(require, "cmp")
+if not has_cmp then return end
 
 local snip = require "luasnip"
 local kind = require "lspkind"
-local cmp = require "cmp"
-
-require"lsp_signature".setup {
-	bind = true,
-	doc_lines = 10,
-	floating_window = true,
-	fix_pos = true,
-	hint_enable = false,
-	handler_opts = {border = "none"}
-}
 
 cmp.setup {
 	mapping = {
@@ -46,6 +37,15 @@ cmp.setup {
 	},
 	snippet = {expand = function(args) snip.lsp_expand(args.body) end},
 	experimental = {ghost_text = true}
+}
+
+require"lsp_signature".setup {
+	bind = true,
+	doc_lines = 10,
+	floating_window = true,
+	fix_pos = true,
+	hint_enable = false,
+	handler_opts = {border = "none"}
 }
 
 vim.cmd [[

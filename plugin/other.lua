@@ -1,6 +1,5 @@
-if FIRST_LOAD then return end
+if not pcall(require, "mkdir") then return end
 
-require "mkdir"
 require"Comment".setup {}
 require"surround".setup {mappings_style = "sandwich"}
 require"gitsigns".setup {keymaps = {}}

@@ -1,6 +1,7 @@
-if FIRST_LOAD then return end
+local has_buf, buf = pcall(require, "bufferline")
+if not has_buf then return end
 
-require"bufferline".setup {
+buf.setup {
 	options = {
 		numbers = "none",
 		close_command = "bdelete! %d",
