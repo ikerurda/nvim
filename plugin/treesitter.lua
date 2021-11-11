@@ -5,7 +5,17 @@ ts.setup {
 	ensure_installed = {"lua", "vim", "c", "python", "java", "html", "css", "javascript", "bash"},
 	highlight = {enable = true, use_languagetree = false, additional_vim_regex_highlighting = false},
 
-	refactor = {smart_rename = {enable = true, keymaps = {smart_rename = "gr"}}},
+	refactor = {
+		highlight_definitions = {enable = true},
+		highlight_current_scope = {enable = false},
+		smart_rename = {enable = true, keymaps = {smart_rename = "gr"}}
+	},
+
+	incremental_selection = {
+		enable = true,
+		keymaps = {init_selection = "gs", node_incremental = "gsi", node_decremental = "gsd"}
+	},
+
 	textobjects = {
 		select = {
 			enable = true,
