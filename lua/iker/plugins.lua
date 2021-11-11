@@ -1,4 +1,4 @@
--- Packer auto manages itself
+-- Packer manages itself
 vim.cmd "packadd packer.nvim"
 
 local packer = require "packer"
@@ -10,6 +10,7 @@ packer.init {
 
 return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
+	use "lewis6991/impatient.nvim"
 	use {"nvim-lua/popup.nvim", {"fdschmidt93/plenary.nvim", branch = "feat/recursive-copy"}} -- Waiting for pull request
 
 	-- LSP
