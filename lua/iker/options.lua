@@ -35,7 +35,6 @@ o.cindent = true -- Use c indenting
 o.tabstop = 4
 o.shiftwidth = 4
 o.softtabstop = 4
-o.expandtab = true
 
 o.wrap = false
 o.breakindent = true -- wrapped lines will maitain indentation
