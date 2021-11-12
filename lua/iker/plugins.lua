@@ -15,7 +15,6 @@ return packer.startup(function(use)
 
 	-- LSP
 	use {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer", "folke/lua-dev.nvim"}
-	use {"antoinemadec/FixCursorHold.nvim", run = function() vim.g.curshold_updatime = 100 end}
 	use "nvim-lua/lsp-status.nvim"
 	use {
 		"hrsh7th/nvim-cmp",
@@ -49,7 +48,8 @@ return packer.startup(function(use)
 	-- Tools
 	use "jghauser/mkdir.nvim"
 	use {"numToStr/Comment.nvim", "blackCauldron7/surround.nvim"}
-	use {"tpope/vim-fugitive", "lewis6991/gitsigns.nvim"}
+	use "lewis6991/gitsigns.nvim"
+	use {"tpope/vim-fugitive", config = function() vim.g.fugitive_legacy_commands = false end}
 
 	-- Theming
 	use "tjdevries/colorbuddy.nvim"
