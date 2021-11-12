@@ -11,10 +11,7 @@ ts.setup {
 		smart_rename = {enable = true, keymaps = {smart_rename = "gr"}}
 	},
 
-	incremental_selection = {
-		enable = true,
-		keymaps = {init_selection = "gs", node_incremental = "gsi", node_decremental = "gsd"}
-	},
+	incremental_selection = {enable = true, keymaps = {node_incremental = "<c-j>", node_decremental = "<c-k>"}},
 
 	textobjects = {
 		select = {
