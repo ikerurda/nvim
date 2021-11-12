@@ -3,7 +3,7 @@ if not pcall(require, "mkdir") then return end
 require"Comment".setup {}
 require"surround".setup {mappings_style = "sandwich"}
 require"gitsigns".setup {keymaps = {}}
-require"colorizer".setup({"*"}, {mode = "foreground"})
+require"colorizer".setup({}, {mode = "foreground"})
 require"indent_blankline".setup {
 	filetype_exclude = {"help", "man", "packer"},
 	buftype_exclude = {"terminal"},
