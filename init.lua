@@ -9,9 +9,7 @@ pcall(require, "impatient")
 
 if require "iker.first_load"() then return end
 
--- In general, it's a good idea to set this early in your config, because otherwise
--- if you have any mappings you set BEFORE doing this, they will be set to the OLD
--- leader
+-- This should be set early in the config so that other plugins can use it
 vim.g.mapleader = " "
 
 -- Turn off builtin plugins I don't use
