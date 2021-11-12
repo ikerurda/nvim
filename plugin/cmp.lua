@@ -17,6 +17,7 @@ cmp.setup {
 		{name = "nvim_lua"},
 		{name = "luasnip"},
 		{name = "buffer", keyword_lenght = 5},
+		{name = "rg", keyword_lenght = 5},
 		{name = "path"},
 		{name = "calc"},
 		{name = "spell"}
@@ -25,9 +26,10 @@ cmp.setup {
 		format = kind.cmp_format {
 			with_text = true,
 			menu = {
-				buffer = "[buf]",
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[api]",
+				buffer = "[buf]",
+				rg = "[rg]",
 				path = "[path]",
 				luasnip = "[snip]",
 				calc = "[calc]",

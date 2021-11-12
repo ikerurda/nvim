@@ -29,7 +29,8 @@ return packer.startup(function(use)
 			"f3fora/cmp-spell",
 			"hrsh7th/cmp-nvim-lua",
 			"hrsh7th/cmp-nvim-lsp",
-			"saadparwaiz1/cmp_luasnip"
+			"saadparwaiz1/cmp_luasnip",
+			"lukas-reineke/cmp-rg"
 		}
 	}
 
