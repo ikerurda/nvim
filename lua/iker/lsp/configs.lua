@@ -17,8 +17,7 @@ local on_attach = function(client, bufnr)
 	map("n", "gp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>") -- Go to next diagnostic
 	map("n", "gn", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>") -- Go to prev diagnostic
 	map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>") -- Hover info
-	map("i", "<c-s>", "<cmd> lua vim.lsp.buf.signature_help()<cr>")
-	map("n", "<c-l>", "<cmd>LspStop<cr>")
+	map("i", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>") -- Show signature help
 
 	vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
 
