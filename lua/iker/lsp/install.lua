@@ -1,4 +1,4 @@
--- This languages will be automatically installed
+-- List of language protocols to automatically install
 local languageServers = {
 	"sumneko_lua",
 	"vimls",
@@ -11,6 +11,7 @@ local languageServers = {
 	"bashls"
 }
 
+-- Automatic installation
 local lspInstaller = require "nvim-lsp-installer.servers"
 for _, l in pairs(languageServers) do
 	local ok, s = lspInstaller.get_server(l)

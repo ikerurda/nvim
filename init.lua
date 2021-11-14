@@ -7,6 +7,7 @@
 --
 pcall(require, "impatient")
 
+-- Check if packer is installed and do it otherwise
 if require "iker.first_load"() then return end
 
 -- This should be set early in the config so that other plugins can use it

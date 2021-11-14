@@ -1,8 +1,8 @@
 local has_lsp, lsp = pcall(require, "lspconfig")
 if not has_lsp then return end
 
+-- Automatically install missing lsp
 require "iker.lsp.install"
-require"nvim-autopairs".setup {}
 
 -- Apply configs
 local installer = require("nvim-lsp-installer")
@@ -16,6 +16,7 @@ installer.on_server_ready(function(server)
 	vim.cmd "do User LspAttachBuffers"
 end)
 
+-- Configure null-ls
 lsp["null-ls"].setup(configs.general)
 
 -- Disable diagnostic updates in insert mode

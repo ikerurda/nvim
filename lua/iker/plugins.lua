@@ -1,6 +1,7 @@
--- Packer manages itself
+-- Let packer configure itself
 vim.cmd "packadd packer.nvim"
 
+-- Configure packer
 local packer = require "packer"
 packer.init {
 	display = {open_fn = function() return require"packer.util".float {border = "single"} end, prompt_border = "single"},
@@ -8,6 +9,7 @@ packer.init {
 	compile_on_sync = true
 }
 
+-- Plugin list
 return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "lewis6991/impatient.nvim"
@@ -15,8 +17,7 @@ return packer.startup(function(use)
 
 	-- LSP
 	use {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer", "folke/lua-dev.nvim"}
-	use "jose-elias-alvarez/null-ls.nvim"
-	use "ThePrimeagen/refactoring.nvim"
+	use {"jose-elias-alvarez/null-ls.nvim", "ThePrimeagen/refactoring.nvim"}
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {

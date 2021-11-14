@@ -6,11 +6,7 @@ local sections = require "el.sections"
 local subscribe = require "el.subscribe"
 local lsp_statusline = require "el.plugins.lsp_status"
 
-local git_branch = subscribe.buf_autocmd("el_git_branch", "BufEnter", function(window, buffer)
-	local branch = extensions.git_branch(window, buffer)
-	if branch then return " " .. branch end
-end)
-
+-- Custom sections
 local function lsp_info()
 	local diags = {"Hint", "Warning", "Error"}
 	local out = "["
@@ -29,9 +25,15 @@ local changes = function(window, buffer)
 	if changes then return changes end
 end
 
+local mode = sections.highlight("StatusLine", extensions.gen_mode {format_string = " %s "})
+
+-- Custom autocomands
 local git_changes = subscribe.buf_autocmd("el_git_changes", "BufWritePost", changes)
 
-local mode = sections.highlight("StatusLine", extensions.gen_mode {format_string = " %s "})
+local git_branch = subscribe.buf_autocmd("el_git_branch", "BufEnter", function(window, buffer)
+	local branch = extensions.git_branch(window, buffer)
+	if branch then return " " .. branch end
+end)
 
 require("el").setup {
 	generator = function()

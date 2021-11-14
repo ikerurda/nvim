@@ -1,7 +1,6 @@
 local nvim_status = require "lsp-status"
 
 local status = {}
-
 status.select_symbol = function(cursor_pos, symbol)
 	if symbol.valueRange then
 		local value_range = {

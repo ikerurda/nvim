@@ -1,6 +1,8 @@
+-- Setup lsp status
 local nvim_status = require "lsp-status"
 require"iker.lsp.status".activate()
 
+-- Setup null-ls
 local null = require "null-ls"
 null.config {
 	sources = {
@@ -20,6 +22,7 @@ local on_attach = function(client, bufnr)
 	local function map(m, k, c) vim.api.nvim_buf_set_keymap(bufnr, m, k, c, {noremap = true, silent = true}) end
 	nvim_status.on_attach(client)
 
+	-- Buffer mappings
 	map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- Definition
 	map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>") -- Declaration
 	map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>") -- Implementation
@@ -29,8 +32,8 @@ local on_attach = function(client, bufnr)
 	map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>") -- Hover info
 	map("i", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>") -- Show signature help
 	map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>") -- Actions
-	map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>")
-	map("v", "<leader>cf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>")
+	map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>") -- Format
+	map("v", "<leader>cf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>") -- Format selection
 end
 
 -- Configs for the language servers
