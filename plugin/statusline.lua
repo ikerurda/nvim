@@ -16,7 +16,7 @@ local function lsp_info()
 	local out = "["
 	local c
 	for _, d in pairs(diags) do
-		local res = vim.lsp.diagnostic.get_count(0, d)
+		local res = vim.diagnostic.get_count(0, d)
 		if res ~= 0 then out = out .. d:sub(1, 1) .. ":" .. res .. ", " end
 	end
 	out, c = out:gsub(", $", "]")
