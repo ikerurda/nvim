@@ -1,6 +1,5 @@
 -- This languages will be automatically installed
 local languageServers = {
-	"efm",
 	"sumneko_lua",
 	"vimls",
 	"clangd",

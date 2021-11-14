@@ -15,7 +15,8 @@ return packer.startup(function(use)
 
 	-- LSP
 	use {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer", "folke/lua-dev.nvim"}
-	use "nvim-lua/lsp-status.nvim"
+	use "jose-elias-alvarez/null-ls.nvim"
+	use "ThePrimeagen/refactoring.nvim"
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -55,7 +56,7 @@ return packer.startup(function(use)
 
 	-- Theming
 	use "tjdevries/colorbuddy.nvim"
-	use {"tjdevries/express_line.nvim", "akinsho/bufferline.nvim"}
+	use {"tjdevries/express_line.nvim", "akinsho/bufferline.nvim", "nvim-lua/lsp-status.nvim"}
 	use {"lukas-reineke/indent-blankline.nvim", "norcalli/nvim-colorizer.lua"}
 	use "projekt0n/github-nvim-theme"
 end)
