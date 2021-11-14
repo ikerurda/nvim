@@ -42,6 +42,7 @@ return packer.startup(function(use)
 	-- Telescope
 	use {"fdschmidt93/telescope.nvim", branch = "feat/fb-improvements"}
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
+	use "nvim-telescope/telescope-ui-select.nvim"
 	use "ahmedkhalf/project.nvim"
 	use "ikerurda/telescope-packer.nvim"
 	use "nvim-telescope/telescope-symbols.nvim"

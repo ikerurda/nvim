@@ -27,9 +27,11 @@ tl.setup {
 	},
 	extensions = {
 		fzf = {fuzzy = true, override_generic_sorter = true, override_file_sorter = true, case_mode = "smart_case"},
-		packer = {theme = "ivy", layout_config = {height = .5}}
+		packer = {theme = "ivy", layout_config = {height = .5}},
+		["ui-select"] = {require("telescope.themes").get_cursor {}}
 	}
 }
 tl.load_extension "fzf"
+tl.load_extension "ui-select"
 tl.load_extension "projects"
 tl.load_extension "packer"
