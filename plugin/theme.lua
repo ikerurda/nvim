@@ -17,6 +17,13 @@ Color.new("red", "#ff7b72")
 -- Telescope
 Group.new("TelescopeTitle", colors.bg, colors.blue)
 
+-- Hop
+Group.new("HopNextKey", colors.red, colors.bg)
+Group.new("HopNextKey1", colors.red, colors.bg)
+Group.new("HopNextKey2", colors.blue, colors.bg)
+Group.new("HopUnmatched", colors.grey, colors.bg)
+Group.new("HopCursor", colors.bg, colors.grey)
+
 -- Completion menu
 Group.new("CmpItemAbbrMatch", colors.blue)
 Group.new("CmpItemAbbrDeprecated", colors.red)

@@ -57,6 +57,13 @@ map("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- Buffers
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- Help
 map("n", "<leader>fm", "<cmd>Telescope man_pages<cr>") -- Manual
 -- }}}
+-- {{{ Hop
+map("n", "<leader>hc", "<cmd>HopChar1CurrentLine<cr>") -- Hop to a char in the current line
+map("n", "<leader>hC", "<cmd>HopChar2<cr>") -- Hop to a occurrence of a bigram in the buffer
+map("n", "<leader>hw", "<cmd>HopWord<cr>") -- Hop to a word in the buffer
+map("n", "<leader>hl", "<cmd>HopLineStart<cr>") -- Hop to a the first non-whitespace char of a line in the buffer
+map("n", "<leader>hp", "<cmd>HopPattern<cr>") -- Hop around by matching against a pattern
+-- }}}
 -- {{{ Packer
 map("n", "<leader>ps", "<cmd>PackerSync<cr>") -- Sync
 map("n", "<leader>pu", "<cmd>PackerUpdate<cr>") -- Update

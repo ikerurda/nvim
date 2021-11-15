@@ -50,6 +50,7 @@ return packer.startup(function(use)
 	use "nvim-telescope/telescope-symbols.nvim"
 
 	-- Tools
+	use "phaazon/hop.nvim"
 	use "jghauser/mkdir.nvim"
 	use {"numToStr/Comment.nvim", "blackCauldron7/surround.nvim"}
 	use "lewis6991/gitsigns.nvim"

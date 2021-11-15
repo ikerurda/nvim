@@ -6,6 +6,7 @@ require"surround".setup {mappings_style = "sandwich"}
 require"gitsigns".setup {keymaps = {}}
 require"colorizer".setup({}, {mode = "foreground"})
 require"nvim-autopairs".setup {}
+require"hop".setup()
 require"indent_blankline".setup {
 	filetype_exclude = {"help", "man", "packer"},
 	buftype_exclude = {"terminal"},
