@@ -29,6 +29,7 @@ map("n", "<leader>tw", "<cmd>set wrap!<cr>") -- Toggle wrap
 map("n", "<leader>ts", "<cmd>set spell!<cr>") -- Toggle spelling
 map("n", "<leader>tb", "<cmd>set scrollbind!<cr>") -- Toggle scrollbind
 map("n", "<leader>tc", "<cmd>ColorizerToggle<cr>") -- Toggle colorizer
+map("n", "<leader>tr", "<cmd>set relativenumber!<cr>") -- Toggle colorizer
 map("n", "<c-q>", "<cmd>lua Toggle_qfl()<cr>") -- Toggle qflist
 
 Toggle_qfl = function()

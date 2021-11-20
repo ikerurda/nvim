@@ -28,6 +28,7 @@ o.undofile = true -- Automatically save undo history to undo file
 o.timeoutlen = 1000 -- Milliseconds to wait for a mapped sequence to complete
 o.foldmethod = "marker" -- Use {{{ and }}} as fold marks
 o.list = true -- Fixes cursor at end of tab chars
+vim.opt.listchars = {tab = "  ", trail = "·"}
 
 o.autoindent = true -- Copy indent of prev line in new lines
 o.cindent = true -- Use c indenting

@@ -13,5 +13,6 @@ require"indent_blankline".setup {
 	bufname_exclude = {"Untitled"},
 	show_trailing_blankline_indent = false,
 	show_end_of_line = true,
-	use_treesitter = true
+	use_treesitter = true,
+	show_first_indent_level = false
 }

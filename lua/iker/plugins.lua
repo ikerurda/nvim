@@ -17,7 +17,7 @@ return packer.startup(function(use)
 
 	-- LSP
 	use {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer", "folke/lua-dev.nvim"}
-	use {"jose-elias-alvarez/null-ls.nvim", "ThePrimeagen/refactoring.nvim"}
+	use "jose-elias-alvarez/null-ls.nvim"
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
