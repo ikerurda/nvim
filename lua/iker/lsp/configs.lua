@@ -7,10 +7,7 @@ local null = require "null-ls"
 null.config {
 	sources = {
 		null.builtins.code_actions.gitsigns,
-		null.builtins.code_actions.refactoring,
-		null.builtins.formatting.yapf,
 		null.builtins.formatting.lua_format,
-		null.builtins.hover.dictionary
 	}
 }
 
