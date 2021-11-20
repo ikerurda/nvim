@@ -42,9 +42,10 @@ return packer.startup(function(use)
 	use "nvim-treesitter/nvim-treesitter-textobjects"
 
 	-- Telescope
-	use {"fdschmidt93/telescope.nvim", branch = "feat/fb-improvements"}
+	use "nvim-telescope/telescope.nvim"
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 	use "nvim-telescope/telescope-ui-select.nvim"
+	use "nvim-telescope/telescope-file-browser.nvim"
 	use "ahmedkhalf/project.nvim"
 	use "ikerurda/telescope-packer.nvim"
 	use "nvim-telescope/telescope-symbols.nvim"
