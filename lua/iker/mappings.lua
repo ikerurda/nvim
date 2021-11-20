@@ -46,8 +46,8 @@ end
 map("n", "<leader>ft", "<cmd>Telescope resume<cr>") -- Restore finder
 map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>") -- Recents
 map("n", "<leader>fj", "<cmd>Telescope projects theme=dropdown<cr>") -- Projects
-map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>") -- File broser
-map("n", "<leader>fE", "<cmd>Telescope file_browser cwd=$HOME<cr>") -- File broser at $HOME
+map("n", "<leader>fe", "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<cr>") -- File broser
+map("n", "<leader>fE", "<cmd>lua require 'telescope'.extensions.file_browser.file_browser({cwd='$HOME'})<cr>") -- File broser at $HOME
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- Find files
 map("n", "<leader>fF", "<cmd>Telescope find_files cwd=$HOME<cr>") -- Find files in $HOME
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- Live grep
