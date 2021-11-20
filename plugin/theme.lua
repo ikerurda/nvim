@@ -32,6 +32,7 @@ Group.new("CmpItemMenu", colors.gray)
 -- Statusline
 Group.new("ElNormal", colors.bg, colors.blue:light(), style.bold)
 Group.new("ElInsert", colors.bg, colors.blue:light(), style.bold)
+Group.new("ElInsertInactive", colors.gray, colors.bg, style.bold)
 Group.new("ElVisual", colors.bg, colors.blue:light(), style.bold)
 Group.new("ElVisualLine", colors.bg, colors.blue:light(), style.bold)
 Group.new("ElVisualBlock", colors.bg, colors.blue:light(), style.bold)
@@ -39,3 +40,6 @@ Group.new("ElReplace", colors.bg, colors.blue:light(), style.bold)
 Group.new("ElSelect", colors.bg, colors.blue:light(), style.bold)
 Group.new("ElCommand", colors.bg, colors.blue:light(), style.bold)
 Group.new("ElTerm", colors.bg, colors.blue:light(), style.bold)
+
+-- Other
+Group.new("VertSplit", colors.bg:dark(), colors.bg)
