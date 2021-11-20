@@ -22,6 +22,9 @@ map("n", "<c-p>", "<cmd>cprev<cr>zz") -- Prev in qflist
 map("n", "<tab>", "<cmd>bn<cr>") -- Next buffer
 map("n", "<bs>", "<cmd>bp<cr>") -- Prev buffer
 
+map("c", "<c-a>", "<home>") -- Go to start of the line
+map("c", "<c-e>", "<end>") -- Go to end of the line
+
 map("n", "<F2>", "<cmd>new | wincmd J | call nvim_win_set_height(0,12) | set winfixheight | term<cr>") -- Open small terminal
 -- }}}
 -- {{{ Toggles
