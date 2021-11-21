@@ -43,3 +43,4 @@ Group.new("ElTerm", colors.bg, colors.blue:light(), style.bold)
 
 -- Other
 Group.new("VertSplit", colors.bg:dark(), colors.bg)
+Group.new("EndOfBuffer", colors.gray, colors.bg)
