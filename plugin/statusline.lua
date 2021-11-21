@@ -40,6 +40,8 @@ require("el").setup {
 		return {
 			mode,
 			git_branch,
+			sections.collapse_builtin {"[", builtin.help_list, builtin.readonly_list, "]"},
+			builtin.quickfix,
 			" ",
 			sections.split,
 			"<< ",
@@ -56,9 +58,7 @@ require("el").setup {
 			builtin.column_with_width(2),
 			"][",
 			builtin.percentage_through_file,
-			"%%]",
-			sections.collapse_builtin {"[", builtin.help_list, builtin.readonly_list, "]"},
-			builtin.quickfix
+			"%%]"
 		}
 	end
 }
