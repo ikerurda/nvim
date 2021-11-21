@@ -46,7 +46,8 @@ o.mouse = "a" -- Mouse in all modes
 o.belloff = "all" -- Just turn the dang bell off
 o.termguicolors = true -- Enables more colors
 
-o.formatoptions = o.formatoptions - "a" -- Auto formatting is BAD.
+o.formatoptions = o.formatoptions
+- "a" -- Auto formatting is BAD.
 - "t" -- Don't auto format my code. I got linters for that.
 + "c" -- In general, I like it when comments respect textwidth
 + "q" -- Allow formatting comments w/ gq
@@ -56,6 +57,7 @@ o.formatoptions = o.formatoptions - "a" -- Auto formatting is BAD.
 + "j" -- Auto-remove comments if possible.
 - "2" -- I'm not in gradeschool anymore
 
-o.shortmess = o.shortmess + "a" -- abbreviations: all
+o.shortmess = o.shortmess
++ "a" -- abbreviations: all
 + "s" -- don't give "search hit BOTTOM, continuing at TOP" or similar messages
 + "c" -- don't give "match 1 of 2" or similiar messages
