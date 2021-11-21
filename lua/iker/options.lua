@@ -58,5 +58,4 @@ o.formatoptions = o.formatoptions - "a" -- Auto formatting is BAD.
 
 o.shortmess = o.shortmess + "a" -- abbreviations: all
 + "s" -- don't give "search hit BOTTOM, continuing at TOP" or similar messages
-+ "I" -- don't give the intro message when starting Vim :intro.
 + "c" -- don't give "match 1 of 2" or similiar messages
