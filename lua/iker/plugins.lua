@@ -53,8 +53,7 @@ return packer.startup(function(use)
 	use "phaazon/hop.nvim"
 	use "jghauser/mkdir.nvim"
 	use {"numToStr/Comment.nvim", "blackCauldron7/surround.nvim"}
-	use "lewis6991/gitsigns.nvim"
-	use {"tpope/vim-fugitive", config = function() vim.g.fugitive_legacy_commands = false end}
+	use {"lewis6991/gitsigns.nvim", "tpope/vim-fugitive"}
 
 	-- Theming
 	use "tjdevries/colorbuddy.nvim"
