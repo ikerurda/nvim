@@ -75,6 +75,11 @@ map("n", "<leader>pi", "<cmd>PackerInstall<cr>") -- Install
 map("n", "<leader>pl", "<cmd>PackerClean<cr>") -- Clean
 map("n", "<leader>pc", "<cmd>PackerCompile<cr>") -- Compile
 -- }}}
+-- {{{ Lsp
+map("n", "<leader>ll", "<cmd>LspInfo<cr>") -- Lsp info
+map("n", "<leader>li", "<cmd>LspInstallInfo<cr>") -- Lsp installation info
+map("n", "<leader>ls", "<cmd>LspStop<cr>") -- Stop inactive language servers
+-- }}}
 -- {{{ Git
 map("n", "<leader>gg", "<cmd>G<cr>") -- Status
 map("n", "<leader>ga", "<cmd>G add .<cr>") -- Add / Stage (s)
