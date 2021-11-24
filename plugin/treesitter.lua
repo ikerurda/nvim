@@ -14,7 +14,7 @@ ts.setup {
 	incremental_selection = {
 		enable = true,
 		keymaps = {
-			init_selection = "<nop>",
+			init_selection = "<cr>",
 			scope_incremental = "<nop>",
 			node_incremental = "<c-j>",
 			node_decremental = "<c-k>"
@@ -40,15 +40,8 @@ ts.setup {
 		move = {
 			enable = true,
 			set_jumps = true,
-			goto_next_start = {["]m"] = "@function.outer", ["]]"] = "@class.outer"},
-			goto_next_end = {["]M"] = "@function.outer", ["]["] = "@class.outer"},
-			goto_previous_start = {["[m"] = "@function.outer", ["[["] = "@class.outer"},
-			goto_previous_end = {["[M"] = "@function.outer", ["[]"] = "@class.outer"}
+			goto_next_start = {["gf"] = "@function.outer", ["ga"] = "@parameter.inner"},
+			goto_previous_start = {["gF"] = "@function.outer", ["gA"] = "@parameter.inner"},
 		},
-		lsp_interop = {
-			enable = true,
-			border = "none",
-			peek_definition_code = {["<leader>df"] = "@function.outer", ["<leader>dF"] = "@class.outer"}
-		}
 	}
 }
