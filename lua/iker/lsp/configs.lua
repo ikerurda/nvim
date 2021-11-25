@@ -7,7 +7,7 @@ local null = require "null-ls"
 null.config {
 	sources = {
 		null.builtins.code_actions.gitsigns,
-		null.builtins.formatting.lua_format,
+		null.builtins.formatting.lua_format
 	}
 }
 
@@ -42,5 +42,8 @@ local clangd = vim.tbl_deep_extend("force", {
 	init_options = {clangdFileStatus = true},
 	handlers = nvim_status.extensions.clangd.setup()
 }, general)
+local pylsp = vim.tbl_deep_extend("force", {
+	settings = {pylsp = {plugins = {jedi_completion = {include_params = true}}}}
+}, general)
 
-return {general = general, sumneko_lua = lua, clangd = clangd}
+return {general = general, sumneko_lua = lua, clangd = clangd, pylsp = pylsp}
