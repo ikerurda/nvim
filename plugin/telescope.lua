@@ -10,7 +10,7 @@ require"project_nvim".setup {
 }
 
 tl.setup {
-	defaults = {winblend = 10},
+	defaults = {winblend = 10, path_display = {"truncate"}},
 	pickers = {
 		find_files = {theme = "dropdown"},
 		oldfiles = {theme = "dropdown", previewer = false},
