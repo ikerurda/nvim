@@ -8,7 +8,8 @@ local languageServers = {
 	"html",
 	"cssls",
 	"tsserver",
-	"bashls"
+	"bashls",
+	"tailwindcss"
 }
 
 -- Automatic installation
