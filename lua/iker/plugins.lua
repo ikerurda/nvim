@@ -16,7 +16,6 @@ return packer.startup(function(use)
 
 	-- LSP
 	use {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer", "folke/lua-dev.nvim"}
-	use "jose-elias-alvarez/null-ls.nvim"
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -31,7 +30,6 @@ return packer.startup(function(use)
 			"hrsh7th/cmp-nvim-lua",
 			"hrsh7th/cmp-nvim-lsp",
 			"saadparwaiz1/cmp_luasnip",
-			"lukas-reineke/cmp-rg"
 		}
 	}
 

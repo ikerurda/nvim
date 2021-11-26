@@ -2,15 +2,6 @@
 local nvim_status = require "lsp-status"
 require"iker.lsp.status".activate()
 
--- Setup null-ls
-local null = require "null-ls"
-null.config {
-	sources = {
-		null.builtins.code_actions.gitsigns,
-		null.builtins.formatting.lua_format
-	}
-}
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("keep", capabilities, nvim_status.capabilities)
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
