@@ -29,12 +29,15 @@ end
 -- Configs for the language servers
 local general = {capabilities = capabilities, on_attach = on_attach}
 local lua = require"lua-dev".setup {library = {vimruntime = true, types = true, plugins = true}, lspconfig = general}
-local clangd = vim.tbl_deep_extend("force", {
+local c = vim.tbl_deep_extend("force", {
 	init_options = {clangdFileStatus = true},
 	handlers = nvim_status.extensions.clangd.setup()
 }, general)
-local pylsp = vim.tbl_deep_extend("force", {
+local python = vim.tbl_deep_extend("force", {
 	settings = {pylsp = {plugins = {jedi_completion = {include_params = true}}}}
 }, general)
+local css = vim.tbl_deep_extend("force", {
+	settings = {css = {validate = false}}
+}, general)
 
-return {general = general, sumneko_lua = lua, clangd = clangd, pylsp = pylsp}
+return {general = general, sumneko_lua = lua, clangd = c, pylsp = python, cssls = css}
