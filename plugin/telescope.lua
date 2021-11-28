@@ -9,16 +9,13 @@ require"project_nvim".setup {
 	update_focused_file = {enable = true, update_cwd = true, ignore_lsp = {"efm"}}
 }
 
+local themes = require "telescope.themes"
 tl.setup {
-	defaults = {winblend = 10, path_display = {"truncate"}},
+	defaults = themes.get_dropdown {winblend = 10, path_display = {"truncate"}},
 	pickers = {
-		find_files = {theme = "dropdown"},
-		oldfiles = {theme = "dropdown", previewer = false},
-		current_buffer_fuzzy_find = {theme = "dropdown"},
-		help_tags = {theme = "dropdown"},
-		live_grep = {theme = "dropdown"},
+		lsp_code_actions = {theme = "cursor"},
+		oldfiles = {previewer = false},
 		buffers = {
-			theme = "dropdown",
 			previewer = false,
 			mappings = {i = {["<C-d>"] = "delete_buffer"}, n = {["<C-d>"] = "delete_buffer"}}
 		}
