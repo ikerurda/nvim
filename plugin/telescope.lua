@@ -29,7 +29,7 @@ tl.setup {
 				i = {["<C-v>"] = fb_action "move_file", ["<C-x>"] = fb_action "remove_file", ["<C-d>"] = "preview_scrolling_down"}
 			}
 		},
-		packer = {theme = "ivy", layout_config = {height = .5}}
+		packer = {theme = "ivy", previewer = false, layout_config = {height = .5}}
 	}
 }
 tl.load_extension "fzf"
