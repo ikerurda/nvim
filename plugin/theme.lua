@@ -14,9 +14,6 @@ Color.new("sel", "#163356")
 Color.new("gray", "#8b949e")
 Color.new("red", "#ff7b72")
 
--- Telescope
-Group.new("TelescopeTitle", colors.bg, colors.blue)
-
 -- Hop
 Group.new("HopNextKey", colors.red, colors.bg)
 Group.new("HopNextKey1", colors.red, colors.bg)
