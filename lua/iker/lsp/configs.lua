@@ -11,17 +11,17 @@ local on_attach = function(client, bufnr)
 	nvim_status.on_attach(client)
 
 	-- Buffer mappings
-	map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- Definition
-	map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>") -- Declaration
-	map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>") -- Implementation
+	map("n", "gd", "<cmd>Telescope lsp_definitions<cr>") -- Definition
+	map("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>") -- Type definitions
+	map("n", "gi", "<cmd>Telescope lsp_implementations<cr>") -- Implementation
 	-- rename is managed by treesitter
-	map("n", "gR", "<cmd>Telescope lsp_references theme=dropdown<CR>") -- References
+	map("n", "gR", "<cmd>Telescope lsp_references<CR>") -- References
 	map("n", "gp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>") -- Go to next diagnostic
 	map("n", "gn", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>") -- Go to prev diagnostic
 	map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>") -- Hover info
 	map("i", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>") -- Show signature help
 	map("n", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>") -- Show signature help
-	map("n", "<leader>ca", "<cmd>Telescope lsp_code_actions theme=cursor<cr>") -- Actions
+	map("n", "<leader>ca", "<cmd>Telescope lsp_code_actions<cr>") -- Actions
 	map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>") -- Format
 	map("v", "<leader>cf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>") -- Format selection
 end
