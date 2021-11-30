@@ -18,7 +18,6 @@ o.number = true -- But show the actual number for the line we're on
 o.signcolumn = "yes" -- Show sign column
 o.ignorecase = true -- Ignore case when searching...
 o.smartcase = true -- ... unless there is a capital letter in the query
-o.hidden = true -- I like having buffers stay around
 o.cursorline = true -- Highlight the current line
 o.equalalways = false -- I don't like my windows changing all the time
 o.splitright = true -- Prefer windows splitting to the right
