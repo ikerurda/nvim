@@ -14,7 +14,7 @@ cmp.setup {
 	},
 	sources = {
 		{name = "nvim_lsp"},
-		{name = "nvim_lua"},
+		{name = "nvim_lsp_signature_help"},
 		{name = "luasnip"},
 		{name = "buffer", keyword_lenght = 5},
 		{name = "path"},
@@ -26,7 +26,7 @@ cmp.setup {
 			with_text = true,
 			menu = {
 				nvim_lsp = "[LSP]",
-				nvim_lua = "[api]",
+				nvim_lsp_signature_help = "[LSP]",
 				buffer = "[buf]",
 				path = "[path]",
 				luasnip = "[snip]",
