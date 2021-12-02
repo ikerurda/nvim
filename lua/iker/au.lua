@@ -10,3 +10,10 @@ augroup term
     au TermOpen * startinsert | setlocal signcolumn=no norelativenumber nonumber
     au TermOpen * silent tnoremap <esc> <C-\><C-n>
 augroup END ]]
+
+vim.cmd [[
+augroup cursor
+	au!
+	au VimLeave * set guicursor=a:hor25
+augroup END
+]]
