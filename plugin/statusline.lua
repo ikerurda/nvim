@@ -33,7 +33,7 @@ require("el").setup {
 			lsp_statusline.server_progress,
 			diagnostics.make_buffer(),
 			sections.collapse_builtin {" [", builtin.line_with_width(3), ":", builtin.column_with_width(2), "]"},
-			sections.collapse_builtin {"[", builtin.percentage_through_file, "%%]"},
+			sections.collapse_builtin {"[", builtin.percentage_through_file, "%%]"}
 		}
 	end
 }
