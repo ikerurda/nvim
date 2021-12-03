@@ -6,7 +6,6 @@ vim.api.nvim_set_keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", {expr = true, sil
 map("v", "J", ":m '>+1<cr>gv=gv") -- Move line down
 map("v", "K", ":m '<-2<cr>gv=gv") -- Move line up
 
-map("n", "<leader>r", "<cmd>source %<cr>") -- Source file
 map("n", "<c-t>", "<cmd>cd %:h<cr>") -- cd to current file
 map("n", "H", "^") -- Go to start of line
 map("n", "L", "$") -- Go to end of line

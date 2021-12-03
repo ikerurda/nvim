@@ -12,8 +12,16 @@ augroup term
 augroup END ]]
 
 vim.cmd [[
-augroup cursor
+augroup options
 	au!
 	au VimLeave * set guicursor=a:hor25
+	au BufEnter * setlocal formatoptions=njcrql
+augroup END
+]]
+
+vim.cmd [[
+augroup mappings
+	au!
+	au FileType lua map <leader>r :source %<cr>:echo "File sourced"<cr>
 augroup END
 ]]
