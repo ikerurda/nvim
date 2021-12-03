@@ -18,10 +18,3 @@ augroup options
 	au BufEnter * setlocal formatoptions=njcrql
 augroup END
 ]]
-
-vim.cmd [[
-augroup mappings
-	au!
-	au FileType lua map <leader>r :source %<cr>:echo "File sourced"<cr>
-augroup END
-]]
