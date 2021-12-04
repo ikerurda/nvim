@@ -10,8 +10,15 @@ require"project_nvim".setup {
 }
 
 local themes = require "telescope.themes"
+local action_layout = require("telescope.actions.layout")
 tl.setup {
-	defaults = themes.get_dropdown {winblend = 10, path_display = {"truncate"}},
+	defaults = themes.get_dropdown {
+		winblend = 10,
+		path_display = {"truncate"},
+		mappings = {
+			i = {["<esc>"] = "close", ["<c-p>"] = action_layout.toggle_preview}
+		}
+	},
 	pickers = {
 		lsp_code_actions = {theme = "cursor"},
 		oldfiles = {previewer = false},
