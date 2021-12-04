@@ -11,6 +11,4 @@ local download_packer = function()
 	print("Done!")
 end
 
-if not pcall(require, "packer") then
-	download_packer()
-end
+if not pcall(require, "packer") then download_packer() end
