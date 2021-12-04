@@ -16,7 +16,7 @@ tl.setup {
 		winblend = 10,
 		path_display = {"truncate"},
 		mappings = {
-			i = {["<esc>"] = "close", ["<c-p>"] = action_layout.toggle_preview}
+			i = {["<esc>"] = "close", ["<c-i>"] = action_layout.toggle_preview}
 		}
 	},
 	pickers = {
@@ -36,7 +36,7 @@ tl.setup {
 				i = {["<C-v>"] = fb_action "move_file", ["<C-x>"] = fb_action "remove_file", ["<C-d>"] = "preview_scrolling_down"}
 			}
 		},
-		packer = {theme = "ivy", previewer = false, layout_config = {height = .5}}
+		packer = {theme = "ivy", previewer = false, layout_config = {height = .5, mirror = true, preview_width = .4}}
 	}
 }
 tl.load_extension "fzf"
