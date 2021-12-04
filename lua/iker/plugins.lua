@@ -23,12 +23,12 @@ return packer.startup(function(use)
 			"ray-x/lsp_signature.nvim",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"windwp/nvim-autopairs",
-			"L3MON4D3/LuaSnip",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-calc",
 			"f3fora/cmp-spell",
 			"hrsh7th/cmp-nvim-lsp",
+			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 		}
 	}
@@ -51,11 +51,10 @@ return packer.startup(function(use)
 	use "phaazon/hop.nvim"
 	use "jghauser/mkdir.nvim"
 	use {"numToStr/Comment.nvim", "blackCauldron7/surround.nvim"}
-	use {"lewis6991/gitsigns.nvim", "tpope/vim-fugitive"}
+	use {"tpope/vim-fugitive", "lewis6991/gitsigns.nvim"}
 
 	-- Theming
-	use "tjdevries/colorbuddy.nvim"
-	use {"tjdevries/express_line.nvim", "akinsho/bufferline.nvim", "nvim-lua/lsp-status.nvim"}
+	use {"tjdevries/express_line.nvim", "nvim-lua/lsp-status.nvim", "akinsho/bufferline.nvim"}
 	use {"lukas-reineke/indent-blankline.nvim", "norcalli/nvim-colorizer.lua"}
-	use "projekt0n/github-nvim-theme"
+	use {"projekt0n/github-nvim-theme", "tjdevries/colorbuddy.nvim"}
 end)
