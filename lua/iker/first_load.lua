@@ -2,19 +2,15 @@ local download_packer = function()
 	local directory = string.format("%s/site/pack/packer/start/", vim.fn.stdpath "data")
 	vim.fn.mkdir(directory, "p")
 
+	print "Downloading packer.nvim... please wait"
 	local cmd = string.format("git clone %s %s", "https://github.com/wbthomason/packer.nvim", directory .. "packer.nvim")
-	local out = vim.fn.system(cmd)
+	vim.fn.system(cmd)
 
-	print(out)
-	print "Downloading packer.nvim..."
-	print "You'll need to restart now"
-	print "Then run PackerInstall"
+	print "Downloading plugins... please wait"
+	vim.fn.system("nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'")
+	print("Done!")
 end
 
-return function()
-	if not pcall(require, "packer") then
-		download_packer()
-		return true
-	end
-	return false
+if not pcall(require, "packer") then
+	download_packer()
 end
