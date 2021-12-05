@@ -39,15 +39,6 @@ cmp.setup {
 	experimental = {ghost_text = true}
 }
 
-require"lsp_signature".setup {
-	bind = true,
-	doc_lines = 10,
-	floating_window = true,
-	fix_pos = true,
-	hint_enable = false,
-	handler_opts = {border = "none"}
-}
-
 vim.cmd [[
 imap <silent><expr> <c-j> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-j>'
 inoremap <silent> <c-k> <cmd>lua require('luasnip').jump(-1)<CR>

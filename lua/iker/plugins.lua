@@ -20,7 +20,6 @@ return packer.startup(function(use)
 		"hrsh7th/nvim-cmp",
 		requires = {
 			"onsails/lspkind-nvim",
-			"ray-x/lsp_signature.nvim",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"windwp/nvim-autopairs",
 			"hrsh7th/cmp-buffer",
