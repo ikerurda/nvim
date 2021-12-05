@@ -56,7 +56,8 @@ map("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- Find files
 map("n", "<leader>fF", "<cmd>Telescope find_files cwd=$HOME<cr>") -- Find files in $HOME
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- Live grep
 map("n", "<leader>fa", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- Search in current buffer
-map("n", "<leader>fs", "<cmd>Telescope symbols theme=cursor layout_config={width=.6}<cr>") -- Symbols
+map("n", "<leader>fs", "<cmd>Telescope grep_string<cr>") -- Grep string
+map("n", "<leader>fy", "<cmd>Telescope symbols theme=cursor layout_config={width=.6}<cr>") -- Symbols
 map("n", "<leader>fp", "<cmd>Telescope packer<cr>") -- Plugins
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- Buffers
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- Help
