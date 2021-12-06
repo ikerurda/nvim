@@ -35,8 +35,8 @@ cmp.setup {
 			}
 		}
 	},
-	snippet = {expand = function(args) snip.lsp_expand(args.body) end},
-	experimental = {ghost_text = true}
+	snippet = {expand = function(args) snip.lsp_expand(args.body) end}
+	-- experimental = {ghost_text = true}
 }
 
 vim.cmd [[
