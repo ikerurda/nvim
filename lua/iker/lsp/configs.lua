@@ -6,6 +6,14 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("keep", capabilities, nvim_status.capabilities)
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
+local null = require "null-ls"
+null.config {
+	sources = {
+		null.builtins.formatting.lua_format,
+		null.builtins.formatting.yapf
+	}
+}
+
 local on_attach = function(client, bufnr)
 	local function map(m, k, c) vim.api.nvim_buf_set_keymap(bufnr, m, k, c, {noremap = true, silent = true}) end
 	nvim_status.on_attach(client)
