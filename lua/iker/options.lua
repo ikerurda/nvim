@@ -41,7 +41,7 @@ o.breakindent = true -- wrapped lines will maitain indentation
 o.linebreak = true -- wrap lines at a character in 'breakat' rather the las char
 
 o.clipboard = "unnamedplus"
-o.guicursor = "n-v-c-sm:block,i-ci-ve:hor25,r-cr-o:hor25"
+o.guicursor = "a:hor25,n-v-ve:block"
 o.mouse = "a" -- Mouse in all modes
 o.belloff = "all" -- Just turn the dang bell off
 o.termguicolors = true -- Enables more colors
