@@ -16,7 +16,7 @@ tl.setup {
 		winblend = 10,
 		path_display = {"truncate"},
 		mappings = {
-			i = {["<esc>"] = "close", ["<c-i>"] = action_layout.toggle_preview}
+			i = {["<esc>"] = "close", ["<c-space>"] = action_layout.toggle_preview}
 		}
 	},
 	pickers = {

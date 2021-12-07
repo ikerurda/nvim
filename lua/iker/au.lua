@@ -16,6 +16,5 @@ augroup options
 	au!
 	au VimLeave * set guicursor=a:hor25
 	au BufEnter * setlocal formatoptions=njcrql
-	au BufEnter * Copilot disable
 augroup END
 ]]
