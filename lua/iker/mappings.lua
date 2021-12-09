@@ -95,6 +95,7 @@ Other important mappings to remember:
 * Insert mode:
     <c-o> to switch to normal mode for one operation
     <c-w> to remove the last word
+	<c-k> to insert digraphs (see :dig)
 * Normal mode:
 	<gx> to open url below cursor
 	<c-]> Jump to the definition of the keyword (useful in help pages)
