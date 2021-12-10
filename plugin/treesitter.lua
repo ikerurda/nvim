@@ -2,7 +2,7 @@ local has_ts, ts = pcall(require, "nvim-treesitter.configs")
 if not has_ts then return end
 
 ts.setup {
-	ensure_installed = {"lua", "vim", "c", "python", "java", "html", "css", "javascript", "bash"},
+	ensure_installed = {"lua", "vim", "c", "python", "java", "html", "css", "javascript", "bash", "comment"},
 	highlight = {enable = true, use_languagetree = false, additional_vim_regex_highlighting = false},
 
 	refactor = {
