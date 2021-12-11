@@ -3,13 +3,10 @@ vim.cmd "packadd packer.nvim"
 
 -- Configure packer
 local packer = require "packer"
-packer.init {
-	auto_clean = true,
-	compile_on_sync = true
-}
+packer.init {auto_clean = true, compile_on_sync = true, display = {prompt_border = "rounded"}}
 
 -- Plugin list
-return packer.startup(function(use)
+packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "lewis6991/impatient.nvim"
 	use {"nvim-lua/popup.nvim", {"fdschmidt93/plenary.nvim", branch = "feat/recursive-copy"}} -- Waiting for pull request
@@ -29,7 +26,7 @@ return packer.startup(function(use)
 			"f3fora/cmp-spell",
 			"hrsh7th/cmp-nvim-lsp",
 			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
+			"saadparwaiz1/cmp_luasnip"
 		}
 	}
 
@@ -42,7 +39,7 @@ return packer.startup(function(use)
 	use "nvim-telescope/telescope.nvim"
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 	use "gbrlsnchs/telescope-lsp-handlers.nvim"
-	use "nvim-telescope/telescope-file-browser.nvim"
+	use "ikerurda/telescope-file-browser.nvim"
 	use "nvim-telescope/telescope-packer.nvim"
 	use "nvim-telescope/telescope-symbols.nvim"
 	use "ahmedkhalf/project.nvim"
