@@ -2,7 +2,7 @@ if not pcall(require, "mkdir") then return end
 
 -- Configuration for other small plugins
 vim.g.fugitive_legacy_commands = false
-require"Comment".setup {}
+require"Comment".setup {ignore = "^$"}
 require"surround".setup {mappings_style = "sandwich"}
 require"gitsigns".setup {keymaps = {}}
 require"colorizer".setup({}, {mode = "foreground"})
