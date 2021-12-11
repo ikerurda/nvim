@@ -14,18 +14,6 @@ Color.new("sel", "#163356")
 Color.new("gray", "#8b949e")
 Color.new("red", "#ff7b72")
 
--- Hop
-Group.new("HopNextKey", colors.red, colors.bg)
-Group.new("HopNextKey1", colors.red, colors.bg)
-Group.new("HopNextKey2", colors.blue, colors.bg)
-Group.new("HopUnmatched", colors.grey, colors.bg)
-Group.new("HopCursor", colors.bg, colors.grey)
-
--- Completion menu
-Group.new("CmpItemAbbrMatch", colors.blue)
-Group.new("CmpItemAbbrDeprecated", colors.red)
-Group.new("CmpItemMenu", colors.gray)
-
 -- Statusline
 Group.new("ElInsertInactive", colors.gray, colors.bg, style.bold)
 Group.new("StatusLine", colors.gray, colors.bg:light())
@@ -42,4 +30,3 @@ Group.new("ElTerm", groups.ElNormal, groups.ElNormal, groups.ElNormal)
 -- Other
 Group.new("VertSplit", colors.bg:light(), colors.bg)
 Group.new("EndOfBuffer", colors.gray:dark(), colors.bg)
-Group.new("Folded", colors.fg, colors.bg:light())
