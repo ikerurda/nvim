@@ -7,7 +7,7 @@ require"surround".setup {mappings_style = "sandwich"}
 require"gitsigns".setup {keymaps = {}}
 require"colorizer".setup({}, {mode = "foreground"})
 require"nvim-autopairs".setup {}
-require"hop".setup()
+require"hop".setup {jump_on_sole_occurrence = true}
 require"indent_blankline".setup {
 	filetype_exclude = {"help", "man", "packer"},
 	buftype_exclude = {"terminal"},
