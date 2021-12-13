@@ -61,7 +61,6 @@ map("n", "<leader>fy", "<cmd>Telescope symbols theme=cursor layout_config={width
 map("n", "<leader>fp", "<cmd>Telescope packer<cr>") -- Plugins
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- Buffers
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- Help
-map("n", "<leader>fm", "<cmd>Telescope man_pages<cr>") -- Manual
 -- }}}
 -- {{{ Hop
 map("n", "f", "<cmd>HopChar1CurrentLine<cr>") -- Hop to a char in the current line
