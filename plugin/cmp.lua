@@ -19,6 +19,7 @@ cmp.setup {
 		{name = "buffer", keyword_lenght = 5},
 		{name = "path"},
 		{name = "calc"},
+		{name = "digraphs"},
 		{name = "spell"}
 	},
 	formatting = {
@@ -31,6 +32,7 @@ cmp.setup {
 				path = "[path]",
 				luasnip = "[snip]",
 				calc = "[calc]",
+				digraphs = "[dig]",
 				spell = "[spell]"
 			}
 		}
