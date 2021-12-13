@@ -41,7 +41,7 @@ ts.setup {
 			enable = true,
 			set_jumps = true,
 			goto_next_start = {["gf"] = "@function.outer", ["ga"] = "@parameter.inner"},
-			goto_previous_start = {["gF"] = "@function.outer", ["gA"] = "@parameter.inner"},
-		},
+			goto_previous_start = {["gF"] = "@function.outer", ["gA"] = "@parameter.inner"}
+		}
 	}
 }
