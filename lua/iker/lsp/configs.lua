@@ -7,7 +7,7 @@ capabilities = vim.tbl_deep_extend("keep", capabilities, nvim_status.capabilitie
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local null = require "null-ls"
-null.config {
+null.setup {
 	sources = {
 		null.builtins.formatting.lua_format,
 		null.builtins.formatting.yapf
