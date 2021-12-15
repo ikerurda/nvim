@@ -9,7 +9,7 @@ packer.init {auto_clean = true, compile_on_sync = true, display = {prompt_border
 packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "lewis6991/impatient.nvim"
-	use {"nvim-lua/popup.nvim", {"fdschmidt93/plenary.nvim", branch = "feat/recursive-copy"}} -- Waiting for pull request
+	use {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}
 
 	-- LSP
 	use {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer", "folke/lua-dev.nvim"}
@@ -40,7 +40,7 @@ packer.startup(function(use)
 	use "nvim-telescope/telescope.nvim"
 	use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 	use "gbrlsnchs/telescope-lsp-handlers.nvim"
-	use "ikerurda/telescope-file-browser.nvim"
+	use "nvim-telescope/telescope-file-browser.nvim"
 	use "nvim-telescope/telescope-packer.nvim"
 	use "nvim-telescope/telescope-symbols.nvim"
 	use "ahmedkhalf/project.nvim"
