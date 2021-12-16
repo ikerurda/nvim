@@ -2,10 +2,7 @@
 local nvim_status = require "lsp-status"
 require"iker.lsp.status".activate()
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend("keep", capabilities, nvim_status.capabilities)
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
+-- Null lsp
 local null = require "null-ls"
 null.setup {
 	sources = {
@@ -15,16 +12,21 @@ null.setup {
 	}
 }
 
+-- Extended capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = vim.tbl_deep_extend("keep", capabilities, nvim_status.capabilities)
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+-- Custom on_attach
 local on_attach = function(client, bufnr)
 	local function map(m, k, c) vim.api.nvim_buf_set_keymap(bufnr, m, k, c, {noremap = true, silent = true}) end
 	nvim_status.on_attach(client)
 
-	-- Buffer mappings
 	map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- Definition
 	map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>") -- Declaration
 	map("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>") -- Type definition
 	map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>") -- Implementation
-	-- rename is managed by treesitter
+	map("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>") -- Rename
 	map("n", "gR", "<cmd>lua vim.lsp.buf.references()<cr>") -- References
 	map("n", "gp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>") -- Go to next diagnostic
 	map("n", "gn", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>") -- Go to prev diagnostic
@@ -38,7 +40,9 @@ end
 
 -- Configs for the language servers
 local general = {capabilities = capabilities, on_attach = on_attach}
-local lua = require"lua-dev".setup {library = {vimruntime = true, types = true, plugins = true}, lspconfig = general}
+local lua = require"lua-dev".setup {
+	library = {vimruntime = true, types = true, plugins = true}, lspconfig = general
+}
 local c = vim.tbl_deep_extend("force", {
 	init_options = {clangdFileStatus = true},
 	handlers = nvim_status.extensions.clangd.setup()
