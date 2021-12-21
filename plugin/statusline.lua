@@ -16,7 +16,7 @@ local my_theme = {
 		c = {bg = colors.even_darker_blue, fg = colors.fg}
 	},
 	inactive = {
-		a = {bg = colors.even_darker_blue, fg = colors.fg, gui = "bold"},
+		a = {bg = colors.even_darker_blue, fg = colors.fg},
 		b = {bg = colors.even_darker_blue, fg = colors.fg},
 		c = {bg = colors.even_darker_blue, fg = colors.fg}
 	}

@@ -1,5 +1,6 @@
 local o = vim.opt
 
+o.pumblend = 17
 o.wildoptions = "pum"
 o.completeopt = "menuone,preview,noselect"
 
