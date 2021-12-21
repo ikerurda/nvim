@@ -25,4 +25,7 @@ require"github-theme".setup {
 vim.cmd [[
 highlight VertSplit guifg=#1f2937
 highlight ColorColumn guibg=#1f2937
+highlight GitSignsAdd guifg=#3fb950
+highlight GitSignsChange guifg=#bc8cff
+highlight GitSignsDelete guifg=#ff7b72
 ]]
