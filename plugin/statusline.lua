@@ -4,7 +4,7 @@ if not has_ll then return end
 local colors = {
 	fg = "#c9d1d9",
 	bg = "#0d1117",
-	blue = "#327cd1",
+	blue = "#58a6ff",
 	darker_blue = "#1c345c",
 	even_darker_blue = "#161f2e"
 }
@@ -61,5 +61,15 @@ ll.setup {
 		lualine_y = {"progress"},
 		lualine_z = {"location"}
 	},
-	inactive_sections = {lualine_c = {"filename"}}
+	inactive_sections = {
+		lualine_c = {
+			{
+				"filename",
+				file_status = true,
+				path = 1,
+				shorting_target = 40,
+				symbols = {modified = ",+", readonly = ",-"}
+			}
+		}
+	}
 }
