@@ -57,11 +57,7 @@ packer.startup(function(use)
 	use {"tpope/vim-fugitive", "lewis6991/gitsigns.nvim"}
 
 	-- Theming
-	use {"projekt0n/github-nvim-theme", "tjdevries/colorbuddy.nvim"}
+	use "projekt0n/github-nvim-theme"
 	use {"lukas-reineke/indent-blankline.nvim", "norcalli/nvim-colorizer.lua"}
-	use {
-		"nvim-lualine/lualine.nvim",
-		"nvim-lua/lsp-status.nvim",
-		"akinsho/bufferline.nvim"
-	}
+	use {"nvim-lualine/lualine.nvim", "akinsho/bufferline.nvim"}
 end)
