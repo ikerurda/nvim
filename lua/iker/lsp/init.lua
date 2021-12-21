@@ -17,5 +17,6 @@ end)
 
 -- Disable diagnostic updates in insert mode
 vim.lsp.handlers["textDocument/publishDiagnostics"] = function(...)
-	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {update_in_insert = false})(...)
+	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+		{update_in_insert = false})(...)
 end

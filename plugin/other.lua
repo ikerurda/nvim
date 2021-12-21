@@ -1,4 +1,4 @@
-if not pcall(require, "mkdir") then return end
+if not pcall(require, "hop") then return end
 
 -- Configuration for other small plugins
 vim.g.fugitive_legacy_commands = false
@@ -17,3 +17,12 @@ require"indent_blankline".setup {
 	use_treesitter = true,
 	show_first_indent_level = false
 }
+require"github-theme".setup {
+	theme_style = "dark_default",
+	hide_inactive_statusline = true,
+	hide_end_of_buffer = false
+}
+vim.cmd [[
+highlight VertSplit guifg=#1f2937
+highlight ColorColumn guibg=#1f2937
+]]

@@ -1,6 +1,5 @@
 local o = vim.opt
 
-o.pumblend = 17
 o.wildoptions = "pum"
 o.completeopt = "menuone,preview,noselect"
 
@@ -28,6 +27,7 @@ o.timeoutlen = 1000 -- Milliseconds to wait for a mapped sequence to complete
 o.foldmethod = "marker" -- Use {{{ and }}} as fold marks
 o.list = true -- Fixes cursor at end of tab chars
 o.listchars = {tab = "  ", trail = "·"}
+o.colorcolumn = "80"
 
 o.autoindent = true -- Copy indent of prev line in new lines
 o.cindent = true -- Use c indenting
@@ -41,7 +41,6 @@ o.breakindent = true -- wrapped lines will maitain indentation
 o.linebreak = true -- wrap lines at a character in 'breakat' rather the las char
 
 o.clipboard = "unnamedplus"
-o.guicursor = "a:hor25,n-v-ve:block"
 o.mouse = "a" -- Mouse in all modes
 o.belloff = "all" -- Just turn the dang bell off
 o.termguicolors = true -- Enables more colors

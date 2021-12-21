@@ -10,7 +10,10 @@ cmp.setup {
 		["<C-c>"] = cmp.mapping.close(),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
-		["<CR>"] = cmp.mapping.confirm {behavior = cmp.ConfirmBehavior.Insert, select = false}
+		["<CR>"] = cmp.mapping.confirm {
+			behavior = cmp.ConfirmBehavior.Insert,
+			select = false
+		}
 	},
 	sources = {
 		{name = "nvim_lsp"},

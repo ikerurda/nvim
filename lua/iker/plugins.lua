@@ -1,9 +1,10 @@
--- Let packer configure itself
-vim.cmd "packadd packer.nvim"
-
 -- Configure packer
 local packer = require "packer"
-packer.init {auto_clean = true, compile_on_sync = true, display = {prompt_border = "rounded"}}
+packer.init {
+	auto_clean = true,
+	compile_on_sync = true,
+	display = {prompt_border = "rounded"}
+}
 
 -- Plugin list
 packer.startup(function(use)
@@ -12,8 +13,14 @@ packer.startup(function(use)
 	use {"nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}
 
 	-- LSP
-	use {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer", "folke/lua-dev.nvim"}
-	use "jose-elias-alvarez/null-ls.nvim"
+	use {
+		"neovim/nvim-lspconfig",
+		"williamboman/nvim-lsp-installer",
+		"folke/lua-dev.nvim",
+		"jose-elias-alvarez/null-ls.nvim"
+	}
+
+	-- Completion
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -42,17 +49,19 @@ packer.startup(function(use)
 	use "gbrlsnchs/telescope-lsp-handlers.nvim"
 	use "nvim-telescope/telescope-file-browser.nvim"
 	use "nvim-telescope/telescope-packer.nvim"
-	use "nvim-telescope/telescope-symbols.nvim"
 	use "ahmedkhalf/project.nvim"
 
 	-- Tools
 	use "phaazon/hop.nvim"
-	use "jghauser/mkdir.nvim"
 	use {"numToStr/Comment.nvim", "blackCauldron7/surround.nvim"}
 	use {"tpope/vim-fugitive", "lewis6991/gitsigns.nvim"}
 
 	-- Theming
-	use {"tjdevries/express_line.nvim", "nvim-lua/lsp-status.nvim", "akinsho/bufferline.nvim"}
-	use {"lukas-reineke/indent-blankline.nvim", "norcalli/nvim-colorizer.lua"}
 	use {"projekt0n/github-nvim-theme", "tjdevries/colorbuddy.nvim"}
+	use {"lukas-reineke/indent-blankline.nvim", "norcalli/nvim-colorizer.lua"}
+	use {
+		"nvim-lualine/lualine.nvim",
+		"nvim-lua/lsp-status.nvim",
+		"akinsho/bufferline.nvim"
+	}
 end)
