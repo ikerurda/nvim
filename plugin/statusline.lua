@@ -59,7 +59,7 @@ ll.setup {
 				always_visible = false
 			}
 		},
-		lualine_y = {"progress"},
+		lualine_y = {"filesize"},
 		lualine_z = {"%l/%L:%c"}
 	},
 	inactive_sections = {
