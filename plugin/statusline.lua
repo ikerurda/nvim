@@ -5,26 +5,26 @@ local colors = {
 	fg = "#c9d1d9",
 	bg = "#0d1117",
 	blue = "#58a6ff",
-	darker_blue = "#1c345c",
-	even_darker_blue = "#161f2e"
+	darker_blue = "#161f2e"
 }
 
 local my_theme = {
 	normal = {
 		a = {bg = colors.blue, fg = colors.bg, gui = "bold"},
-		b = {bg = colors.darker_blue, fg = colors.fg},
-		c = {bg = colors.even_darker_blue, fg = colors.fg}
+		b = {bg = colors.blue, fg = colors.bg},
+		c = {bg = colors.blue, fg = colors.bg}
 	},
 	inactive = {
-		a = {bg = colors.even_darker_blue, fg = colors.fg},
-		b = {bg = colors.even_darker_blue, fg = colors.fg},
-		c = {bg = colors.even_darker_blue, fg = colors.fg}
+		a = {bg = colors.darker_blue, fg = colors.fg},
+		b = {bg = colors.darker_blue, fg = colors.fg},
+		c = {bg = colors.darker_blue, fg = colors.fg}
 	}
 }
 
 ll.setup {
 	options = {
 		theme = my_theme,
+		icons_enabled = false,
 		component_separators = "",
 		section_separators = ""
 	},
@@ -39,6 +39,7 @@ ll.setup {
 			}
 		},
 		lualine_c = {
+			"%=",
 			{
 				"filename",
 				file_status = true,
@@ -59,7 +60,7 @@ ll.setup {
 			}
 		},
 		lualine_y = {"progress"},
-		lualine_z = {"location"}
+		lualine_z = {"%l/%L:%c"}
 	},
 	inactive_sections = {
 		lualine_c = {

@@ -55,9 +55,8 @@ tl.setup {
 			}
 		},
 		packer = {
-			theme = "ivy",
 			previewer = false,
-			layout_config = {height = .5, mirror = true, preview_width = .4}
+			layout_config = {height = .5}
 		}
 	}
 }

@@ -19,13 +19,15 @@ require"indent_blankline".setup {
 }
 require"github-theme".setup {
 	theme_style = "dark_default",
-	hide_inactive_statusline = true,
-	hide_end_of_buffer = false
+	hide_inactive_statusline = false,
+	hide_end_of_buffer = false,
+	overrides = function(c)
+		return {
+			VertSplit = {fg = c.bg_highlight},
+			ColorColumn = {bg = c.bg_highlight},
+			GitSignsAdd = {fg = c.green},
+			GitSignsChange = {fg = c.magenta},
+			GitSignsDelete = {fg = c.red}
+		}
+	end
 }
-vim.cmd [[
-highlight VertSplit guifg=#1f2937
-highlight ColorColumn guibg=#1f2937
-highlight GitSignsAdd guifg=#3fb950
-highlight GitSignsChange guifg=#bc8cff
-highlight GitSignsDelete guifg=#ff7b72
-]]
