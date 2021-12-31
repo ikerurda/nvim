@@ -73,6 +73,7 @@ lmap("fs", "<cmd>Telescope grep_string<cr>") -- Grep string
 lmap("fp", "<cmd>Telescope packer<cr>") -- Plugins
 lmap("fb", "<cmd>Telescope buffers<cr>") -- Buffers
 lmap("fh", "<cmd>Telescope help_tags<cr>") -- Help
+lmap("fm", "<cmd>Telescope man_pages<cr>") -- Help
 
 -- Hop
 nmap("f", "<cmd>HopChar1CurrentLine<cr>") -- Hop to char in current line
