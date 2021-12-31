@@ -1,17 +1,20 @@
 -- Mapping functions
 local function map(mode, key, command, opt)
-	local opts = opt or {noremap = true, silent = true}
-	vim.api.nvim_set_keymap(mode, key, command, opts)
+  local default = { noremap = true, silent = true }
+  local opts = vim.tbl_deep_extend("force", default, opt or {})
+  vim.api.nvim_set_keymap(mode, key, command, opts)
 end
 
-local function nmap(...) map("n", ...) end
-local function nmapl(m,...) map("n", "<leader>"..m, ...) end
-
+local function nmap(...)
+  map("n", ...)
+end
+local function lmap(m, ...)
+  map("n", "<leader>" .. m, ...)
+end
 
 -- General
-local opts = {expr = true, silent = true, noremap = true}
-vim.api.nvim_set_keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", opts)
-vim.api.nvim_set_keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", opts)
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 map("v", "J", ":m '>+1<cr>gv=gv") -- Move line down
 map("v", "K", ":m '<-2<cr>gv=gv") -- Move line up
 
@@ -28,11 +31,14 @@ nmap("cN", "*``cgN") -- Change word, <ESC>, repeat backwards with <.>
 nmap("<c-n>", "<cmd>cnext<cr>zz") -- Next in qflist
 nmap("<c-p>", "<cmd>cprev<cr>zz") -- Prev in qflist
 nmap("<c-t>", "<cmd>cd %:h<cr>") -- cd to current file
+nmap("<a-t>", "<cmd>Gcd<cr>") -- cd to git root
 
-nmap("<tab>", "<cmd>bn<cr>") -- Next buffer
-nmap("<bs>", "<cmd>bp<cr>") -- Prev buffer
-nmap("<leader>b", "<cmd>BufferLinePick<cr>") -- Pick buffer
-
+nmap("<tab>", "<cmd>BufferLineCycleNext<cr>") -- Next buffer
+nmap("<bs>", "<cmd>BufferLineCyclePrev<cr>") -- Prev buffer
+nmap("<leader>bb", "<cmd>BufferLinePick<cr>") -- Pick buffer
+nmap("<leader>bc", "<cmd>BufferLinePickClose<cr>") -- Pick buffer to close
+nmap("<leader>bh", "<cmd>BufferLineMovePrev<cr>") -- Move buffer to the left
+nmap("<leader>bl", "<cmd>BufferLineMoveNext<cr>") -- Move buffer to the right
 
 -- Toggles
 nmap("<leader>tw", "<cmd>set wrap!<cr>") -- Toggle wrap
@@ -43,60 +49,56 @@ nmap("<leader>tr", "<cmd>set relativenumber!<cr>") -- Toggle colorizer
 nmap("<c-q>", "<cmd>lua Toggle_qfl()<cr>") -- Toggle qflist
 
 Toggle_qfl = function()
-	for _, win in pairs(vim.fn.getwininfo()) do
-		if win["quickfix"] == 1 then
-			vim.cmd "cclose"
-			return
-		end
-	end
-	vim.cmd "copen"
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win["quickfix"] == 1 then
+      vim.cmd "cclose"
+      return
+    end
+  end
+  vim.cmd "copen"
 end
 
-
 -- Telescope
-nmapl("ft", "<cmd>Telescope resume<cr>") -- Restore finder
-nmapl("fr", "<cmd>Telescope oldfiles<cr>") -- Recents
-nmapl("fj", "<cmd>Telescope projects theme=dropdown<cr>") -- Projects
-nmapl("fe", "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<cr>") -- File broser
-nmapl("fE", "<cmd>lua require 'telescope'.extensions.file_browser.file_browser({cwd='$HOME'})<cr>") -- File broser at $HOME
-nmapl("ff", "<cmd>Telescope find_files<cr>") -- Find files
-nmapl("fF", "<cmd>Telescope find_files cwd=$HOME<cr>") -- Find files in $HOME
-nmapl("fg", "<cmd>Telescope live_grep<cr>") -- Live grep directory
-nmapl("fa", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- Search in buffer
-nmapl("fs", "<cmd>Telescope grep_string<cr>") -- Grep string
-nmapl("fp", "<cmd>Telescope packer<cr>") -- Plugins
-nmapl("fb", "<cmd>Telescope buffers<cr>") -- Buffers
-nmapl("fh", "<cmd>Telescope help_tags<cr>") -- Help
-
+lmap("ft", "<cmd>Telescope resume<cr>") -- Restore finder
+lmap("fr", "<cmd>Telescope oldfiles<cr>") -- Recents
+lmap("fj", "<cmd>Telescope project<cr>") -- Projects
+lmap(
+  "fe",
+  "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<cr>"
+) -- File broser
+lmap("ff", "<cmd>Telescope find_files<cr>") -- Find files
+lmap("fg", "<cmd>Telescope live_grep<cr>") -- Live grep directory
+lmap("fa", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- Search in buffer
+lmap("fs", "<cmd>Telescope grep_string<cr>") -- Grep string
+lmap("fp", "<cmd>Telescope packer<cr>") -- Plugins
+lmap("fb", "<cmd>Telescope buffers<cr>") -- Buffers
+lmap("fh", "<cmd>Telescope help_tags<cr>") -- Help
 
 -- Hop
 nmap("f", "<cmd>HopChar1CurrentLine<cr>") -- Hop to char in current line
-nmapl("hc", "<cmd>HopChar2<cr>") -- Hop to occurrence of a bigram
-nmapl("hw", "<cmd>HopWord<cr>") -- Hop to word
-nmapl("hl", "<cmd>HopLineStart<cr>") -- Hop to start of a line
-nmapl("hp", "<cmd>HopPattern<cr>") -- Hop matching against a pattern
-
+lmap("hc", "<cmd>HopChar2<cr>") -- Hop to occurrence of a bigram
+lmap("hw", "<cmd>HopWord<cr>") -- Hop to word
+lmap("hl", "<cmd>HopLineStart<cr>") -- Hop to start of a line
+lmap("hp", "<cmd>HopPattern<cr>") -- Hop matching against a pattern
 
 -- Packer
-nmapl("ps", "<cmd>PackerSync<cr>") -- Sync
-nmapl("pu", "<cmd>PackerUpdate<cr>") -- Update
-nmapl("pi", "<cmd>PackerInstall<cr>") -- Install
-nmapl("pl", "<cmd>PackerClean<cr>") -- Clean
-nmapl("pc", "<cmd>PackerCompile<cr>") -- Compile
-
+lmap("ps", "<cmd>PackerSync<cr>") -- Sync
+lmap("pu", "<cmd>PackerUpdate<cr>") -- Update
+lmap("pi", "<cmd>PackerInstall<cr>") -- Install
+lmap("pl", "<cmd>PackerClean<cr>") -- Clean
+lmap("pc", "<cmd>PackerCompile<cr>") -- Compile
 
 -- LSPinstaller
-nmapl("ll", "<cmd>LspInfo<cr>") -- Lsp info
-nmapl("li", "<cmd>LspInstallInfo<cr>") -- Lsp installation info
-nmapl("ls", "<cmd>LspStop<cr>") -- Stop inactive language servers
-
+lmap("ll", "<cmd>LspInfo<cr>") -- Lsp info
+lmap("li", "<cmd>LspInstallInfo<cr>") -- Lsp installation info
+lmap("ls", "<cmd>LspStop<cr>") -- Stop inactive language servers
 
 -- Git
-nmapl("gg", "<cmd>G<cr>") -- Status
-nmapl("ga", "<cmd>G add .<cr>") -- Add / Stage (s)
-nmapl("gd", "<cmd>G diff<cr>") -- Diff (dv or =)
-nmapl("gc", "<cmd>G commit<cr>") -- Commit (cc), (Amend: ce)
-nmapl("gp", "<cmd>G push<cr>") -- Push
+lmap("gg", "<cmd>G<cr>") -- Status
+lmap("ga", "<cmd>G add .<cr>") -- Add / Stage (s)
+lmap("gd", "<cmd>G diff<cr>") -- Diff (dv or =)
+lmap("gc", "<cmd>G commit<cr>") -- Commit (cc), (Amend: ce)
+lmap("gp", "<cmd>G push<cr>") -- Push
 
 --[[
 Other important mappings to remember:

@@ -1,22 +1,40 @@
 local has_installer, installer = pcall(require, "nvim-lsp-installer")
-if not has_installer then return end
+if not has_installer then
+  return
+end
 
--- Automatically install missing lsp
-require "iker.lsp.install"
+-- List of language servers to automatically install
+local languageServers = {
+  "sumneko_lua",
+  "vimls",
+  "clangd",
+  "pylsp",
+  "jdtls",
+  "html",
+  "cssls",
+  "tsserver",
+  "bashls",
+  "tailwindcss",
+}
+
+-- Automatic installation
+local lspInstaller = require "nvim-lsp-installer.servers"
+for _, l in pairs(languageServers) do
+  local ok, s = lspInstaller.get_server(l)
+  if ok then
+    if not s:is_installed() then
+      s:install()
+    end
+  end
+end
 
 -- Apply configs
 local configs = require "iker.lsp.configs"
 installer.on_server_ready(function(server)
-	if configs[server.name] then
-		server:setup(configs[server.name])
-	else
-		server:setup(configs.general)
-	end
-	vim.cmd "do User LspAttachBuffers"
+  if configs[server.name] then
+    server:setup(configs[server.name])
+  else
+    server:setup(configs.general)
+  end
+  vim.cmd "do User LspAttachBuffers"
 end)
-
--- Disable diagnostic updates in insert mode
-vim.lsp.handlers["textDocument/publishDiagnostics"] = function(...)
-	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-		{update_in_insert = false})(...)
-end

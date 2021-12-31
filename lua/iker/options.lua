@@ -27,19 +27,17 @@ o.undofile = true -- Automatically save undo history to undo file
 o.timeoutlen = 1000 -- Milliseconds to wait for a mapped sequence to complete
 o.foldmethod = "marker" -- Use {{{ and }}} as fold marks
 o.list = true -- Fixes cursor at end of tab chars
-o.listchars = {tab = "  ", trail = "·"}
+o.listchars = { tab = "  ", trail = "·" }
 o.colorcolumn = "80"
 
 o.autoindent = true -- Copy indent of prev line in new lines
-o.cindent = true -- Use c indenting
-
-o.tabstop = 4
-o.shiftwidth = 4
-o.softtabstop = 4
+o.expandtab = true
+o.tabstop = 2
+o.shiftwidth = 2
+o.softtabstop = 2
 
 o.wrap = false
 o.breakindent = true -- wrapped lines will maitain indentation
-o.linebreak = true -- wrap lines at a character in 'breakat' rather the las char
 
 o.clipboard = "unnamedplus"
 o.mouse = "a" -- Mouse in all modes
@@ -47,6 +45,6 @@ o.belloff = "all" -- Just turn the dang bell off
 o.termguicolors = true -- Enables more colors
 
 o.shortmess = o.shortmess
-+ "a" -- abbreviations: all
-+ "s" -- don't give "search hit BOTTOM, continuing at TOP" or similar messages
-+ "c" -- don't give "match 1 of 2" or similiar messages
+  + "a" -- abbreviations: all
+  + "s" -- don't give "search hit BOTTOM, continuing at TOP" or similar messages
+  + "c" -- don't give "match 1 of 2" or similiar messages
