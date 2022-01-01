@@ -47,7 +47,7 @@ ll.setup {
         file_status = true,
         path = 1,
         shorting_target = 40,
-        symbols = { modified = ",+", readonly = ",-", unnamed = "unnamed" },
+        symbols = { modified = ",+", readonly = ",-" },
       },
     },
     lualine_x = {

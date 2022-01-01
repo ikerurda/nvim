@@ -23,6 +23,7 @@ ts.setup {
     additional_vim_regex_highlighting = false,
   },
   refactor = {
+    smart_rename = { enable = true, keymaps = { smart_rename = "gr" } },
     highlight_definitions = { enable = true },
     highlight_current_scope = { enable = false },
   },
