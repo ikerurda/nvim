@@ -43,10 +43,8 @@ ts.setup {
       keymaps = {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-
         ["ac"] = "@conditional.outer",
         ["ic"] = "@conditional.inner",
-
         ["aa"] = "@parameter.outer",
         ["ia"] = "@parameter.inner",
       },
