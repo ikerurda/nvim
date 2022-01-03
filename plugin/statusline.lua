@@ -71,7 +71,7 @@ ll.setup {
         file_status = true,
         path = 0,
         shorting_target = 50,
-        symbols = { modified = ",+", readonly = ",-", unnamed = "unnamed" },
+        symbols = { modified = ",+", readonly = ",-" },
       },
     },
   },
