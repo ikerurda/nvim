@@ -30,8 +30,8 @@ nmap("cN", "*``cgN") -- Change word, <ESC>, repeat backwards with <.>
 
 nmap("<c-n>", "<cmd>cnext<cr>zz") -- Next in qflist
 nmap("<c-p>", "<cmd>cprev<cr>zz") -- Prev in qflist
-nmap("<c-t>", "<cmd>cd %:h<cr>") -- cd to current file
-nmap("<a-t>", "<cmd>Gcd<cr>") -- cd to git root
+local cmd =  "fugitive#head() != '' ? '<cmd>Gcd<CR>' : '<cmd>cd %:h<cr>'"
+nmap("<c-t>", cmd, {expr = true}) -- cd to git root or current file
 
 nmap("<tab>", "<cmd>BufferLineCycleNext<cr>") -- Next buffer
 nmap("<bs>", "<cmd>BufferLineCyclePrev<cr>") -- Prev buffer
