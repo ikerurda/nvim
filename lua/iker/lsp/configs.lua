@@ -14,7 +14,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Custom on_attach
-local on_attach = function(bufnr)
+local on_attach = function(_, bufnr)
   local function map(m, k, c)
     local opts = { noremap = true, silent = true }
     vim.api.nvim_buf_set_keymap(bufnr, m, k, c, opts)
