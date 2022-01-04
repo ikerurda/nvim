@@ -26,7 +26,6 @@ packer.startup(function(use)
     requires = {
       "onsails/lspkind-nvim",
       "hrsh7th/cmp-nvim-lsp-signature-help",
-      "windwp/nvim-autopairs",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-calc",
@@ -51,8 +50,8 @@ packer.startup(function(use)
   use "nvim-telescope/telescope-project.nvim"
 
   -- Tools
-  use "phaazon/hop.nvim"
-  use { "numToStr/Comment.nvim", "blackCauldron7/surround.nvim" }
+  use { "phaazon/hop.nvim", "numToStr/Comment.nvim" }
+  use { "windwp/nvim-autopairs", "blackCauldron7/surround.nvim" }
   use { "tpope/vim-fugitive", "lewis6991/gitsigns.nvim" }
 
   -- Theming
