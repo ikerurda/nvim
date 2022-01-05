@@ -9,7 +9,7 @@ local function nmap(...)
   map("n", ...)
 end
 local function lmap(m, ...)
-  map("n", "<leader>" .. m, ...)
+  nmap("<leader>" .. m, ...)
 end
 
 -- General
@@ -17,37 +17,38 @@ map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 map("v", "J", ":m '>+1<cr>gv=gv") -- Move line down
 map("v", "K", ":m '<-2<cr>gv=gv") -- Move line up
-
 nmap("H", "^") -- Go to start of line
 nmap("L", "$") -- Go to end of line
 nmap("Y", "y$") -- Yank to end of line
-nmap("J", "mzJ`z") -- Join lines
-nmap("n", "nzzzv") -- Jump to next occurrence
-nmap("N", "Nzzzv") -- Jump to prev occurrence
+nmap("J", "mzJ`z") -- Join lines and return to position
+nmap("n", "nzzzv") -- Jump to next occurrence and center cursor
+nmap("N", "Nzzzv") -- Jump to prev occurrence and center cursor
 nmap("gP", "`[v`]") -- Switch to VISUAL using last paste
+nmap("P", "\"0p") -- Paste last copied text
 nmap("cn", "*``cgn") -- Change word, <ESC>, repeat forwards with <.>
 nmap("cN", "*``cgN") -- Change word, <ESC>, repeat backwards with <.>
+local cmd = "fugitive#head() != '' ? '<cmd>Gcd<CR>' : '<cmd>cd %:h<cr>'"
+nmap("<c-t>", cmd, { expr = true }) -- cd to git root or current file
 
-nmap("<c-n>", "<cmd>cnext<cr>zz") -- Next in qflist
-nmap("<c-p>", "<cmd>cprev<cr>zz") -- Prev in qflist
-local cmd =  "fugitive#head() != '' ? '<cmd>Gcd<CR>' : '<cmd>cd %:h<cr>'"
-nmap("<c-t>", cmd, {expr = true}) -- cd to git root or current file
-
+-- Buffer
 nmap("<tab>", "<cmd>BufferLineCycleNext<cr>") -- Next buffer
 nmap("<bs>", "<cmd>BufferLineCyclePrev<cr>") -- Prev buffer
-nmap("<leader>bb", "<cmd>BufferLinePick<cr>") -- Pick buffer
-nmap("<leader>bc", "<cmd>BufferLinePickClose<cr>") -- Pick buffer to close
-nmap("<leader>bh", "<cmd>BufferLineMovePrev<cr>") -- Move buffer to the left
-nmap("<leader>bl", "<cmd>BufferLineMoveNext<cr>") -- Move buffer to the right
+lmap("bb", "<cmd>BufferLinePick<cr>") -- Pick buffer
+lmap("bc", "<cmd>BufferLinePickClose<cr>") -- Pick buffer to close
+lmap("bh", "<cmd>BufferLineMovePrev<cr>") -- Move buffer to the left
+lmap("bl", "<cmd>BufferLineMoveNext<cr>") -- Move buffer to the right
 
 -- Toggles
-nmap("<leader>tw", "<cmd>set wrap!<cr>") -- Toggle wrap
-nmap("<leader>ts", "<cmd>set spell!<cr>") -- Toggle spelling
-nmap("<leader>tb", "<cmd>set scrollbind!<cr>") -- Toggle scrollbind
-nmap("<leader>tc", "<cmd>ColorizerToggle<cr>") -- Toggle colorizer
-nmap("<leader>tr", "<cmd>set relativenumber!<cr>") -- Toggle colorizer
-nmap("<c-q>", "<cmd>lua Toggle_qfl()<cr>") -- Toggle qflist
+lmap("tw", "<cmd>set wrap!<cr>") -- Toggle wrap
+lmap("ts", "<cmd>set spell!<cr>") -- Toggle spelling
+lmap("tb", "<cmd>set scrollbind!<cr>") -- Toggle scrollbind
+lmap("tc", "<cmd>ColorizerToggle<cr>") -- Toggle colorizer
+lmap("tr", "<cmd>set relativenumber!<cr>") -- Toggle colorizer
 
+-- QFlist
+nmap("<c-n>", "<cmd>cnext<cr>zz") -- Next in qflist
+nmap("<c-p>", "<cmd>cprev<cr>zz") -- Prev in qflist
+nmap("<c-q>", "<cmd>lua Toggle_qfl()<cr>") -- Toggle qflist
 Toggle_qfl = function()
   for _, win in pairs(vim.fn.getwininfo()) do
     if win["quickfix"] == 1 then
