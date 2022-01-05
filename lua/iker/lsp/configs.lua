@@ -14,7 +14,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Custom on_attach
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   local function map(m, k, c)
     local opts = { noremap = true, silent = true }
     vim.api.nvim_buf_set_keymap(bufnr, m, k, c, opts)
@@ -32,6 +32,11 @@ local on_attach = function(_, bufnr)
   map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
   map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>")
   map("v", "<leader>cf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>")
+
+  if client.name == "pylsp" then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
 end
 
 -- Configs for the language servers
