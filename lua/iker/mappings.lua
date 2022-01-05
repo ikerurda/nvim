@@ -23,7 +23,7 @@ nmap("L", "$") -- Go to end of line
 nmap("Y", "y$") -- Yank to end of line
 nmap("J", "mzJ`z") -- Join lines
 nmap("n", "nzzzv") -- Jump to next occurrence
-nmap("N", "nzzzv") -- Jump to prev occurrence
+nmap("N", "Nzzzv") -- Jump to prev occurrence
 nmap("gP", "`[v`]") -- Switch to VISUAL using last paste
 nmap("cn", "*``cgn") -- Change word, <ESC>, repeat forwards with <.>
 nmap("cN", "*``cgN") -- Change word, <ESC>, repeat backwards with <.>
