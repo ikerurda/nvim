@@ -24,7 +24,7 @@ nmap("J", "mzJ`z") -- Join lines and return to position
 nmap("n", "nzzzv") -- Jump to next occurrence and center cursor
 nmap("N", "Nzzzv") -- Jump to prev occurrence and center cursor
 nmap("gP", "`[v`]") -- Switch to VISUAL using last paste
-nmap("P", "\"0p") -- Paste last copied text
+lmap("p", "\"0p") -- Paste last copied text
 nmap("cn", "*``cgn") -- Change word, <ESC>, repeat forwards with <.>
 nmap("cN", "*``cgN") -- Change word, <ESC>, repeat backwards with <.>
 local cmd = "fugitive#head() != '' ? '<cmd>Gcd<CR>' : '<cmd>cd %:h<cr>'"
