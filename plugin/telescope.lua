@@ -3,18 +3,16 @@ if not has_tl then
   return
 end
 
--- TODO:
--- 1. propose my keymappings as default
--- 2. <A-e> wont ignore ../ and ./
--- 3. try to think of a way of setting this as theme = "..."
---    (see https://github.com/nvim-telescope/telescope.nvim/issues/938)
 local themes = require "telescope.themes"
 local layout_actions = require "telescope.actions.layout"
 local fb_actions = require("telescope").extensions.file_browser.actions
 tl.setup {
   defaults = themes.get_dropdown {
     winblend = 10,
-    path_display = { "truncate" },
+    prompt_prefix = " ",
+    selection_caret = "  ",
+    multi_icon = " ",
+    path_display = { "smart" },
     mappings = {
       i = {
         ["<esc>"] = "close",
@@ -45,6 +43,7 @@ tl.setup {
     file_browser = {
       previewer = false,
       dir_icon = "#",
+      path_display = { ["truncate"] = 3},
       respect_gitignore = false,
       mappings = {
         i = {
