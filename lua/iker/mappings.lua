@@ -99,7 +99,7 @@ lmap("ls", "<cmd>LspStop<cr>") -- Stop inactive language servers
 lmap("gg", "<cmd>G<cr>") -- Status
 lmap("ga", "<cmd>G add .<cr>") -- Add / Stage (s)
 lmap("gd", "<cmd>G diff<cr>") -- Diff (dv or =)
-lmap("gc", "<cmd>G commit<cr>") -- Commit (cc), (Amend: ce)
+lmap("gc", "<cmd>G commit<cr>") -- Commit (cc), (Amend: ce or ca)
 lmap("gp", "<cmd>G push<cr>") -- Push
 
 --[[
