@@ -62,6 +62,7 @@ end
 -- Telescope
 lmap("ft", "<cmd>Telescope resume<cr>") -- Restore finder
 lmap("fr", "<cmd>Telescope oldfiles<cr>") -- Recents
+lmap("fR", "<cmd>Telescope oldfiles only_cwd=true<cr>") -- Recents
 lmap("fj", "<cmd>Telescope project<cr>") -- Projects
 lmap(
   "fe",
