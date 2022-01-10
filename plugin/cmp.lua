@@ -48,9 +48,6 @@ cmp.setup {
   experimental = { ghost_text = true },
 }
 
-vim.cmd [[
-inoremap <silent> <c-j> <cmd>lua require('luasnip').jump(1)<CR>
-inoremap <silent> <c-k> <cmd>lua require('luasnip').jump(-1)<CR>
-snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(1)<CR>
-snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(-1)<CR>
-]]
+local map = vim.keymap.set
+map({"i", "s"}, "<c-j>", function() snip.jump(1) end)
+map({"i", "s"}, "<c-k>", function() snip.jump(-1) end)

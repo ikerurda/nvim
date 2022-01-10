@@ -15,23 +15,19 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Custom on_attach
 local on_attach = function(client, bufnr)
-  local function map(m, k, c)
-    local opts = { noremap = true, silent = true }
-    vim.api.nvim_buf_set_keymap(bufnr, m, k, c, opts)
-  end
-  map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
-  map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
-  map("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
-  map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
-  map("n", "gR", "<cmd>lua vim.lsp.buf.references()<cr>")
-  map("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
-  map("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<cr>")
-  map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
-  map("i", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
-  map("n", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
-  map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
-  map("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>")
-  map("v", "<leader>cf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>")
+  local map = vim.keymap.set
+  map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
+  map("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
+  map("n", "gt", vim.lsp.buf.type_definition, { buffer = bufnr })
+  map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr })
+  map("n", "gR", vim.lsp.buf.references, { buffer = bufnr })
+  map("n", "gp", vim.diagnostic.goto_prev, { buffer = bufnr })
+  map("n", "gn", vim.diagnostic.goto_next, { buffer = bufnr })
+  map("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+  map({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { buffer = bufnr })
+  map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
+  map("n", "<leader>cf", vim.lsp.buf.formatting_sync, { buffer = bufnr })
+  map("v", "<leader>cf", vim.lsp.buf.range_formatting, { buffer = bufnr })
 
   if client.name == "pylsp" then
     client.resolved_capabilities.document_formatting = false
@@ -51,11 +47,7 @@ M.pylsp = vim.tbl_deep_extend("force", {
     pylsp = { plugins = { jedi_completion = { include_params = true } } },
   },
 }, M.general)
-M.cssls = vim.tbl_deep_extend(
-  "force",
-  { settings = {
-    css = { validate = false },
-  } },
-  M.general
-)
+M.cssls = vim.tbl_deep_extend("force", {
+  settings = { css = { validate = false } },
+}, M.general)
 return M

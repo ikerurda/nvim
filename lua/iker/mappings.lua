@@ -1,107 +1,79 @@
--- Mapping functions
-local function map(mode, key, command, opt)
-  local default = { noremap = true, silent = true }
-  local opts = vim.tbl_deep_extend("force", default, opt or {})
-  vim.api.nvim_set_keymap(mode, key, command, opts)
-end
-
-local function nmap(...)
-  map("n", ...)
-end
-local function lmap(m, ...)
-  nmap("<leader>" .. m, ...)
-end
+local map = vim.keymap.set
 
 -- General
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 map("v", "J", ":m '>+1<cr>gv=gv") -- Move line down
 map("v", "K", ":m '<-2<cr>gv=gv") -- Move line up
-nmap("H", "^") -- Go to start of line
-nmap("L", "$") -- Go to end of line
-nmap("Y", "y$") -- Yank to end of line
-nmap("J", "mzJ`z") -- Join lines and return to position
-nmap("n", "nzzzv") -- Jump to next occurrence and center cursor
-nmap("N", "Nzzzv") -- Jump to prev occurrence and center cursor
-nmap("gP", "`[v`]") -- Switch to VISUAL using last paste
-lmap("p", "\"0p") -- Paste last copied text
-nmap("cn", "*``cgn") -- Change word, <ESC>, repeat forwards with <.>
-nmap("cN", "*``cgN") -- Change word, <ESC>, repeat backwards with <.>
+map("n", "H", "^") -- Go to start of line
+map("n", "L", "$") -- Go to end of line
+map("n", "J", "mzJ`z") -- Join lines and return to position
+map("n", "n", "nzzzv") -- Jump to next occurrence and center cursor
+map("n", "N", "Nzzzv") -- Jump to prev occurrence and center cursor
+map("n", "cn", "*``cgn") -- Change word, <ESC>, repeat forwards with <.>
+map("n", "cN", "*``cgN") -- Change word, <ESC>, repeat backwards with <.>
 local cmd = "fugitive#head() != '' ? '<cmd>Gcd<CR>' : '<cmd>cd %:h<cr>'"
-nmap("<c-t>", cmd, { expr = true }) -- cd to git root or current file
-
--- Buffer
-nmap("<tab>", "<cmd>BufferLineCycleNext<cr>") -- Next buffer
-nmap("<bs>", "<cmd>BufferLineCyclePrev<cr>") -- Prev buffer
-lmap("bb", "<cmd>BufferLinePick<cr>") -- Pick buffer
-lmap("bc", "<cmd>BufferLinePickClose<cr>") -- Pick buffer to close
-lmap("bh", "<cmd>BufferLineMovePrev<cr>") -- Move buffer to the left
-lmap("bl", "<cmd>BufferLineMoveNext<cr>") -- Move buffer to the right
+map("n", "<c-t>", cmd, { expr = true }) -- cd to git root or current file
+map("n", "<c-n>", "<cmd>cnext<cr>zz") -- Jump to next qflist item
+map("n", "<c-p>", "<cmd>cprev<cr>zz") -- Jump to prev qflist item
 
 -- Toggles
-lmap("tw", "<cmd>set wrap!<cr>") -- Toggle wrap
-lmap("ts", "<cmd>set spell!<cr>") -- Toggle spelling
-lmap("tb", "<cmd>set scrollbind!<cr>") -- Toggle scrollbind
-lmap("tc", "<cmd>ColorizerToggle<cr>") -- Toggle colorizer
-lmap("tr", "<cmd>set relativenumber!<cr>") -- Toggle colorizer
+map("n", "<leader>tw", "<cmd>set wrap!<cr>")
+map("n", "<leader>ts", "<cmd>set spell!<cr>")
+map("n", "<leader>tb", "<cmd>set scrollbind!<cr>")
+map("n", "<leader>tr", "<cmd>set relativenumber!<cr>")
+map("n", "<leader>tc", "<cmd>ColorizerToggle<cr>")
 
--- QFlist
-nmap("<c-n>", "<cmd>cnext<cr>zz") -- Next in qflist
-nmap("<c-p>", "<cmd>cprev<cr>zz") -- Prev in qflist
-nmap("<c-q>", "<cmd>lua Toggle_qfl()<cr>") -- Toggle qflist
-Toggle_qfl = function()
-  for _, win in pairs(vim.fn.getwininfo()) do
-    if win["quickfix"] == 1 then
-      vim.cmd "cclose"
-      return
-    end
-  end
-  vim.cmd "copen"
-end
-
--- Telescope
-lmap("ft", "<cmd>Telescope resume<cr>") -- Restore finder
-lmap("fr", "<cmd>Telescope oldfiles<cr>") -- Recents
-lmap("fR", "<cmd>Telescope oldfiles only_cwd=true<cr>") -- Recents
-lmap("fj", "<cmd>Telescope project<cr>") -- Projects
-lmap(
-  "fe",
-  "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<cr>"
-) -- File broser
-lmap("ff", "<cmd>Telescope find_files<cr>") -- Find files
-lmap("fg", "<cmd>Telescope live_grep<cr>") -- Live grep directory
-lmap("fa", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- Search in buffer
-lmap("fs", "<cmd>Telescope grep_string<cr>") -- Grep string
-lmap("fp", "<cmd>Telescope packer<cr>") -- Plugins
-lmap("fb", "<cmd>Telescope buffers<cr>") -- Buffers
-lmap("fh", "<cmd>Telescope help_tags<cr>") -- Help
-lmap("fm", "<cmd>Telescope man_pages<cr>") -- Help
-
--- Hop
-nmap("f", "<cmd>HopChar1CurrentLine<cr>") -- Hop to char in current line
-lmap("hc", "<cmd>HopChar2<cr>") -- Hop to occurrence of a bigram
-lmap("hw", "<cmd>HopWord<cr>") -- Hop to word
-lmap("hl", "<cmd>HopLineStart<cr>") -- Hop to start of a line
-lmap("hp", "<cmd>HopPattern<cr>") -- Hop matching against a pattern
+-- Buffer
+map("n", "<tab>", "<cmd>BufferLineCycleNext<cr>")
+map("n", "<bs>", "<cmd>BufferLineCyclePrev<cr>")
+map("n", "<leader>bb", "<cmd>BufferLinePick<cr>")
+map("n", "<leader>bc", "<cmd>BufferLinePickClose<cr>")
+map("n", "<leader>bh", "<cmd>BufferLineMovePrev<cr>")
+map("n", "<leader>bl", "<cmd>BufferLineMoveNext<cr>")
 
 -- Packer
-lmap("ps", "<cmd>PackerSync<cr>") -- Sync
-lmap("pu", "<cmd>PackerUpdate<cr>") -- Update
-lmap("pi", "<cmd>PackerInstall<cr>") -- Install
-lmap("pl", "<cmd>PackerClean<cr>") -- Clean
-lmap("pc", "<cmd>PackerCompile<cr>") -- Compile
+local packer = require "packer"
+map("n", "<leader>ps", packer.sync)
+map("n", "<leader>pu", packer.update)
+map("n", "<leader>pi", packer.install)
+map("n", "<leader>pl", packer.clean)
+map("n", "<leader>pc", packer.compile)
 
 -- LSPinstaller
-lmap("ll", "<cmd>LspInfo<cr>") -- Lsp info
-lmap("li", "<cmd>LspInstallInfo<cr>") -- Lsp installation info
-lmap("ls", "<cmd>LspStop<cr>") -- Stop inactive language servers
+map("n", "<leader>ll", "<cmd>LspInfo<cr>")
+map("n", "<leader>li", "<cmd>LspInstallInfo<cr>")
+map("n", "<leader>ls", "<cmd>LspStop<cr>")
+
+-- Telescope
+local tl = require "telescope.builtin"
+local ext = require("telescope").extensions
+map("n", "<leader>ft", tl.resume)
+map("n", "<leader>fr", tl.oldfiles)
+map("n", "<leader>fb", tl.buffers)
+map("n", "<leader>ff", tl.find_files)
+map("n", "<leader>fg", tl.live_grep)
+map("n", "<leader>fs", tl.grep_string)
+map("n", "<leader>fa", tl.current_buffer_fuzzy_find)
+map("n", "<leader>fh", tl.help_tags)
+map("n", "<leader>fm", tl.man_pages)
+map("n", "<leader>fe", ext.file_browser.file_browser)
+map("n", "<leader>fp", ext.packer.packer)
+map("n", "<leader>fj", "<cmd>Telescope project<cr>")
+
+-- Hop
+map("n", "f", "<cmd>HopChar1CurrentLine<cr>")
+map("n", "<leader>hc", "<cmd>HopChar2<cr>")
+map("n", "<leader>hw", "<cmd>HopWord<cr>")
+map("n", "<leader>hl", "<cmd>HopLineStart<cr>")
+map("n", "<leader>hp", "<cmd>HopPattern<cr>")
 
 -- Git
-lmap("gg", "<cmd>G<cr>") -- Status
-lmap("ga", "<cmd>G add .<cr>") -- Add / Stage (s)
-lmap("gd", "<cmd>G diff<cr>") -- Diff (dv or =)
-lmap("gc", "<cmd>G commit<cr>") -- Commit (cc), (Amend: ce or ca)
-lmap("gp", "<cmd>G push<cr>") -- Push
+map("n", "<leader>gg", "<cmd>G<cr>")
+map("n", "<leader>ga", "<cmd>G add .<cr>")
+map("n", "<leader>gd", "<cmd>G diff<cr>")
+map("n", "<leader>gc", "<cmd>G commit<cr>")
+map("n", "<leader>gp", "<cmd>G push<cr>")
 
 --[[
 Other important mappings to remember:
