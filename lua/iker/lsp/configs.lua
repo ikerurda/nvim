@@ -29,7 +29,8 @@ local on_attach = function(client, bufnr)
   map("n", "<leader>cf", vim.lsp.buf.formatting_sync, { buffer = bufnr })
   map("v", "<leader>cf", vim.lsp.buf.range_formatting, { buffer = bufnr })
 
-  if client.name == "pylsp" then
+  local disable_formatting = { "pylsp", "tsserver" }
+  if vim.tbl_contains(disable_formatting, client.name) then
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
   end

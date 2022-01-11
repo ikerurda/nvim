@@ -4,8 +4,11 @@ if not has_cmp then
 end
 
 local snip = require "luasnip"
-local kind = require "lspkind"
+snip.filetype_extend("javascript", { "javascriptreact" })
+snip.filetype_extend("javascript", { "html" })
+require("luasnip.loaders.from_vscode").lazy_load()
 
+local kind = require "lspkind"
 cmp.setup {
   mapping = {
     ["<C-Space>"] = cmp.mapping.complete(),
