@@ -5,7 +5,6 @@ end
 
 local themes = require "telescope.themes"
 local layout_actions = require "telescope.actions.layout"
-local fb_actions = require("telescope").extensions.file_browser.actions
 tl.setup {
   defaults = themes.get_dropdown {
     winblend = 10,
@@ -41,26 +40,11 @@ tl.setup {
       case_mode = "smart_case",
     },
     file_browser = {
-      previewer = false,
       dir_icon = "#",
-      path_display = { ["truncate"] = 3},
+      previewer = false,
+      path_display = { ["truncate"] = 3 },
+      cwd_to_path = true,
       respect_gitignore = false,
-      mappings = {
-        i = {
-          ["<A-c>"] = fb_actions.create_file,
-          ["<A-d>"] = fb_actions.remove_file,
-          ["<A-r>"] = fb_actions.rename_file,
-          ["<A-m>"] = fb_actions.move_file,
-          ["<A-y>"] = fb_actions.copy_file,
-          ["<C-t>"] = fb_actions.change_cwd,
-          ["<C-e>"] = fb_actions.goto_home_dir,
-          ["<C-a>"] = fb_actions.toggle_all,
-          ["<C-d>"] = "preview_scrolling_down",
-          ["<A-e>"] = false,
-          ["<C-r>"] = false,
-          ["<C-y>"] = false,
-        },
-      },
     },
     packer = { previewer = false, layout_config = { height = 0.5 } },
   },

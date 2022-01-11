@@ -26,6 +26,7 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer", keyword_lenght = 5 },
     { name = "path" },
+    { name = "digraphs" },
     { name = "calc" },
     { name = "spell" },
   },
@@ -37,6 +38,7 @@ cmp.setup {
         nvim_lsp_signature_help = "[LSP]",
         buffer = "[buf]",
         path = "[path]",
+        digraphs = "[dig]",
         luasnip = "[snip]",
         calc = "[calc]",
         spell = "[spell]",
@@ -52,5 +54,9 @@ cmp.setup {
 }
 
 local map = vim.keymap.set
-map({"i", "s"}, "<c-j>", function() snip.jump(1) end)
-map({"i", "s"}, "<c-k>", function() snip.jump(-1) end)
+map({ "i", "s" }, "<c-j>", function()
+  snip.jump(1)
+end)
+map({ "i", "s" }, "<c-k>", function()
+  snip.jump(-1)
+end)

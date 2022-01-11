@@ -10,7 +10,7 @@ packer.init {
 packer.startup(function(use)
   use "wbthomason/packer.nvim"
   use "lewis6991/impatient.nvim"
-  use { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" }
+  use "nvim-lua/plenary.nvim"
 
   -- LSP
   use {
@@ -28,11 +28,13 @@ packer.startup(function(use)
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+      "dmitmel/cmp-digraphs",
       "hrsh7th/cmp-calc",
       "f3fora/cmp-spell",
       "hrsh7th/cmp-nvim-lsp",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
+      "rafamadriz/friendly-snippets", -- collection
+      "L3MON4D3/LuaSnip", -- engine
+      "saadparwaiz1/cmp_luasnip", -- source
     },
   }
 
@@ -45,7 +47,7 @@ packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use "gbrlsnchs/telescope-lsp-handlers.nvim"
-  use "ikerurda/telescope-file-browser.nvim"
+  use "nvim-telescope/telescope-file-browser.nvim"
   use "nvim-telescope/telescope-packer.nvim"
   use "nvim-telescope/telescope-project.nvim"
 

@@ -17,6 +17,7 @@ ts.setup {
     "bash",
     "comment",
   },
+  indent = { enable = true },
   highlight = {
     enable = true,
     use_languagetree = false,
