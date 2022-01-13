@@ -47,9 +47,9 @@ packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use "gbrlsnchs/telescope-lsp-handlers.nvim"
-  use "nvim-telescope/telescope-file-browser.nvim"
+  -- use "nvim-telescope/telescope-file-browser.nvim"
+  use { "ikerurda/telescope-file-browser.nvim", branch = "fix/path_display" }
   use "nvim-telescope/telescope-packer.nvim"
-  use "nvim-telescope/telescope-project.nvim"
 
   -- Tools
   use { "phaazon/hop.nvim", "numToStr/Comment.nvim" }

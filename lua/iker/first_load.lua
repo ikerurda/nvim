@@ -1,6 +1,5 @@
 local download_packer = function()
-  local data_dir = vim.fn.stdpath "data"
-  local directory = data_dir .. "/site/pack/packer/start/"
+  local directory = vim.fn.stdpath "data" .. "/site/pack/packer/start/"
   vim.fn.mkdir(directory, "p")
 
   local run = vim.fn.system

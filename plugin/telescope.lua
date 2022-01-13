@@ -3,26 +3,31 @@ if not has_tl then
   return
 end
 
-local themes = require "telescope.themes"
 local layout_actions = require "telescope.actions.layout"
 tl.setup {
-  defaults = themes.get_dropdown {
+  defaults = {
     winblend = 10,
     prompt_prefix = " ",
     selection_caret = "  ",
     multi_icon = " ",
     path_display = { "smart" },
-    mappings = {
-      i = {
-        ["<esc>"] = "close",
-        ["<c-space>"] = layout_actions.toggle_preview,
+    sorting_strategy = "ascending",
+    layout_strategy = "vertical",
+    layout_config = {
+      vertical = {
+        prompt_position = "top",
+        mirror = true,
+        preview_cutoff = 30,
       },
+    },
+    mappings = {
+      i = { ["<c-space>"] = layout_actions.toggle_preview },
     },
   },
   pickers = {
-    oldfiles = { previewer = false },
-    lsp_code_actions = { theme = "cursor" },
+    oldfiles = { theme = "dropdown", previewer = false },
     buffers = {
+      theme = "dropdown",
       previewer = false,
       ignore_current_buffer = true,
       sort_mru = true,
@@ -46,12 +51,15 @@ tl.setup {
       cwd_to_path = true,
       respect_gitignore = false,
     },
-    packer = { previewer = false, layout_config = { height = 0.5 } },
+    packer = {
+      theme = "dropdown",
+      previewer = false,
+      layout_config = { height = 0.5 },
+    },
   },
 }
 
 tl.load_extension "fzf"
 tl.load_extension "lsp_handlers"
 tl.load_extension "file_browser"
-tl.load_extension "project"
 tl.load_extension "packer"

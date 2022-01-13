@@ -59,7 +59,6 @@ map("n", "<leader>fh", tl.help_tags)
 map("n", "<leader>fm", tl.man_pages)
 map("n", "<leader>fe", ext.file_browser.file_browser)
 map("n", "<leader>fp", ext.packer.packer)
-map("n", "<leader>fj", "<cmd>Telescope project<cr>")
 
 -- Hop
 map("n", "f", "<cmd>HopChar1CurrentLine<cr>")
