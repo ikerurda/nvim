@@ -39,10 +39,7 @@ end
 -- Configs for the language servers
 local M = {}
 M.general = { capabilities = capabilities, on_attach = on_attach }
-M.sumneko_lua = require("lua-dev").setup {
-  library = { vimruntime = true, types = true, plugins = true },
-  lspconfig = M.general,
-}
+M.sumneko_lua = require("lua-dev").setup { lspconfig = M.general }
 M.pylsp = vim.tbl_deep_extend("force", {
   settings = {
     pylsp = { plugins = { jedi_completion = { include_params = true } } },
