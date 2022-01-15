@@ -3,14 +3,28 @@ if not has_tl then
   return
 end
 
+local builtin = require "telescope.builtin"
+local open_in = function(finder)
+  return function(prompt_bufnr)
+    local actions = require "telescope.actions"
+    local action_state = require "telescope.actions.state"
+    local entry_path = action_state.get_selected_entry().Path
+    local path = entry_path:is_dir() and entry_path:absolute()
+      or entry_path:parent():absolute()
+    actions._close(prompt_bufnr, true)
+    finder { cwd = path }
+  end
+end
+
 local layout_actions = require "telescope.actions.layout"
 tl.setup {
   defaults = {
     winblend = 10,
     prompt_prefix = " ",
     selection_caret = "  ",
-    multi_icon = " ",
+    multi_icon = "• ",
     path_display = { "smart" },
+    dynamic_preview_title = true,
     sorting_strategy = "ascending",
     layout_strategy = "vertical",
     layout_config = {
@@ -25,10 +39,7 @@ tl.setup {
     },
   },
   pickers = {
-    oldfiles = { theme = "dropdown", previewer = false },
     buffers = {
-      theme = "dropdown",
-      previewer = false,
       ignore_current_buffer = true,
       sort_mru = true,
       mappings = {
@@ -46,10 +57,16 @@ tl.setup {
     },
     file_browser = {
       dir_icon = "#",
-      previewer = false,
       path_display = { ["truncate"] = 3 },
       cwd_to_path = true,
+      grouped = true,
       respect_gitignore = false,
+      mappings = {
+        i = {
+          ["<a-f>"] = open_in(builtin.find_files),
+          ["<a-g>"] = open_in(builtin.live_grep),
+        },
+      },
     },
     packer = {
       theme = "dropdown",
