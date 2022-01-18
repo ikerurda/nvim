@@ -73,6 +73,7 @@ map("n", "<leader>ga", "<cmd>G add .<cr>")
 map("n", "<leader>gd", "<cmd>G diff<cr>")
 map("n", "<leader>gc", "<cmd>G commit<cr>")
 map("n", "<leader>gp", "<cmd>G push<cr>")
+map("n", "<leader>gP", "<cmd>G push -f<cr>")
 
 --[[
 Other important mappings to remember:

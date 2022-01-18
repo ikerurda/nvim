@@ -1,5 +1,7 @@
 local o = vim.opt
 
+vim.g.mapleader = " " -- leader mapping
+
 o.pumblend = 17
 o.wildoptions = "pum"
 o.completeopt = "menuone,preview,noselect"
@@ -39,6 +41,7 @@ o.softtabstop = 2
 
 o.wrap = false
 o.breakindent = true -- wrapped lines will maitain indentation
+o.linebreak = true
 
 o.clipboard = "unnamedplus"
 o.mouse = "a" -- Mouse in all modes

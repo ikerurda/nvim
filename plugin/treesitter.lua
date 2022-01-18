@@ -4,19 +4,7 @@ if not has_ts then
 end
 
 ts.setup {
-  ensure_installed = {
-    "lua",
-    "vim",
-    "c",
-    "python",
-    "java",
-    "html",
-    "css",
-    "javascript",
-    "markdown",
-    "bash",
-    "comment",
-  },
+  ensure_installed = "maintained",
   indent = { enable = true },
   highlight = {
     enable = true,
