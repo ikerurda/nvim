@@ -36,7 +36,6 @@ tl.setup {
     selection_caret = "  ",
     multi_icon = "• ",
     path_display = { "smart" },
-    dynamic_preview_title = true,
     sorting_strategy = "ascending",
     layout_strategy = "vertical",
     layout_config = {
@@ -83,7 +82,11 @@ tl.setup {
     file_browser = {
       dir_icon = "#",
       path_display = { ["truncate"] = 3 },
-      previewer = false,
+      dir_preview = function(path)
+        local Path = require "plenary.path"
+        path = Path:new(path):make_relative(vim.loop.cwd())
+        return "tree -F --noreport " .. path .. " | less -Sq"
+      end,
       cwd_to_path = true,
       grouped = true,
       respect_gitignore = false,
