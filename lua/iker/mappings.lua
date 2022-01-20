@@ -33,12 +33,11 @@ map("n", "<leader>bh", "<cmd>BufferLineMovePrev<cr>")
 map("n", "<leader>bl", "<cmd>BufferLineMoveNext<cr>")
 
 -- Packer
-local packer = require "packer"
-map("n", "<leader>ps", packer.sync)
-map("n", "<leader>pu", packer.update)
-map("n", "<leader>pi", packer.install)
-map("n", "<leader>pl", packer.clean)
-map("n", "<leader>pc", packer.compile)
+map("n", "<leader>ps", "<cmd>PackerSync<cr>")
+map("n", "<leader>pu", "<cmd>PackerUpdate<cr>")
+map("n", "<leader>pi", "<cmd>PackerInstall<cr>")
+map("n", "<leader>pl", "<cmd>PackerClean<cr>")
+map("n", "<leader>pc", "<cmd>PackerCompile<cr>")
 
 -- LSPinstaller
 map("n", "<leader>ll", "<cmd>LspInfo<cr>")
@@ -46,19 +45,17 @@ map("n", "<leader>li", "<cmd>LspInstallInfo<cr>")
 map("n", "<leader>ls", "<cmd>LspStop<cr>")
 
 -- Telescope
-local tl = require "telescope.builtin"
-local ext = require("telescope").extensions
-map("n", "<leader>ft", tl.resume)
-map("n", "<leader>fr", tl.oldfiles)
-map("n", "<leader>fb", tl.buffers)
-map("n", "<leader>ff", tl.find_files)
-map("n", "<leader>fg", tl.live_grep)
-map("n", "<leader>fs", tl.grep_string)
-map("n", "<leader>fa", tl.current_buffer_fuzzy_find)
-map("n", "<leader>fh", tl.help_tags)
-map("n", "<leader>fm", tl.man_pages)
-map("n", "<leader>fe", ext.file_browser.file_browser)
-map("n", "<leader>fp", ext.packer.packer)
+map("n", "<leader>ft", "<cmd>Telescope resume<cr>")
+map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>")
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+map("n", "<leader>fs", "<cmd>Telescope grep_string<cr>")
+map("n", "<leader>fa", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+map("n", "<leader>fm", "<cmd>Telescope man_pages<cr>")
+map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>")
+map("n", "<leader>fp", "<cmd>Telescope packer<cr>")
 
 -- Hop
 map("n", "f", "<cmd>HopChar1CurrentLine<cr>")
