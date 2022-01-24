@@ -14,7 +14,6 @@ local languageServers = {
   "cssls",
   "tsserver",
   "bashls",
-  "grammarly"
 }
 
 -- Automatic installation
