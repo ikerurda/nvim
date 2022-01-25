@@ -61,7 +61,16 @@ ll.setup {
         always_visible = false,
       },
     },
-    lualine_y = { "progress" },
+    lualine_y = {
+      {
+        "lsp_progress",
+        display_components = {
+          "lsp_client_name",
+          { "title", "percentage", "message" },
+        },
+      },
+      "progress",
+    },
     lualine_z = { "%l/%L:%c" },
   },
   inactive_sections = {
