@@ -3,13 +3,12 @@ if not pcall(require, "hop") then
 end
 
 -- Configuration for other small plugins
-vim.g.fugitive_legacy_commands = false
+require("gitsigns").setup { keymaps = {} }
 require("Comment").setup { ignore = "^$" }
 require("surround").setup { mappings_style = "sandwich" }
-require("gitsigns").setup { keymaps = {} }
-require("colorizer").setup({}, { mode = "foreground" })
 require("nvim-autopairs").setup {}
 require("hop").setup { jump_on_sole_occurrence = true }
+require("colorizer").setup({}, { mode = "foreground" })
 require("indent_blankline").setup {
   filetype_exclude = { "help", "man", "packer" },
   buftype_exclude = { "terminal" },

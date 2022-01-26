@@ -12,10 +12,16 @@ map("n", "n", "nzzzv") -- Jump to next occurrence and center cursor
 map("n", "N", "Nzzzv") -- Jump to prev occurrence and center cursor
 map("n", "cn", "*``cgn") -- Change word, <ESC>, repeat forwards with <.>
 map("n", "cN", "*``cgN") -- Change word, <ESC>, repeat backwards with <.>
-local cmd = "fugitive#head() != '' ? '<cmd>Gcd<CR>' : '<cmd>cd %:h<cr>'"
-map("n", "<c-t>", cmd, { expr = true }) -- cd to git root or current file
+map("n", "<c-t>", function()
+  local folder = vim.fn.expand "%:h"
+  local out = vim.fn.system("git -C " .. folder .. " rev-parse --show-toplevel")
+  vim.cmd("cd " .. (vim.v.shell_error == 0 and out or folder))
+end) -- cd to git root or current file
 map("n", "<c-n>", "<cmd>cnext<cr>zz") -- Jump to next qflist item
 map("n", "<c-p>", "<cmd>cprev<cr>zz") -- Jump to prev qflist item
+map("n", "<leader>g", function()
+  require("neogit").open { cwd = vim.fn.expand "%:h" }
+end) -- Open neogit
 
 -- Toggles
 map("n", "<leader>tw", "<cmd>set wrap!<cr>")
@@ -63,14 +69,6 @@ map("n", "<leader>hc", "<cmd>HopChar2<cr>")
 map("n", "<leader>hw", "<cmd>HopWord<cr>")
 map("n", "<leader>hl", "<cmd>HopLineStart<cr>")
 map("n", "<leader>hp", "<cmd>HopPattern<cr>")
-
--- Git
-map("n", "<leader>gg", "<cmd>G<cr>")
-map("n", "<leader>ga", "<cmd>G add .<cr>")
-map("n", "<leader>gd", "<cmd>G diff<cr>")
-map("n", "<leader>gc", "<cmd>G commit<cr>")
-map("n", "<leader>gp", "<cmd>G push<cr>")
-map("n", "<leader>gP", "<cmd>G push -f<cr>")
 
 --[[
 Other important mappings to remember:

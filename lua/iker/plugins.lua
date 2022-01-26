@@ -57,7 +57,7 @@ packer.startup(function(use)
   -- Tools
   use { "phaazon/hop.nvim", "numToStr/Comment.nvim" }
   use { "windwp/nvim-autopairs", "blackCauldron7/surround.nvim" }
-  use { "tpope/vim-fugitive", "lewis6991/gitsigns.nvim" }
+  use { "TimUntersberger/neogit", "lewis6991/gitsigns.nvim" }
 
   -- Theming
   use "projekt0n/github-nvim-theme"

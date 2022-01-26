@@ -30,5 +30,10 @@ buf.setup {
     enforce_regular_tabs = false,
     always_show_bufferline = false,
     sort_by = "id",
+    custom_filter = function(buf_number)
+      if vim.bo[buf_number].filetype ~= "NeogitStatus" then
+        return true
+      end
+    end,
   },
 }
