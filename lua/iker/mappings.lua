@@ -62,12 +62,12 @@ map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 map("n", "<leader>fm", "<cmd>Telescope man_pages<cr>")
 map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>")
 map("n", "<leader>fp", "<cmd>Telescope packer<cr>")
+map("n", "<leader>fj", "<cmd>Telescope project<cr>")
 
 -- Hop
 map("n", "f", "<cmd>HopChar1CurrentLine<cr>")
 map("n", "<leader>hc", "<cmd>HopChar2<cr>")
 map("n", "<leader>hw", "<cmd>HopWord<cr>")
-map("n", "<leader>hl", "<cmd>HopLineStart<cr>")
 map("n", "<leader>hp", "<cmd>HopPattern<cr>")
 
 --[[
