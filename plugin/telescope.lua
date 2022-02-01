@@ -26,38 +26,6 @@ local open_in_fb = function(prompt_bufnr)
   fb { path = entry_path }
 end
 
-local bookmarks = {
-  ["config"] = "~/.config/nvim",
-  ["web"] = "~/Sites",
-  ["plugins"] = "~/.local/share/nvim/site/pack/packer/start/",
-}
-
-local open_bookmark = function(prompt_bufnr)
-  local fb_utils = require "telescope._extensions.file_browser.utils"
-  local current_picker = action_state.get_current_picker(prompt_bufnr)
-  local finder = current_picker.finder
-
-  if not bookmarks or vim.tbl_isempty(bookmarks) then
-    print "[telescope] Please set some bookmarks first"
-    return
-  end
-
-  vim.ui.select(
-    vim.tbl_keys(bookmarks),
-    { prompt = "Select bookmark:" },
-    function(selection)
-      if selection then
-        finder.path = vim.fn.expand(bookmarks[selection])
-        fb_utils.redraw_border_title(current_picker)
-        current_picker:refresh(
-          finder,
-          { reset_prompt = true, multi = current_picker._multi }
-        )
-      end
-    end
-  )
-end
-
 tl.setup {
   defaults = {
     winblend = 10,
@@ -122,12 +90,10 @@ tl.setup {
         i = {
           ["<a-f>"] = open_in(builtin.find_files),
           ["<a-g>"] = open_in(builtin.live_grep),
-          ["<c-b>"] = open_bookmark,
         },
         n = {
           ["<a-f>"] = open_in(builtin.find_files),
           ["<a-g>"] = open_in(builtin.live_grep),
-          ["b"] = open_bookmark,
         },
       },
     },
@@ -136,6 +102,7 @@ tl.setup {
       previewer = false,
       layout_config = { height = 0.5 },
     },
+    project = { theme = "dropdown" },
   },
 }
 
@@ -143,3 +110,4 @@ tl.load_extension "fzf"
 tl.load_extension "lsp_handlers"
 tl.load_extension "file_browser"
 tl.load_extension "packer"
+tl.load_extension "project"
