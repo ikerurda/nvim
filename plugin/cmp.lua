@@ -6,6 +6,7 @@ end
 local snip = require "luasnip"
 snip.filetype_extend("javascript", { "javascriptreact" })
 snip.filetype_extend("javascript", { "html" })
+snip.filetype_extend("php", { "html" })
 require("luasnip.loaders.from_vscode").lazy_load()
 
 local kind = require "lspkind"

@@ -13,6 +13,7 @@ local languageServers = {
   "html",
   "cssls",
   "tsserver",
+  "intelephense",
   "bashls",
 }
 
