@@ -1,10 +1,11 @@
 -- Null lsp
 local null = require "null-ls"
+local formatter = null.builtins.formatting
 null.setup {
   sources = {
-    null.builtins.formatting.stylua,
-    null.builtins.formatting.prettier,
-    null.builtins.formatting.yapf,
+    formatter.stylua,
+    formatter.prettier,
+    formatter.yapf,
   },
 }
 
