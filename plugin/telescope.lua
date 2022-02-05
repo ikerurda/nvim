@@ -83,8 +83,8 @@ tl.setup {
         return "tree -F --noreport " .. path .. " | less -Sq"
       end,
       grouped = true,
+      hide_parent_dir = true,
       cwd_to_path = true,
-      open_file = true,
       respect_gitignore = false,
       mappings = {
         i = {
