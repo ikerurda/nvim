@@ -14,8 +14,7 @@ packer.startup(function(use)
     "nvim-lua/plenary.nvim",
   }
 
-  -- LSP
-  use {
+  use { -- LSP
     "neovim/nvim-lspconfig",
     "williamboman/nvim-lsp-installer",
     "jose-elias-alvarez/null-ls.nvim",
@@ -23,11 +22,10 @@ packer.startup(function(use)
     "folke/lua-dev.nvim",
   }
 
-  -- Completion
-  use {
-    "hrsh7th/nvim-cmp",
-    "rafamadriz/friendly-snippets",
+  use { -- Completion
     "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
+    "hrsh7th/nvim-cmp",
     "onsails/lspkind-nvim",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-nvim-lsp",
@@ -39,15 +37,13 @@ packer.startup(function(use)
     "f3fora/cmp-spell",
   }
 
-  -- Treesitter
-  use {
+  use { -- Treesitter
     "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-refactor",
     "nvim-treesitter/nvim-treesitter-textobjects",
   }
 
-  -- Telescope
-  use {
+  use { -- Telescope
     "nvim-telescope/telescope.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
     "gbrlsnchs/telescope-lsp-handlers.nvim",
@@ -55,12 +51,11 @@ packer.startup(function(use)
       "nvim-telescope/telescope-file-browser.nvim",
       branch = "feat/previewer",
     },
-    { "ikerurda/telescope-packer.nvim", branch = "fix/file-browser" },
     { "ikerurda/telescope-project.nvim", branch = "fix/file-browser" },
+    { "ikerurda/telescope-packer.nvim", branch = "fix/file-browser" },
   }
 
-  -- Tools
-  use {
+  use { -- Tools
     "TimUntersberger/neogit",
     "lewis6991/gitsigns.nvim",
     "numToStr/Comment.nvim",
@@ -69,12 +64,11 @@ packer.startup(function(use)
     "phaazon/hop.nvim",
   }
 
-  -- Theming
-  use {
+  use { -- Theming
     "projekt0n/github-nvim-theme",
-    "lukas-reineke/indent-blankline.nvim",
     "nvim-lualine/lualine.nvim",
     "akinsho/bufferline.nvim",
+    "lukas-reineke/indent-blankline.nvim",
     "norcalli/nvim-colorizer.lua",
   }
 end)
