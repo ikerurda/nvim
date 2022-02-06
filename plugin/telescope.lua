@@ -11,8 +11,9 @@ local Path = require "plenary.path"
 local builtin = require "telescope.builtin"
 local open_in = function(finder)
   return function(prompt_bufnr)
-    local current_picker = action_state.get_current_picker(prompt_bufnr)
-    local path = current_picker.finder.path
+    local entry_path = action_state.get_selected_entry().Path
+    local path = entry_path:is_dir() and entry_path:absolute()
+      or entry_path:parent():absolute()
     actions._close(prompt_bufnr, true)
     finder { cwd = path }
   end
@@ -20,10 +21,10 @@ end
 
 local open_in_fb = function(prompt_bufnr)
   local fb = require("telescope").extensions.file_browser.file_browser
-  local entry = action_state.get_selected_entry()[1]
-  local entry_path = Path:new(entry):parent():absolute()
+  local entry_path = Path:new(action_state.get_selected_entry()[1])
+  local path = entry_path:parent():absolute()
   actions._close(prompt_bufnr, true)
-  fb { path = entry_path }
+  fb { path = path }
 end
 
 tl.setup {
