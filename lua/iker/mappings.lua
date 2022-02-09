@@ -17,6 +17,15 @@ map("n", "<c-t>", function()
   local out = vim.fn.system("git -C " .. folder .. " rev-parse --show-toplevel")
   vim.cmd("cd " .. (vim.v.shell_error == 0 and out or folder))
 end) -- cd to git root or current file
+map("n", "<c-q>", function()
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win["quickfix"] == 1 then
+      vim.cmd "cclose"
+      return
+    end
+  end
+  vim.cmd "copen"
+end) -- Toggle qflist
 map("n", "<c-n>", "<cmd>cnext<cr>zz") -- Jump to next qflist item
 map("n", "<c-p>", "<cmd>cprev<cr>zz") -- Jump to prev qflist item
 map("n", "<leader>g", function()
