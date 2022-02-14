@@ -31,3 +31,5 @@ require("github-theme").setup {
     }
   end,
 }
+require("fidget").setup { text = { spinner = "dots" } }
+vim.cmd "highlight link FidgetTitle Variable"

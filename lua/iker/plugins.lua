@@ -18,7 +18,7 @@ packer.startup(function(use)
     "neovim/nvim-lspconfig",
     "williamboman/nvim-lsp-installer",
     "jose-elias-alvarez/null-ls.nvim",
-    "arkav/lualine-lsp-progress",
+    "j-hui/fidget.nvim",
     "folke/lua-dev.nvim",
   }
 
