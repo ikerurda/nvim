@@ -15,11 +15,11 @@ cmp.event:on("confirm_done", pairs.on_confirm_done { map_char = { tex = "" } })
 local kind = require "lspkind"
 cmp.setup {
   mapping = {
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-c>"] = cmp.mapping.close(),
-    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-d>"] = cmp.mapping.scroll_docs(4),
-    ["<CR>"] = cmp.mapping.confirm {
+    ["<c-space>"] = cmp.mapping.complete(),
+    ["<c-c>"] = cmp.mapping.close(),
+    ["<c-u>"] = cmp.mapping.scroll_docs(-4),
+    ["<c-d>"] = cmp.mapping.scroll_docs(4),
+    ["<cr>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Insert,
       select = false,
     },

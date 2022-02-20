@@ -65,8 +65,8 @@ tl.setup {
       ignore_current_buffer = true,
       sort_mru = true,
       mappings = {
-        i = { ["<C-d>"] = "delete_buffer" },
-        n = { ["<C-d>"] = "delete_buffer" },
+        i = { ["<c-d>"] = "delete_buffer" },
+        n = { ["<c-d>"] = "delete_buffer" },
       },
     },
   },
