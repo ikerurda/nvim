@@ -6,7 +6,10 @@ end
 require("gitsigns").setup { keymaps = {} }
 require("Comment").setup { ignore = "^$" }
 require("surround").setup { mappings_style = "sandwich" }
-require("nvim-autopairs").setup {}
+require("nvim-autopairs").setup {
+  check_ts = true,
+  fast_wrap = {}, -- <A-e> to fastwrap
+}
 require("hop").setup { jump_on_sole_occurrence = true }
 require("colorizer").setup({}, { mode = "foreground" })
 require("indent_blankline").setup {

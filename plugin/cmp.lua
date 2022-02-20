@@ -9,6 +9,9 @@ snip.filetype_extend("javascript", { "html" })
 snip.filetype_extend("php", { "html" })
 require("luasnip.loaders.from_vscode").lazy_load()
 
+local pairs = require "nvim-autopairs.completion.cmp"
+cmp.event:on("confirm_done", pairs.on_confirm_done { map_char = { tex = "" } })
+
 local kind = require "lspkind"
 cmp.setup {
   mapping = {
