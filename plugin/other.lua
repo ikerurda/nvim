@@ -5,7 +5,6 @@ end
 -- Configuration for other small plugins
 require("gitsigns").setup { keymaps = {} }
 require("Comment").setup { ignore = "^$" }
-require("surround").setup { mappings_style = "sandwich" }
 require("nvim-autopairs").setup {
   check_ts = true,
   fast_wrap = {}, -- <A-e> to fastwrap
