@@ -5,19 +5,12 @@ end
 
 local colors = {
   fg = "#c9d1d9",
-  bg = "#0d1117",
-  blue = "#58a6ff",
   black = "#161b22",
 }
 
 local my_theme = {
   normal = {
-    a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-    b = { bg = colors.blue, fg = colors.bg },
-    c = { bg = colors.blue, fg = colors.bg },
-  },
-  inactive = {
-    a = { bg = colors.black, fg = colors.fg },
+    a = { bg = colors.black, fg = colors.fg, gui = "bold" },
     b = { bg = colors.black, fg = colors.fg },
     c = { bg = colors.black, fg = colors.fg },
   },
