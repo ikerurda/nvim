@@ -1,26 +1,47 @@
-vim.cmd [[
-augroup packer
-au!
-au BufWritePost plugins.lua source <afile> | PackerSync
-augroup END ]]
+vim.api.nvim_create_augroup("user", { clear = true })
 
-vim.cmd [[
-augroup options
-au!
-au VimLeave * set guicursor=a:ver25
-au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch"}
-augroup END ]]
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank { higroup = "IncSearch" }
+  end,
+  group = "user",
+})
 
-vim.cmd [[
-augroup ftype
-au!
-au FileType * setlocal formatoptions=njcrql
-au FileType lua nmap <silent><leader>r <cmd>source %<cr>
-augroup END ]]
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    vim.cmd "startinsert"
+    vim.opt_local.signcolumn = "no"
+    vim.opt_local.relativenumber = false
+    vim.opt_local.number = false
+    vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { buffer = true })
+  end,
+  group = "user",
+})
 
-vim.cmd [[
-augroup term
-au!
-au TermOpen * startinsert | setlocal signcolumn=no norelativenumber nonumber
-au TermOpen * silent tnoremap <esc> <C-\><C-n>
-augroup END ]]
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "plugins.lua",
+  command = "source % | PackerSync",
+  group = "user",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lua",
+  callback = function()
+    vim.keymap.set("n", "<leader>r", "<cmd>source %<cr>", { buffer = true })
+  end,
+  group = "user",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    vim.opt_local.formatoptions = "njcrql"
+  end,
+  group = "user",
+})
+
+vim.api.nvim_create_autocmd("VimLeave", {
+  callback = function()
+    vim.opt.guicursor = "a:hor25"
+  end,
+  group = "user",
+})

@@ -15,20 +15,20 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Custom on_attach
-local on_attach = function(client, bufnr)
+local on_attach = function(client)
   local map = vim.keymap.set
-  map("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
-  map("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
-  map("n", "gt", vim.lsp.buf.type_definition, { buffer = bufnr })
-  map("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr })
-  map("n", "gR", vim.lsp.buf.references, { buffer = bufnr })
-  map("n", "gp", vim.diagnostic.goto_prev, { buffer = bufnr })
-  map("n", "gn", vim.diagnostic.goto_next, { buffer = bufnr })
-  map("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
-  map({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { buffer = bufnr })
-  map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
-  map("n", "<leader>cf", vim.lsp.buf.formatting_sync, { buffer = bufnr })
-  map("v", "<leader>cf", vim.lsp.buf.range_formatting, { buffer = bufnr })
+  map("n", "gd", vim.lsp.buf.definition, { buffer = true })
+  map("n", "gD", vim.lsp.buf.declaration, { buffer = true })
+  map("n", "gt", vim.lsp.buf.type_definition, { buffer = true })
+  map("n", "gi", vim.lsp.buf.implementation, { buffer = true })
+  map("n", "gR", vim.lsp.buf.references, { buffer = true })
+  map("n", "gp", vim.diagnostic.goto_prev, { buffer = true })
+  map("n", "gn", vim.diagnostic.goto_next, { buffer = true })
+  map("n", "K", vim.lsp.buf.hover, { buffer = true })
+  map({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { buffer = true })
+  map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = true })
+  map("n", "<leader>cf", vim.lsp.buf.formatting_sync, { buffer = true })
+  map("v", "<leader>cf", vim.lsp.buf.range_formatting, { buffer = true })
 
   local disable_formatting = { "pylsp", "tsserver", "html" }
   if vim.tbl_contains(disable_formatting, client.name) then
