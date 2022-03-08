@@ -5,7 +5,6 @@ end
 -- Configuration for other small plugins
 require("gitsigns").setup { keymaps = {} }
 require("Comment").setup { ignore = "^$" }
-require("nvim-autopairs").setup { check_ts = true, fast_wrap = {} }
 require("hop").setup { jump_on_sole_occurrence = true }
 require("colorizer").setup({}, { mode = "foreground" })
 require("indent_blankline").setup {
@@ -30,5 +29,3 @@ require("github-theme").setup {
     }
   end,
 }
-require("fidget").setup { text = { spinner = "dots" } }
-vim.cmd "hi link FidgetTitle Variable"

@@ -38,3 +38,6 @@ installer.on_server_ready(function(server)
   end
   vim.cmd "do User LspAttachBuffers"
 end)
+
+-- Server logs
+require("fidget").setup { text = { spinner = "dots" } }
