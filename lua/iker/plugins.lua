@@ -41,7 +41,7 @@ packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-refactor",
     "nvim-treesitter/nvim-treesitter-textobjects",
-    "romgrk/nvim-treesitter-context"
+    "romgrk/nvim-treesitter-context",
   }
 
   use { -- Telescope
