@@ -26,6 +26,7 @@ o.smartcase = true -- ... unless there is a capital letter in the query
 o.cursorline = true -- Highlight the current line
 o.equalalways = false -- I don't like my windows changing all the time
 o.splitright = true -- Prefer windows splitting to the right
+o.splitbelow = true -- Prefer windows splitting in the bottom
 o.updatetime = 1000 -- Make updates happen faster
 o.scrolloff = 5 -- Make it so there are always min 5 lines around cursor
 o.sidescrolloff = 5 -- Make it so there are always min 5 chars around cursor
