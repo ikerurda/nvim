@@ -54,6 +54,7 @@ packer.startup(function(use)
     },
     { "ikerurda/telescope-project.nvim", branch = "fix/file-browser" },
     { "ikerurda/telescope-packer.nvim", branch = "fix/file-browser" },
+    "nvim-telescope/telescope-symbols.nvim",
   }
 
   use { -- Tools
