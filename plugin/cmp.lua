@@ -60,22 +60,41 @@ cmp.setup {
 }
 
 -- Snippets
+-- check https://youtu.be/KtQZRAkgLqo
 snip.config.set_config {
   history = true,
   updateevents = "TextChanged,TextChangedI",
 }
 
-local s = snip.s
-local i = snip.insert_node
+local s, i = snip.s, snip.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
+local f, c, t = snip.function_node, snip.choice_node, snip.text_node
 local rep = require("luasnip.extras").rep
 require("luasnip.loaders.from_vscode").lazy_load()
 snip.filetype_extend("javascript", { "javascriptreact" })
 snip.filetype_extend("javascript", { "html" })
 snip.filetype_extend("php", { "html" })
 snip.snippets = {
+  all = {
+    s(
+      "curtime",
+      f(function()
+        return os.date "%D - %H:%M"
+      end)
+    ),
+  },
   lua = {
-    s("req", fmt('local {} = require "{}"', { i(1, "module"), rep(1) })),
+    s(
+      "req",
+      fmt('local {} = require "{}"', {
+        f(function(name)
+          local parts = vim.split(name[1][1], ".", true)
+          return parts[#parts] or ""
+        end, { 1 }),
+        i(1),
+      })
+    ),
+    s("todo", fmt("{}", { c(1, { t "-- TODO: ", t "-- FIXME: " }) })),
   },
 }
 
