@@ -21,7 +21,7 @@ require("github-theme").setup {
   hide_inactive_statusline = false,
   overrides = function(c)
     return {
-      VertSplit = { fg = c.bg_highlight },
+      VertSplit = { fg = c.fg_dark },
       ColorColumn = { bg = c.bg_highlight },
       GitSignsAdd = { fg = c.green },
       GitSignsChange = { fg = c.magenta },
