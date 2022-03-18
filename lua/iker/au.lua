@@ -39,13 +39,6 @@ vim.api.nvim_create_autocmd("FileType", {
   group = "user",
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    vim.opt.laststatus = 3
-  end,
-  group = "user",
-})
-
 vim.api.nvim_create_autocmd("VimLeave", {
   callback = function()
     vim.opt.guicursor = "a:hor25"
