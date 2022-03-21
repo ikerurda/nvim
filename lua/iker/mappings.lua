@@ -51,8 +51,8 @@ map("n", "<leader>bl", "<cmd>BufferLineMoveNext<cr>")
 map("n", "<leader>ps", "<cmd>PackerSync<cr>")
 map("n", "<leader>pu", "<cmd>PackerUpdate<cr>")
 map("n", "<leader>pi", "<cmd>PackerInstall<cr>")
-map("n", "<leader>pl", "<cmd>PackerClean<cr>")
-map("n", "<leader>pc", "<cmd>PackerCompile<cr>")
+map("n", "<leader>pc", "<cmd>PackerClean<cr>")
+map("n", "<leader>pp", "<cmd>PackerCompile<cr>")
 
 -- LSPinstaller
 map("n", "<leader>ll", "<cmd>LspInfo<cr>")
