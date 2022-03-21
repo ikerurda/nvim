@@ -33,6 +33,19 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  pattern = "zsh",
+  callback = function()
+    vim.keymap.set(
+      "n",
+      "<leader>r",
+      "<cmd>silent !source ~/.zshrc<cr>",
+      { buffer = true }
+    )
+  end,
+  group = "user",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.opt_local.formatoptions = "njcrql"
   end,
