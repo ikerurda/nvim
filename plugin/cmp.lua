@@ -63,7 +63,7 @@ cmp.setup {
 -- check https://youtu.be/KtQZRAkgLqo
 snip.config.set_config {
   history = true,
-  updateevents = "TextChanged,TextChangedI",
+  update_events = "TextChanged,TextChangedI",
 }
 
 local s, i = snip.s, snip.insert_node
@@ -74,29 +74,27 @@ require("luasnip.loaders.from_vscode").lazy_load()
 snip.filetype_extend("javascript", { "javascriptreact" })
 snip.filetype_extend("javascript", { "html" })
 snip.filetype_extend("php", { "html" })
-snip.snippets = {
-  all = {
-    s(
-      "curtime",
-      f(function()
-        return os.date "%D - %H:%M"
-      end)
-    ),
-  },
-  lua = {
-    s(
-      "req",
-      fmt('local {} = require "{}"', {
-        f(function(name)
-          local parts = vim.split(name[1][1], ".", true)
-          return parts[#parts] or ""
-        end, { 1 }),
-        i(1),
-      })
-    ),
-    s("todo", fmt("{}", { c(1, { t "-- TODO: ", t "-- FIXME: " }) })),
-  },
-}
+snip.add_snippets("all", {
+  s(
+    "curtime",
+    f(function()
+      return os.date "%D - %H:%M"
+    end)
+  ),
+})
+snip.add_snippets("lua", {
+  s(
+    "req",
+    fmt('local {} = require "{}"', {
+      f(function(name)
+        local parts = vim.split(name[1][1], ".", true)
+        return parts[#parts] or ""
+      end, { 1 }),
+      i(1),
+    })
+  ),
+  s("todo", fmt("{}", { c(1, { t "-- TODO: ", t "-- FIXME: " }) })),
+})
 
 local map = vim.keymap.set
 map({ "i", "s" }, "<c-j>", function()
