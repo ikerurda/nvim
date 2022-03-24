@@ -2,8 +2,8 @@ local o = vim.opt
 local g = vim.g
 
 g.mapleader = " " -- leader mapping
-g.did_load_filetypes = 0
-g.do_filetype_lua = 1
+g.did_load_filetypes = 0 -- tmp
+g.do_filetype_lua = 1 -- tmp
 
 o.pumblend = 17
 o.wildoptions = "pum"
