@@ -10,7 +10,7 @@ local languageServers = {
   "clangd",
   "pylsp",
   "jdtls",
-  "html",
+  "emmet_ls",
   "cssls",
   "tsserver",
   "intelephense",
