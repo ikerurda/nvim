@@ -5,6 +5,7 @@ end
 -- Configuration for other small plugins
 require("gitsigns").setup { keymaps = {} }
 require("Comment").setup { ignore = "^$" }
+require("surround").setup {}
 require("hop").setup { jump_on_sole_occurrence = true }
 require("colorizer").setup({}, { mode = "foreground" })
 require("indent_blankline").setup {
