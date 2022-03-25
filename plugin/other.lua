@@ -29,3 +29,4 @@ require("github-theme").setup {
     }
   end,
 }
+vim.cmd "hi link FidgetTitle Comment"

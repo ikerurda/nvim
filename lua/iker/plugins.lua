@@ -63,6 +63,7 @@ packer.startup(function(use)
     "lewis6991/gitsigns.nvim",
     "numToStr/Comment.nvim",
     "windwp/nvim-autopairs",
+    "tpope/vim-surround",
     "phaazon/hop.nvim",
   }
 
