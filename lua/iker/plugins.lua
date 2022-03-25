@@ -48,10 +48,7 @@ packer.startup(function(use)
     "nvim-telescope/telescope.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
     "gbrlsnchs/telescope-lsp-handlers.nvim",
-    {
-      "nvim-telescope/telescope-file-browser.nvim",
-      branch = "feat/previewer",
-    },
+    "nvim-telescope/telescope-file-browser.nvim",
     { "ikerurda/telescope-project.nvim", branch = "fix/file-browser" },
     { "ikerurda/telescope-packer.nvim", branch = "fix/file-browser" },
     "nvim-telescope/telescope-symbols.nvim",

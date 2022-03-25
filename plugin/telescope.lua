@@ -78,11 +78,12 @@ tl.setup {
       case_mode = "smart_case",
     },
     file_browser = {
-      dir_icon = "#",
-      dir_preview = function(path)
-        path = Path:new(path):make_relative(vim.loop.cwd())
-        return "tree -F --noreport " .. path .. " | less -Sq"
-      end,
+      dir_icon = "=",
+      -- This works in the branch feat/previewer
+      -- dir_preview = function(path)
+      --   path = Path:new(path):make_relative(vim.loop.cwd())
+      --   return "tree -F --noreport " .. path .. " | less -Sq"
+      -- end,
       grouped = true,
       hide_parent_dir = true,
       cwd_to_path = true,
