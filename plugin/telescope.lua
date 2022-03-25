@@ -15,7 +15,9 @@ local open_in = function(finder)
     local path = entry_path:is_dir() and entry_path:absolute()
       or entry_path:parent():absolute()
     actions._close(prompt_bufnr, true)
-    finder { cwd = path }
+    vim.schedule(function()
+      finder { cwd = path }
+    end)
   end
 end
 
@@ -24,7 +26,9 @@ local open_in_fb = function(prompt_bufnr)
   local entry_path = Path:new(action_state.get_selected_entry()[1])
   local path = entry_path:parent():absolute()
   actions._close(prompt_bufnr, true)
-  fb { path = path }
+  vim.schedule(function()
+    fb { path = path }
+  end)
 end
 
 tl.setup {
