@@ -14,7 +14,7 @@ require("nvim-autopairs").setup {
 
 -- Cmp
 local kind = require "lspkind"
-local snip = require "luasnip"
+local lsnip = require "luasnip"
 cmp.setup {
   mapping = {
     ["<c-space>"] = cmp.mapping.complete(),
@@ -53,7 +53,7 @@ cmp.setup {
   },
   snippet = {
     expand = function(args)
-      snip.lsp_expand(args.body)
+      lsnip.lsp_expand(args.body)
     end,
   },
   experimental = { ghost_text = true },
@@ -61,54 +61,54 @@ cmp.setup {
 
 -- Snippets
 -- check https://youtu.be/KtQZRAkgLqo
-snip.config.set_config {
+lsnip.config.set_config {
   history = true,
   update_events = "TextChanged,TextChangedI",
 }
 
-local s, i = snip.s, snip.insert_node
+local snp, ins = lsnip.snippet, lsnip.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
-local f, c, t = snip.function_node, snip.choice_node, snip.text_node
+local fun, cho, txt = lsnip.function_node, lsnip.choice_node, lsnip.text_node
 local rep = require("luasnip.extras").rep
 require("luasnip.loaders.from_vscode").lazy_load()
-snip.filetype_extend("javascript", { "javascriptreact" })
-snip.filetype_extend("javascript", { "html" })
-snip.filetype_extend("php", { "html" })
-snip.add_snippets("all", {
-  s(
+lsnip.filetype_extend("javascript", { "javascriptreact" })
+lsnip.filetype_extend("javascript", { "html" })
+lsnip.filetype_extend("php", { "html" })
+lsnip.add_snippets("all", {
+  snp(
     "curtime",
-    f(function()
+    fun(function()
       return os.date "%D - %H:%M"
     end)
   ),
 })
-snip.add_snippets("lua", {
-  s(
+lsnip.add_snippets("lua", {
+  snp(
     "req",
     fmt('local {} = require "{}"', {
-      f(function(name)
+      fun(function(name)
         local parts = vim.split(name[1][1], ".", true)
         return parts[#parts] or ""
       end, { 1 }),
-      i(1),
+      ins(1),
     })
   ),
-  s("todo", fmt("{}", { c(1, { t "-- TODO: ", t "-- FIXME: " }) })),
+  snp("todo", fmt("{}", { cho(1, { txt "-- TODO: ", txt "-- FIXME: " }) })),
 })
 
 local map = vim.keymap.set
 map({ "i", "s" }, "<c-j>", function()
-  if snip.expand_or_jumpable() then
-    snip.expand_or_jump()
+  if lsnip.expand_or_jumpable() then
+    lsnip.expand_or_jump()
   end
 end)
 map({ "i", "s" }, "<c-k>", function()
-  if snip.jumpable(-1) then
-    snip.jump(-1)
+  if lsnip.jumpable(-1) then
+    lsnip.jump(-1)
   end
 end)
 map({ "i", "s" }, "<c-l>", function()
-  if snip.choice_active() then
-    snip.change_choice(1)
+  if lsnip.choice_active() then
+    lsnip.change_choice(1)
   end
 end)
