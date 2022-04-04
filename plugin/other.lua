@@ -30,4 +30,4 @@ require("github-theme").setup {
     }
   end,
 }
-vim.cmd "hi link FidgetTitle Comment"
+vim.api.nvim_set_hl(0, "FidgetTitle", {link = "Comment"})
