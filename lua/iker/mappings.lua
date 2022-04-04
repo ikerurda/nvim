@@ -80,6 +80,10 @@ map("n", "<leader>hc", "<cmd>HopChar2<cr>")
 map("n", "<leader>hw", "<cmd>HopWord<cr>")
 map("n", "<leader>hp", "<cmd>HopPattern<cr>")
 
+-- Comment
+map("n", "<c-c>", "<cmd>:normal gcc<cr>")
+map("v", "<c-C>", "<cmd>:normal gbc<cr>")
+
 --[[
 Other important mappings to remember:
 * Insert mode:
