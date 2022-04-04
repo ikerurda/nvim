@@ -109,7 +109,7 @@ tl.setup {
       previewer = false,
       layout_config = { height = 0.5 },
     },
-    project = { theme = "dropdown" },
+    project = { theme = "dropdown", browse_by_default = true },
   },
 }
 tl.load_extension "fzf"
