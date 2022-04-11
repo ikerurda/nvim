@@ -28,6 +28,9 @@ map("n", "<c-q>", function()
 end) -- Toggle qflist
 map("n", "<c-n>", "<cmd>cnext<cr>zz") -- Jump to next qflist item
 map("n", "<c-p>", "<cmd>cprev<cr>zz") -- Jump to prev qflist item
+map("n", "<tab>", "<cmd>bn<cr>")
+map("n", "<bs>", "<cmd>bp<cr>")
+map("n", "<s-tab>", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>g", function()
   require("neogit").open { cwd = vim.fn.expand "%:h" }
 end) -- Open neogit
@@ -38,14 +41,6 @@ map("n", "<leader>ts", "<cmd>set spell!<cr>")
 map("n", "<leader>tb", "<cmd>set scrollbind!<cr>")
 map("n", "<leader>tr", "<cmd>set relativenumber!<cr>")
 map("n", "<leader>tc", "<cmd>ColorizerToggle<cr>")
-
--- Buffer
-map("n", "<tab>", "<cmd>BufferLineCycleNext<cr>")
-map("n", "<bs>", "<cmd>BufferLineCyclePrev<cr>")
-map("n", "<leader>bb", "<cmd>BufferLinePick<cr>")
-map("n", "<leader>bc", "<cmd>BufferLinePickClose<cr>")
-map("n", "<leader>bh", "<cmd>BufferLineMovePrev<cr>")
-map("n", "<leader>bl", "<cmd>BufferLineMoveNext<cr>")
 
 -- Packer
 map("n", "<leader>ps", "<cmd>PackerSync<cr>")
@@ -60,9 +55,9 @@ map("n", "<leader>li", "<cmd>LspInstallInfo<cr>")
 map("n", "<leader>ls", "<cmd>LspStop<cr>")
 
 -- Telescope
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>ft", "<cmd>Telescope resume<cr>")
 map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>")
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>fs", "<cmd>Telescope grep_string<cr>")
