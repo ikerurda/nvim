@@ -27,21 +27,20 @@ ll.setup {
   sections = {
     lualine_a = { "mode" },
     lualine_b = {
-      "branch",
-      {
-        "diff",
-        colored = false,
-        symbols = { added = "+", modified = "~", removed = "-" },
-      },
-    },
-    lualine_c = {
-      "%=",
       {
         "filename",
         file_status = true,
         path = 1,
         shorting_target = 50,
         symbols = { modified = ",+", readonly = ",-" },
+      },
+    },
+    lualine_c = {
+      "branch",
+      {
+        "diff",
+        colored = false,
+        symbols = { added = "+", modified = "~", removed = "-" },
       },
     },
     lualine_x = {
@@ -59,16 +58,5 @@ ll.setup {
       "progress",
     },
     lualine_z = { "%l/%L:%c" },
-  },
-  inactive_sections = {
-    lualine_c = {
-      {
-        "filename",
-        file_status = true,
-        path = 0,
-        shorting_target = 50,
-        symbols = { modified = ",+", readonly = ",-" },
-      },
-    },
   },
 }

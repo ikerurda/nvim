@@ -50,7 +50,7 @@ packer.startup(function(use)
     "gbrlsnchs/telescope-lsp-handlers.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
     "ikerurda/telescope-project.nvim",
-    "ikerurda/telescope-packer.nvim",
+    "nvim-telescope/telescope-packer.nvim",
     "nvim-telescope/telescope-symbols.nvim",
   }
 
@@ -60,8 +60,8 @@ packer.startup(function(use)
     "numToStr/Comment.nvim",
     "windwp/nvim-autopairs",
     "ur4ltz/surround.nvim",
-    "tpope/vim-repeat",
     "ggandor/lightspeed.nvim",
+    "tpope/vim-repeat",
   }
 
   use { -- Theming
