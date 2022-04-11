@@ -1,12 +1,12 @@
-if not pcall(require, "hop") then
+local has_gs, gs = pcall(require, "gitsigns")
+if not has_gs then
   return
 end
 
 -- Configuration for other small plugins
-require("gitsigns").setup { keymaps = {} }
+gs.setup { keymaps = {} }
 require("Comment").setup { ignore = "^$" }
-require("surround").setup {}
-require("hop").setup { jump_on_sole_occurrence = true }
+require("surround").setup { mappings_style = "surround" }
 require("colorizer").setup({}, { mode = "foreground" })
 require("indent_blankline").setup {
   filetype_exclude = { "help", "man", "packer" },
@@ -30,4 +30,4 @@ require("github-theme").setup {
     }
   end,
 }
-vim.api.nvim_set_hl(0, "FidgetTitle", {link = "Comment"})
+vim.api.nvim_set_hl(0, "FidgetTitle", { link = "Comment" })

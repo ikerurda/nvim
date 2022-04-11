@@ -74,12 +74,6 @@ map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 map("n", "<leader>fm", "<cmd>Telescope man_pages<cr>")
 map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>")
 
--- Hop
-map("n", "f", "<cmd>HopChar1CurrentLine<cr>")
-map("n", "<leader>hc", "<cmd>HopChar2<cr>")
-map("n", "<leader>hw", "<cmd>HopWord<cr>")
-map("n", "<leader>hp", "<cmd>HopPattern<cr>")
-
 -- Comment
 map("n", "<c-c>", "<cmd>:normal gcc<cr>")
 map("v", "<c-C>", "<cmd>:normal gbc<cr>")

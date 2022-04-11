@@ -4,7 +4,7 @@ if not has_ts then
 end
 
 ts.setup {
-  ensure_installed = "maintained",
+  ensure_installed = "all",
   indent = { enable = true },
   highlight = {
     enable = true,
@@ -40,8 +40,8 @@ ts.setup {
     },
     swap = {
       enable = true,
-      swap_next = { ["sn"] = "@parameter.inner" },
-      swap_previous = { ["sp"] = "@parameter.inner" },
+      swap_next = { ["<c-n>"] = "@parameter.inner" },
+      swap_previous = { ["<c-p>"] = "@parameter.inner" },
     },
     move = {
       enable = true,

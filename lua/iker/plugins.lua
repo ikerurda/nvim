@@ -61,7 +61,7 @@ packer.startup(function(use)
     "windwp/nvim-autopairs",
     "ur4ltz/surround.nvim",
     "tpope/vim-repeat",
-    "phaazon/hop.nvim",
+    "ggandor/lightspeed.nvim",
   }
 
   use { -- Theming
