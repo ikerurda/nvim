@@ -69,10 +69,6 @@ map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 map("n", "<leader>fm", "<cmd>Telescope man_pages<cr>")
 map("n", "<leader>fe", "<cmd>Telescope file_browser<cr>")
 
--- Comment
-map("n", "<c-c>", "<cmd>:normal gcc<cr>")
-map("v", "<c-C>", "<cmd>:normal gbc<cr>")
-
 --[[
 Other important mappings to remember:
 * Insert mode:
