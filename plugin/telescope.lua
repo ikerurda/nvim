@@ -118,4 +118,4 @@ tl.load_extension "file_browser"
 tl.load_extension "packer"
 tl.load_extension "project"
 
-vim.api.nvim_set_hl(0, "TelescopePromptCounter", {link = "Comment"})
+vim.api.nvim_set_hl(0, "TelescopePromptCounter", { link = "Comment" })

@@ -19,6 +19,16 @@ cmp.setup {
   mapping = {
     ["<c-space>"] = cmp.mapping.complete(),
     ["<c-c>"] = cmp.mapping.close(),
+    ["<c-n>"] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.select_next_item()
+      end
+    end),
+    ["<c-p>"] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.select_prev_item()
+      end
+    end),
     ["<c-u>"] = cmp.mapping.scroll_docs(-4),
     ["<c-d>"] = cmp.mapping.scroll_docs(4),
     ["<cr>"] = cmp.mapping.confirm {
