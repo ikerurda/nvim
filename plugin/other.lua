@@ -7,6 +7,7 @@ end
 gs.setup { keymaps = {} }
 require("Comment").setup { ignore = "^$" }
 require("surround").setup { mappings_style = "surround" }
+require("lightspeed").setup { ignore_case = true }
 require("colorizer").setup({}, { mode = "foreground" })
 require("indent_blankline").setup {
   filetype_exclude = { "help", "man", "packer" },
