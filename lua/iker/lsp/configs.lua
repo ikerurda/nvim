@@ -9,6 +9,9 @@ null.setup {
   },
 }
 
+-- Format command
+vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})
+
 -- Extended capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
