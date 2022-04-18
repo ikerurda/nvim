@@ -6,7 +6,10 @@ end
 -- Configuration for other small plugins
 gs.setup { keymaps = {} }
 require("Comment").setup { ignore = "^$" }
-require("surround").setup { mappings_style = "surround" }
+require("surround").setup {
+  mappings_style = "surround",
+  map_insert_mode = false,
+}
 require("lightspeed").setup { ignore_case = true }
 require("colorizer").setup({}, { mode = "foreground" })
 require("indent_blankline").setup {
