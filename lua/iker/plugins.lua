@@ -12,6 +12,7 @@ packer.startup(function(use)
     "wbthomason/packer.nvim",
     "lewis6991/impatient.nvim",
     "nvim-lua/plenary.nvim",
+    "rcarriga/nvim-notify",
   }
 
   use { -- LSP

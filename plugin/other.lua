@@ -35,3 +35,10 @@ require("github-theme").setup {
   end,
 }
 vim.api.nvim_set_hl(0, "FidgetTitle", { link = "Comment" })
+vim.notify = require "notify"
+require("notify").setup {
+  level = "info",
+  stages = "static",
+  render = "minimal",
+  timeout = 2000,
+}
