@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("VimLeave", {
   callback = function()
-    vim.opt.guicursor = "a:hor25"
+    vim.opt.guicursor = "a:ver25"
   end,
   group = user,
 })

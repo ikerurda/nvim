@@ -50,7 +50,6 @@ o.linebreak = true
 
 o.clipboard = "unnamedplus"
 o.mouse = "a" -- Mouse in all modes
-o.guicursor = "i-r-ci:hor25"
 o.belloff = "all" -- Just turn the dang bell off
 o.termguicolors = true -- Enables more colors
 
