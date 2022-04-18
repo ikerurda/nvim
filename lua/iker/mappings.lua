@@ -28,12 +28,15 @@ map("n", "<c-q>", function()
 end) -- Toggle qflist
 map("n", "<c-n>", "<cmd>cnext<cr>zz") -- Jump to next qflist item
 map("n", "<c-p>", "<cmd>cprev<cr>zz") -- Jump to prev qflist item
-map("n", "<tab>", "<cmd>bn<cr>")
-map("n", "<bs>", "<cmd>bp<cr>")
-map("n", "<s-tab>", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>g", function()
   require("neogit").open { cwd = vim.fn.expand "%:h" }
 end) -- Open neogit
+
+-- Buffer
+map("n", "<tab>", "<cmd>BufferLineCycleNext<cr>")
+map("n", "<bs>", "<cmd>BufferLineCyclePrev<cr>")
+map("n", "<a-tab>", "<cmd>BufferLinePick<cr>")
+map("n", "<a-bs>", "<cmd>BufferLinePickClose<cr>")
 
 -- Toggles
 map("n", "<leader>tw", "<cmd>set wrap!<cr>")

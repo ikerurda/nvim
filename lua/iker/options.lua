@@ -10,7 +10,6 @@ o.wildoptions = "pum"
 o.completeopt = "menuone,preview,noselect"
 
 o.title = true -- Show the file name as window title
-o.showtabline = 0 -- Hide tabline
 o.confirm = true -- Confirm instead of error when file now saved
 o.showmode = false -- Hide vim mode
 o.showcmd = true -- Show number of chars / lines in visual mode
