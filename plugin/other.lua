@@ -40,7 +40,6 @@ require("notify").setup {
   level = "info",
   stages = "static",
   render = "minimal",
-  timeout = 2000,
 }
 require("bufferline").setup {
   options = {
