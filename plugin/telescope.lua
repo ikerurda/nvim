@@ -3,34 +3,25 @@ if not has_tl then
   return
 end
 
-local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
-local layout_actions = require "telescope.actions.layout"
-local Path = require "plenary.path"
-
 local builtin = require "telescope.builtin"
 local open_in = function(finder)
-  return function(prompt_bufnr)
+  return function()
     local entry_path = action_state.get_selected_entry().Path
     local path = entry_path:is_dir() and entry_path:absolute()
       or entry_path:parent():absolute()
-    actions._close(prompt_bufnr, true)
-    vim.schedule(function()
-      finder { cwd = path }
-    end)
+    finder { cwd = path }
   end
 end
-
-local open_in_fb = function(prompt_bufnr)
+local open_in_fb = function()
+  local Path = require "plenary.path"
   local fb = require("telescope").extensions.file_browser.file_browser
   local entry_path = Path:new(action_state.get_selected_entry()[1])
   local path = entry_path:parent():absolute()
-  actions._close(prompt_bufnr, true)
-  vim.schedule(function()
-    fb { path = path }
-  end)
+  fb { path = path }
 end
 
+local layout_actions = require "telescope.actions.layout"
 tl.setup {
   defaults = {
     winblend = 10,
