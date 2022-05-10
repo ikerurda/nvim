@@ -3,7 +3,6 @@ if not has_installer then
   return
 end
 
--- List of language servers to automatically install
 local languageServers = {
   "sumneko_lua",
   "vimls",
@@ -17,27 +16,16 @@ local languageServers = {
   "bashls",
 }
 
--- Automatic installation
-local lspInstaller = require "nvim-lsp-installer.servers"
+installer.setup {
+  ensure_installed = languageServers,
+  automatic_installation = true,
+}
+
+local lspconfig = require "lspconfig"
+local configs = require "iker.lsp.configs"
 for _, l in pairs(languageServers) do
-  local ok, s = lspInstaller.get_server(l)
-  if ok then
-    if not s:is_installed() then
-      s:install()
-    end
-  end
+  lspconfig[l].setup(configs[l] and configs[l] or configs.general)
 end
 
--- Apply configs
-local configs = require "iker.lsp.configs"
-installer.on_server_ready(function(server)
-  if configs[server.name] then
-    server:setup(configs[server.name])
-  else
-    server:setup(configs.general)
-  end
-  vim.cmd "do User LspAttachBuffers"
-end)
-
--- Server logs
+-- Server status
 require("fidget").setup { text = { spinner = "dots" } }
