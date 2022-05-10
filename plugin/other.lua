@@ -10,7 +10,7 @@ require("surround").setup {
   mappings_style = "surround",
   map_insert_mode = false,
 }
-require("lightspeed").setup { ignore_case = true }
+require("leap").set_default_keymaps()
 require("colorizer").setup({}, { mode = "foreground" })
 require("indent_blankline").setup {
   filetype_exclude = { "help", "man", "packer" },
@@ -24,6 +24,7 @@ require("indent_blankline").setup {
 require("github-theme").setup {
   theme_style = "dark_default",
   hide_inactive_statusline = false,
+  dev = true,
   overrides = function(c)
     return {
       VertSplit = { fg = c.fg_dark },
@@ -31,10 +32,15 @@ require("github-theme").setup {
       GitSignsAdd = { fg = c.green },
       GitSignsChange = { fg = c.magenta },
       GitSignsDelete = { fg = c.red },
+      LeapMatch = { fg = c.green, style = "underline,bold" },
+      LeapLabelPrimary = { bg = c.green, fg = c.bg },
+      LeapLabelSecondary = { fg = c.blue },
+      LeapBackdrop = { fg = c.syntax.comment, bg = c.bg },
+      FidgetTitle = { fg = c.syntax.comment, bg = c.bg },
+      TelescopePromptCounter = { fg = c.syntax.comment, bg = c.bg },
     }
   end,
 }
-vim.api.nvim_set_hl(0, "FidgetTitle", { link = "Comment" })
 vim.notify = require "notify"
 require("notify").setup {
   level = "info",

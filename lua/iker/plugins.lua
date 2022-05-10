@@ -60,7 +60,8 @@ packer.startup(function(use)
     "numToStr/Comment.nvim",
     "windwp/nvim-autopairs",
     "ur4ltz/surround.nvim",
-    "ggandor/lightspeed.nvim",
+    -- "ggandor/lightspeed.nvim",
+    "ggandor/leap.nvim",
     "tpope/vim-repeat",
   }
 

@@ -1,3 +1,5 @@
+-- TODO: fix toggle hidden action not working (lua/telescope/_extensions/file_browser/make_entry.lua:15)
+-- TODO: check github and remove vim.notify
 local has_tl, tl = pcall(require, "telescope")
 if not has_tl then
   return
@@ -108,5 +110,3 @@ tl.load_extension "lsp_handlers"
 tl.load_extension "file_browser"
 tl.load_extension "packer"
 tl.load_extension "project"
-
-vim.api.nvim_set_hl(0, "TelescopePromptCounter", { link = "Comment" })
