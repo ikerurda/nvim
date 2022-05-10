@@ -1,14 +1,3 @@
--- Null lsp
-local null = require "null-ls"
-local formatter = null.builtins.formatting
-null.setup {
-  sources = {
-    formatter.stylua,
-    formatter.prettier,
-    formatter.yapf,
-  },
-}
-
 -- Format command
 vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})
 
@@ -18,7 +7,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Custom on_attach
-local on_attach = function(client)
+local on_attach = function()
   local map = vim.keymap.set
   map("n", "gd", vim.lsp.buf.definition, { buffer = true })
   map("n", "gD", vim.lsp.buf.declaration, { buffer = true })
@@ -30,14 +19,8 @@ local on_attach = function(client)
   map("n", "K", vim.lsp.buf.hover, { buffer = true })
   map({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { buffer = true })
   map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = true })
-  map("n", "<leader>cf", vim.lsp.buf.formatting_sync, { buffer = true })
+  map("n", "<leader>cf", vim.lsp.buf.format, { buffer = true })
   map("v", "<leader>cf", vim.lsp.buf.range_formatting, { buffer = true })
-
-  local disable_formatting = { "pylsp", "tsserver", "html", "sumneko_lua" }
-  if vim.tbl_contains(disable_formatting, client.name) then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  end
 end
 
 -- Configs for the language servers

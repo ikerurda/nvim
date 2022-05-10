@@ -18,7 +18,6 @@ packer.startup(function(use)
   use { -- LSP
     "neovim/nvim-lspconfig",
     "williamboman/nvim-lsp-installer",
-    "jose-elias-alvarez/null-ls.nvim",
     "j-hui/fidget.nvim",
     "folke/lua-dev.nvim",
   }
