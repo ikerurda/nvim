@@ -3,15 +3,19 @@ if not has_gs then
   return
 end
 
--- Configuration for other small plugins
 gs.setup { keymaps = {} }
+
 require("Comment").setup { ignore = "^$" }
+
 require("surround").setup {
   mappings_style = "surround",
   map_insert_mode = false,
 }
+
 require("leap").set_default_keymaps()
+
 require("colorizer").setup({}, { mode = "foreground" })
+
 require("indent_blankline").setup {
   filetype_exclude = { "help", "man", "packer" },
   buftype_exclude = { "terminal" },
@@ -21,6 +25,7 @@ require("indent_blankline").setup {
   use_treesitter = true,
   show_first_indent_level = false,
 }
+
 require("github-theme").setup {
   theme_style = "dark_default",
   hide_inactive_statusline = false,
@@ -41,12 +46,7 @@ require("github-theme").setup {
     }
   end,
 }
-vim.notify = require "notify"
-require("notify").setup {
-  level = "info",
-  stages = "static",
-  render = "minimal",
-}
+
 require("bufferline").setup {
   options = {
     diagnostics = false,

@@ -13,7 +13,7 @@ map("n", "N", "Nzzzv") -- Jump to prev occurrence and center cursor
 map("n", "cn", "*``cgn") -- Change word, <ESC>, repeat forwards with <.>
 map("n", "cN", "*``cgN") -- Change word, <ESC>, repeat backwards with <.>
 map("n", "<c-t>", function()
-  local folder = vim.fn.expand "%:h"
+  local folder = vim.fn.expand("%:h", true, false)
   local out = vim.fn.system("git -C " .. folder .. " rev-parse --show-toplevel")
   vim.cmd("cd " .. (vim.v.shell_error == 0 and out or folder))
 end) -- cd to git root or current file
@@ -29,7 +29,7 @@ end) -- Toggle qflist
 map("n", "<c-n>", "<cmd>cnext<cr>zz") -- Jump to next qflist item
 map("n", "<c-p>", "<cmd>cprev<cr>zz") -- Jump to prev qflist item
 map("n", "<leader>g", function()
-  require("neogit").open { cwd = vim.fn.expand "%:h" }
+  require("neogit").open { cwd = vim.fn.expand("%:h", true, false) }
 end) -- Open neogit
 
 -- Buffer

@@ -62,7 +62,6 @@ cmp.setup {
 }
 
 -- Snippets
--- check https://youtu.be/KtQZRAkgLqo
 lsnip.config.set_config {
   history = true,
   update_events = "TextChanged,TextChangedI",
