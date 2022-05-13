@@ -55,11 +55,11 @@ packer.startup(function(use)
 
   use { -- Tools
     "TimUntersberger/neogit",
+    "stevearc/dressing.nvim",
     "lewis6991/gitsigns.nvim",
     "numToStr/Comment.nvim",
     "windwp/nvim-autopairs",
     "ur4ltz/surround.nvim",
-    -- "ggandor/lightspeed.nvim",
     "ggandor/leap.nvim",
     "tpope/vim-repeat",
   }

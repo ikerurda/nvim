@@ -37,8 +37,8 @@ require("github-theme").setup {
       GitSignsAdd = { fg = c.green },
       GitSignsChange = { fg = c.magenta },
       GitSignsDelete = { fg = c.red },
-      LeapMatch = { fg = c.green, style = "underline,bold" },
-      LeapLabelPrimary = { bg = c.green, fg = c.bg },
+      LeapMatch = { fg = c.red, style = "underline,bold" },
+      LeapLabelPrimary = { bg = c.red, fg = c.bg },
       LeapLabelSecondary = { fg = c.blue },
       LeapBackdrop = { fg = c.syntax.comment, bg = c.bg },
       FidgetTitle = { fg = c.syntax.comment, bg = c.bg },
@@ -55,3 +55,5 @@ require("bufferline").setup {
     always_show_bufferline = false,
   },
 }
+
+require("dressing").setup {}
