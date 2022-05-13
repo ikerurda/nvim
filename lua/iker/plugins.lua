@@ -46,7 +46,6 @@ packer.startup(function(use)
   use { -- Telescope
     "nvim-telescope/telescope.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-    "gbrlsnchs/telescope-lsp-handlers.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
     "ikerurda/telescope-project.nvim",
     "nvim-telescope/telescope-packer.nvim",

@@ -11,7 +11,7 @@ local open_in = function(finder)
   return function()
     local entry_path = action_state.get_selected_entry().Path
     local path = entry_path:is_dir() and entry_path:absolute()
-      or entry_path:parent():absolute()
+        or entry_path:parent():absolute()
     finder { cwd = path }
   end
 end
@@ -23,6 +23,7 @@ local open_in_fb = function()
   fb { path = path }
 end
 
+local actions = require "telescope.actions"
 local layout_actions = require "telescope.actions.layout"
 tl.setup {
   defaults = {
@@ -40,31 +41,18 @@ tl.setup {
         preview_cutoff = 30,
       },
     },
-    mappings = {
-      i = { ["<c-space>"] = layout_actions.toggle_preview },
-      n = { ["<space>"] = layout_actions.toggle_preview },
-    },
+    mappings = { i = {
+      ["<c-space>"] = layout_actions.toggle_preview,
+      ["<esc>"] = actions.close
+    } },
   },
   pickers = {
-    oldfiles = {
-      mappings = {
-        i = { ["<a-e>"] = open_in_fb },
-        n = { ["<a-e>"] = open_in_fb },
-      },
-    },
-    find_files = {
-      mappings = {
-        i = { ["<a-e>"] = open_in_fb },
-        n = { ["<a-e>"] = open_in_fb },
-      },
-    },
+    oldfiles = { mappings = { i = { ["<a-e>"] = open_in_fb } } },
+    find_files = { mappings = { i = { ["<a-e>"] = open_in_fb } } },
     buffers = {
       ignore_current_buffer = true,
       sort_mru = true,
-      mappings = {
-        i = { ["<c-d>"] = "delete_buffer" },
-        n = { ["<c-d>"] = "delete_buffer" },
-      },
+      mappings = { i = { ["<c-d>"] = "delete_buffer" } },
     },
   },
   extensions = {
@@ -91,10 +79,6 @@ tl.setup {
           ["<a-f>"] = open_in(builtin.find_files),
           ["<a-g>"] = open_in(builtin.live_grep),
         },
-        n = {
-          ["<a-f>"] = open_in(builtin.find_files),
-          ["<a-g>"] = open_in(builtin.live_grep),
-        },
       },
     },
     packer = {
@@ -106,7 +90,6 @@ tl.setup {
   },
 }
 tl.load_extension "fzf"
-tl.load_extension "lsp_handlers"
 tl.load_extension "file_browser"
 tl.load_extension "packer"
 tl.load_extension "project"
