@@ -90,6 +90,7 @@ tl.setup {
   },
 }
 tl.load_extension "fzf"
+tl.load_extension "lsp_handlers"
 tl.load_extension "file_browser"
 tl.load_extension "packer"
 tl.load_extension "project"
