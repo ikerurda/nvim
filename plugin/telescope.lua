@@ -49,6 +49,7 @@ tl.setup {
   pickers = {
     oldfiles = { mappings = { i = { ["<a-e>"] = open_in_fb } } },
     find_files = { mappings = { i = { ["<a-e>"] = open_in_fb } } },
+    diagnostics = { theme = "cursor", previewer = false },
     buffers = {
       ignore_current_buffer = true,
       sort_mru = true,
