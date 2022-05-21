@@ -1,5 +1,3 @@
--- TODO: fix toggle hidden action not working (lua/telescope/_extensions/file_browser/make_entry.lua:15)
--- TODO: check github and remove vim.notify
 local has_tl, tl = pcall(require, "telescope")
 if not has_tl then
   return

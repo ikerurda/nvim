@@ -62,6 +62,7 @@ packer.startup(function(use)
     "ur4ltz/surround.nvim",
     "ggandor/leap.nvim",
     "tpope/vim-repeat",
+    "editorconfig/editorconfig-vim",
   }
 
   use { -- Theming

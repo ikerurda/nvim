@@ -38,10 +38,11 @@ o.list = true
 o.listchars = { tab = "  ", trail = "·" }
 
 o.autoindent = true -- Copy indent of prev line in new lines
-o.expandtab = true
-o.tabstop = 2
-o.shiftwidth = 2
-o.softtabstop = 2
+-- o.expandtab = true
+-- o.tabstop = 2
+-- o.shiftwidth = 2
+-- o.softtabstop = 2
+-- o.fileformat = "unix"
 
 o.wrap = false
 o.breakindent = true -- wrapped lines will maitain indentation
@@ -53,6 +54,6 @@ o.belloff = "all" -- Just turn the dang bell off
 o.termguicolors = true -- Enables more colors
 
 o.shortmess = o.shortmess
-  + "a" -- abbreviations: all
-  + "s" -- don't give "search hit BOTTOM, continuing at TOP" or similar messages
-  + "c" -- don't give "match 1 of 2" or similiar messages
+		+ "a" -- abbreviations: all
+		+ "s" -- don't give "search hit BOTTOM, continuing at TOP" or similar messages
+		+ "c" -- don't give "match 1 of 2" or similiar messages
