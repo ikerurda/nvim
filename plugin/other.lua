@@ -47,13 +47,4 @@ require("github-theme").setup {
   end,
 }
 
-require("bufferline").setup {
-  options = {
-    diagnostics = false,
-    show_buffer_icons = false,
-    show_close_icon = false,
-    always_show_bufferline = false,
-  },
-}
-
 require("dressing").setup {}

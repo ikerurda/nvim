@@ -12,6 +12,8 @@ map("n", "n", "nzzzv") -- Jump to next occurrence and center cursor
 map("n", "N", "Nzzzv") -- Jump to prev occurrence and center cursor
 map("n", "cn", "*``cgn") -- Change word, <ESC>, repeat forwards with <.>
 map("n", "cN", "*``cgN") -- Change word, <ESC>, repeat backwards with <.>
+map("n", "<tab>", "<cmd>bn<cr>")
+map("n", "<bs>", "<cmd>bp<cr>")
 map("n", "<c-t>", function()
   local folder = vim.fn.expand("%:h", true, false)
   local out = vim.fn.system("git -C " .. folder .. " rev-parse --show-toplevel")
@@ -31,12 +33,6 @@ map("n", "<c-p>", "<cmd>cprev<cr>zz") -- Jump to prev qflist item
 map("n", "<leader>g", function()
   require("neogit").open { cwd = vim.fn.expand("%:h", true, false) }
 end) -- Open neogit
-
--- Buffer
-map("n", "<tab>", "<cmd>BufferLineCycleNext<cr>")
-map("n", "<bs>", "<cmd>BufferLineCyclePrev<cr>")
-map("n", "<a-tab>", "<cmd>BufferLinePick<cr>")
-map("n", "<a-bs>", "<cmd>BufferLinePickClose<cr>")
 
 -- Toggles
 map("n", "<leader>tw", "<cmd>set wrap!<cr>")

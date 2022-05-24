@@ -67,7 +67,6 @@ packer.startup(function(use)
 
   use { -- Theming
     "projekt0n/github-nvim-theme",
-    "akinsho/bufferline.nvim",
     "nvim-lualine/lualine.nvim",
     "lukas-reineke/indent-blankline.nvim",
     "norcalli/nvim-colorizer.lua",

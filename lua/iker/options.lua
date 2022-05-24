@@ -14,6 +14,7 @@ o.confirm = true -- Confirm instead of error when file now saved
 o.showmode = false -- Hide vim mode
 o.showcmd = true -- Show number of chars / lines in visual mode
 o.cmdheight = 1 -- Height of the command bar
+o.winbar = "%f%M" -- Winbar info (filename, modified)
 o.incsearch = true -- Makes search act like search in modern browsers
 o.inccommand = "split" -- Shows partial off screen results
 o.hlsearch = false -- Prevent search results highlight
