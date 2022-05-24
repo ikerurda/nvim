@@ -25,7 +25,6 @@ local actions = require "telescope.actions"
 local layout_actions = require "telescope.actions.layout"
 tl.setup {
   defaults = {
-    winblend = 10,
     prompt_prefix = " ",
     selection_caret = "  ",
     multi_icon = "• ",

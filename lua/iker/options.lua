@@ -5,7 +5,6 @@ g.mapleader = " " -- leader mapping
 g.did_load_filetypes = 0 -- tmp
 g.do_filetype_lua = 1 -- tmp
 
-o.pumblend = 17
 o.wildoptions = "pum"
 o.completeopt = "menuone,preview,noselect"
 
