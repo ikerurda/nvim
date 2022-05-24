@@ -73,6 +73,7 @@ tl.setup {
       cwd_to_path = true,
       select_buffer = true,
       respect_gitignore = false,
+      hijack_netrw = true,
       mappings = {
         i = {
           ["<a-f>"] = open_in(builtin.find_files),
