@@ -28,8 +28,8 @@ map("n", "<c-q>", function()
   end
   vim.cmd "copen"
 end) -- Toggle qflist
-map("n", "<c-n>", "<cmd>cnext<cr>zz") -- Jump to next qflist item
-map("n", "<c-p>", "<cmd>cprev<cr>zz") -- Jump to prev qflist item
+map("n", "<c-j>", "<cmd>cnext<cr>zz") -- Jump to next qflist item
+map("n", "<c-k>", "<cmd>cprev<cr>zz") -- Jump to prev qflist item
 map("n", "<leader>g", function()
   require("neogit").open { cwd = vim.fn.expand("%:h", true, false) }
 end) -- Open neogit
@@ -39,6 +39,7 @@ map("n", "<leader>tw", "<cmd>set wrap!<cr>")
 map("n", "<leader>ts", "<cmd>set spell!<cr>")
 map("n", "<leader>tb", "<cmd>set scrollbind!<cr>")
 map("n", "<leader>tr", "<cmd>set relativenumber!<cr>")
+map("n", "<leader>tl", "<cmd>set relativenumber! || set number!<cr>")
 map("n", "<leader>tc", "<cmd>ColorizerToggle<cr>")
 
 -- Packer

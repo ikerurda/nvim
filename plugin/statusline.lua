@@ -24,6 +24,7 @@ ll.setup {
     section_separators = "",
     globalstatus = true,
   },
+  extensions = { "quickfix" },
   sections = {
     lualine_a = { "mode" },
     lualine_b = {
